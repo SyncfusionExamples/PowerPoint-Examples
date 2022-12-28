@@ -11,8 +11,8 @@ using (FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pp
     layoutSlide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(78, 89, 90);
     //Gets a picture as stream.
     using (FileStream pictureStream = new(Path.GetFullPath(@"../../../Data/Image.jpg"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-        //Add the picture into layout slide
-        layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100);
+	//Add the picture into layout slide
+	layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100);
     //Add a slide of new designed custom layout to the presentation
     ISlide slide = pptxDoc.Slides.Add(layoutSlide);
     using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);

@@ -56,10 +56,7 @@ namespace Create_PowerPoint_presentation.Controllers
             MemoryStream pptxStream = new();
             pptxDoc.Save(pptxStream);
             pptxStream.Position = 0;
-
-            //Close the PowerPoint presentation
-            pptxDoc.Close();
-
+			
             //Download Powerpoint document in the browser.
             return File(pptxStream, "application/powerpoint", "Result.pptx");
         }
