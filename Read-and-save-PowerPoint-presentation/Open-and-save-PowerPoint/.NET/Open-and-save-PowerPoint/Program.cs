@@ -4,7 +4,7 @@
 using (FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Loads or open an PowerPoint Presentation
-    using IPresentation pptxDoc = Presentation.Open(inputStream);
+    IPresentation pptxDoc = Presentation.Open(inputStream);
     //Gets the first slide from the PowerPoint presentation
     ISlide slide = pptxDoc.Slides[0];
     //Gets the first shape of the slide
@@ -14,4 +14,6 @@ using (FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pp
         shape.TextBody.Text = "Company Profile";
     using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
     pptxDoc.Save(outputStream);
+	//Closes the Presentation instance and free the memory consumed.
+    pptxDoc.Close();
 }
