@@ -19,7 +19,7 @@ namespace Open_and_save_PowerPoint
             using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite))
             {
                 pptxDoc.Save(outputStream);
-				//Closes the Presentation instance and free the memory consumed.
+                //Closes the Presentation instance and free the memory consumed.
                 pptxDoc.Close();
             }
         }

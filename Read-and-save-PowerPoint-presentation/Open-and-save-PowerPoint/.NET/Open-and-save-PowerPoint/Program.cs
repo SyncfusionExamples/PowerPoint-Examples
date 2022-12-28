@@ -14,6 +14,6 @@ using (FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pp
         shape.TextBody.Text = "Company Profile";
     using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
     pptxDoc.Save(outputStream);
-	//Closes the Presentation instance and free the memory consumed.
+    //Closes the Presentation instance and free the memory consumed.
     pptxDoc.Close();
 }
