@@ -12,14 +12,14 @@ namespace Send_PowerPoint_to_client_browser.Controllers
             using FileStream fileStreamPath = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             //Open an existing PowerPoint presentation.
             using IPresentation pptxDoc = Presentation.Open(fileStreamPath);
-            //Gets the first slide from the PowerPoint presentation
+            //Get the first slide from the PowerPoint presentation.
             ISlide slide = pptxDoc.Slides[0];
-            //Gets the first shape of the slide
+            //Get the first shape of the slide.
             IShape shape = slide.Shapes[0] as IShape;
-            //Change the text of the shape
+            //Change the text of the shape.
             if (shape.TextBody.Text == "Company History")
                 shape.TextBody.Text = "Company Profile";
-            //Save the PowerPoint Presentation as stream
+            //Save the PowerPoint Presentation as stream.
             MemoryStream pptxStream = new();
             pptxDoc.Save(pptxStream);
             pptxStream.Position = 0;

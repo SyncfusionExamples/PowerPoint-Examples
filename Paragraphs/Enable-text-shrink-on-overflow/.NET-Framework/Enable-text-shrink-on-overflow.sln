@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enable-text-shrink-on-overflow", "Enable-text-shrink-on-overflow\Enable-text-shrink-on-overflow.csproj", "{34A42A2F-EE7D-452E-97AD-A8C87A8C8234}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34A42A2F-EE7D-452E-97AD-A8C87A8C8234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A42A2F-EE7D-452E-97AD-A8C87A8C8234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A42A2F-EE7D-452E-97AD-A8C87A8C8234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A42A2F-EE7D-452E-97AD-A8C87A8C8234}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6714563C-4F25-4F9B-A59E-FFBB466A19F5}
+	EndGlobalSection
+EndGlobal
