@@ -26,9 +26,9 @@ namespace Create_PowerPoint_presentation.Controllers
         }
         public ActionResult CreatePowerPoint()
         {
-			//Create a new instance of PowerPoint Presentation file.
-			using (IPresentation pptxDoc = Presentation.Create())
-			{
+            //Create a new instance of PowerPoint Presentation file.
+            using (IPresentation pptxDoc = Presentation.Create())
+            {
                 //Add a new slide to file and apply background color.
                 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
                 //Specify the fill type and fill color for the slide background .
