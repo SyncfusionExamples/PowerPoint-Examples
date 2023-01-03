@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <PackageReference Include="Syncfusion.Presentation.NET" Version="*" />
-    <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="20.4.0.40" />
   </ItemGroup>
 
 </Project>
