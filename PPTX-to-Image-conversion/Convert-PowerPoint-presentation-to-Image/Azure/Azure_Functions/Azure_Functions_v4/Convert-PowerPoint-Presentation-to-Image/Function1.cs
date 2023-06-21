@@ -45,7 +45,7 @@ namespace Convert_PowerPoint_Presentation_to_Image
                 //Set the contentDisposition as attachment.
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
                 {
-                    FileName = "PPTXtoImage.jpeg"
+                    FileName = "PPTXtoImage.Jpeg"
                 };
                 //Set the content type as image mime type.
                 response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/jpeg");
