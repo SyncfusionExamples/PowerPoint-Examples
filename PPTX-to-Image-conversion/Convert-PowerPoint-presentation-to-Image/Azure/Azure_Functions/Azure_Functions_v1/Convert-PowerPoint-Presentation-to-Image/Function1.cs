@@ -23,22 +23,22 @@ namespace Convert_PowerPoint_Presentation_to_Image
             //Loads an existing PowerPoint Presentation document.
             using (IPresentation pptxDoc = Presentation.Open(stream))
             {
-                //Converts the first slide into image
+                //Converts the first slide into image.
                 System.Drawing.Image image = pptxDoc.Slides[0].ConvertToImage(ImageType.Metafile);
                 //initializes a new instance of the MemoryStream.
                 MemoryStream memoryStream = new MemoryStream();
-                //Saves the image document
+                //Saves the image file.
                 image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                 //Create the response to return.
                 HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-                //Set the image document saved stream as content of response.
+                //Set the image file saved stream as content of response.
                 response.Content = new ByteArrayContent(memoryStream.ToArray());
                 //Set the contentDisposition as attachment.
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
                 {
                     FileName = "PPTXtoImage.Jpeg"
                 };
-                //Set the content type as image document mime type.
+                //Set the content type as image file mime type.
                 response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/jpeg");
                 //Return the response with output image stream.
                 return response;

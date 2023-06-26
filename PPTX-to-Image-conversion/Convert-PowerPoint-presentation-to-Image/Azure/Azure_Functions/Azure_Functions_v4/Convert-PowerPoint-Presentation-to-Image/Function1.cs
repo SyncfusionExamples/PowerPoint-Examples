@@ -23,7 +23,7 @@ namespace Convert_PowerPoint_Presentation_to_Image
         {
             //Gets the input PowerPoint document as stream from request.
             Stream stream = req.Content.ReadAsStreamAsync().Result;
-            //Loads an existing PowerPoint document
+            //Loads an existing PowerPoint document.
             using (IPresentation pptxDoc = Presentation.Open(stream))
             {
                 //Initialize the PresentationRenderer to perform image conversion.
@@ -40,7 +40,7 @@ namespace Convert_PowerPoint_Presentation_to_Image
                 memoryStream.Position = 0;
                 //Create the response to return.
                 HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-                //Set the image document saved stream as content of response.
+                //Set the image file saved stream as content of response.
                 response.Content = new ByteArrayContent(memoryStream.ToArray());
                 //Set the contentDisposition as attachment.
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
