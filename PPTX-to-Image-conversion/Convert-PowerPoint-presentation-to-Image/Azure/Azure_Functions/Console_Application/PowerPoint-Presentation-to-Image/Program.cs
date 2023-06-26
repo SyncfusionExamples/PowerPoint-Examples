@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace ConvertPresentationtoImage
+namespace PowerPoint_Presentation_to_Image
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {

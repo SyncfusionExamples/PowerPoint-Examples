@@ -4,9 +4,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DC886B4B-AD91-452D-87E9-1B516909DDB4}</ProjectGuid>
+    <ProjectGuid>{43501183-F932-4AEA-A40D-7E26DCFC4EAD}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PowerPoint-Presentation-to-Image</RootNamespace>
+    <RootNamespace>PowerPoint_Presentation_to_Image</RootNamespace>
     <AssemblyName>PowerPoint-Presentation-to-Image</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
