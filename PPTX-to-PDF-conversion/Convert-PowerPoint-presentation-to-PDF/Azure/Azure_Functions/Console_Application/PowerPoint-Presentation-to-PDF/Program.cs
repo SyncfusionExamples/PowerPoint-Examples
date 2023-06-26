@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace ConvertPresentationtoPDF
+namespace PowerPoint_Presentation_to_PDF
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
