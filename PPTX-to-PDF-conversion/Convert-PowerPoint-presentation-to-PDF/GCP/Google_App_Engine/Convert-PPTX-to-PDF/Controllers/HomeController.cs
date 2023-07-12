@@ -36,7 +36,7 @@ namespace Convert_PPTX_to_PDF.Controllers
                         }
                     }
                 }
-                //Download Word document in the browser.
+                //Download PDF document in the browser.
                 return File(stream, "application/pdf", "PPTXtoPDF.pdf");
             }
             catch (Exception ex)
