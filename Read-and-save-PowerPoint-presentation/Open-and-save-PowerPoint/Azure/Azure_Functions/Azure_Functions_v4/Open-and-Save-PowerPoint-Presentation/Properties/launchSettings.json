@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Open_and_Save_PowerPoint_Presentation": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7290",
+      "launchBrowser": false
+    }
+  }
+}
