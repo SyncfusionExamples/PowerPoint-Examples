@@ -1,0 +1,14 @@
+﻿<Page
+    x:Class="Change_resolution_of_converted_image.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Change_resolution_of_converted_image"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:Name="button" Content="Convert slide to Image" Click="OnButtonClicked" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</Page>
