@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="*" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>
