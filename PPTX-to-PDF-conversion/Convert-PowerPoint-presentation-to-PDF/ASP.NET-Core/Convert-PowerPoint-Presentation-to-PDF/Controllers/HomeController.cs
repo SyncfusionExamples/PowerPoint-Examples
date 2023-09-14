@@ -4,6 +4,8 @@ using System.Diagnostics;
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 using Syncfusion.Pdf;
+using System.IO;
+using SkiaSharp;
 
 
 namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
@@ -22,57 +24,28 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
             return View();
         }
 
-        public ActionResult ConvertPPTXtoPDF(string button)
+        public ActionResult ConvertPPTXtoPDF()
         {
-            if (button == null)
-                return View("Index");
-            if (Request.Form.Files != null)
+            //Open the file as Stream
+            using (FileStream fileStream = new FileStream(Path.GetFullPath("Data/Input.pptx"), FileMode.Open, FileAccess.Read))
             {
-                if (Request.Form.Files.Count == 0)
+                //Open the existing PowerPoint presentation with loaded stream.
+                using (IPresentation pptxDoc = Presentation.Open(fileStream))
                 {
-                    ViewBag.Message = string.Format("Browse a PowerPoint Presentation and then click the button to convert as a PDF document");
-                    return View("Index");
-                }
-                // Gets the extension from file.
-                string extension = Path.GetExtension(Request.Form.Files[0].FileName).ToLower();
-                // Compares extension with supported extensions.
-                if (extension == ".pptx")
-                {
-                    MemoryStream stream = new MemoryStream();
-                    Request.Form.Files[0].CopyTo(stream);
-                    try
+                    //Convert the PowerPoint document to PDF document.
+                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                     {
-                        //Open the existing PowerPoint presentation with loaded stream.
-                        using (IPresentation pptxDoc = Presentation.Open(stream))
-                        {
-                            //Convert the PowerPoint document to PDF document.
-                            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-                            {
-                                //Create the MemoryStream to save the converted PDF.      
-                                MemoryStream pdfStream = new MemoryStream();
-                                //Save the converted PDF document to MemoryStream.
-                                pdfDocument.Save(pdfStream);
-                                pdfStream.Position = 0;
-                                //Download PDF document in the browser.
-                                return File(pdfStream, "application/pdf", "Sample.pdf");
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        ViewBag.Message = ex.ToString();
+                        //Create the MemoryStream to save the converted PDF.      
+                        MemoryStream pdfStream = new MemoryStream();
+                        //Save the converted PDF document to MemoryStream.
+                        pdfDocument.Save(pdfStream);
+                        pdfStream.Position = 0;
+                        //Download PDF document in the browser.
+                        return File(pdfStream, "application/pdf", "Sample.pdf");
                     }
                 }
-                else
-                {
-                    ViewBag.Message = string.Format("Please choose PowerPoint document to convert to PDF");
-                }
             }
-            else
-            {
-                ViewBag.Message = string.Format("Browse a PowerPoint document and then click the button to convert as a PDF document");
-            }
-            return View("Index");
+            
         }
         public IActionResult Privacy()
         {
