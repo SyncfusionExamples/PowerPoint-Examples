@@ -1,5 +1,6 @@
 ﻿using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
+using Syncfusion.Pdf;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +22,7 @@ using Syncfusion.Pdf;
 using Windows.UI.Popups;
 using Windows.Storage.Streams;
 
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Convert_PowerPoint_Presentation_to_PDF
@@ -40,18 +42,19 @@ namespace Convert_PowerPoint_Presentation_to_PDF
             Assembly assembly = typeof(App).GetTypeInfo().Assembly;
 
             //Open an existing PowerPoint presentation
-            IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_PowerPoint_Presentation_to_PDF.Assets.Input.pptx"));
-
-            //Convert the PowerPoint document to PDF document.
-            using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+            using (IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Convert_PowerPoint_Presentation_to_PDF.Assets.Input.pptx")))
             {
-                // Create a MemoryStream to hold the PDF data.
-                MemoryStream pdfStream = new MemoryStream();
-                pdfDocument.Save(pdfStream);
+                //Convert the PowerPoint document to PDF document.
+                using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+                {
+                    // Create a MemoryStream to hold the PDF data.
+                    MemoryStream pdfStream = new MemoryStream();
+                    pdfDocument.Save(pdfStream);
 
-                //Save the PDF file
-                SavePDF(pdfStream);
-            }
+                    //Save the PDF file
+                    SavePDF(pdfStream);
+                }
+            }           
         }
         /// <summary>
         /// Save the PDF to the desired file location
