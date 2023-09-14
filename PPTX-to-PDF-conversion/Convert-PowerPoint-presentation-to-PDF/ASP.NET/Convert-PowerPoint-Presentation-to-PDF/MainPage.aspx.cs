@@ -33,7 +33,7 @@ namespace Convert_PowerPoint_Presentation_to_PDF
                         pdfStream.Position = 0;
                     }
                     //Create the output PDF file stream
-                    using (FileStream fileStreamOutput = File.Create(Server.MapPath("~/Result.pdf")))
+                    using (FileStream fileStreamOutput = File.Create(Server.MapPath("~/Sample.pdf")))
                     {
                         //Copy the converted PDF stream into created output PDF stream
                         pdfStream.CopyTo(fileStreamOutput);
