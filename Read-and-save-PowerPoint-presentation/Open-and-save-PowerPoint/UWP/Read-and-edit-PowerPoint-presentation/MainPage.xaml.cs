@@ -60,7 +60,7 @@ namespace Read_and_edit_PowerPoint_presentation
             //Saves changes to the specified storage file
             await pptxDoc.SaveAsync(storageFile);
 
-            //Close the PowerPoint presentation
+            //Close the PowerPoint presentation.
             pptxDoc.Close();
         }
     }
