@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Syncfusion.Pdf;
+using Windows.UI.Popups;
+using Windows.Storage.Streams;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -45,28 +47,52 @@ namespace Convert_PowerPoint_Presentation_to_PDF
             {
                 // Create a MemoryStream to hold the PDF data.
                 MemoryStream pdfStream = new MemoryStream();
-
-                // Save the converted PDF document to the MemoryStream.
                 pdfDocument.Save(pdfStream);
 
-                // Initializes FileSavePicker
+                //Save the PDF file
+                SavePDF(pdfStream);
+            }
+        }
+        /// <summary>
+        /// Save the PDF to the desired file location
+        /// </summary>
+        private async void SavePDF(Stream outputStream)
+        {
+            StorageFile stFile;
+            if (!(Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")))
+            {
                 FileSavePicker savePicker = new FileSavePicker();
-                savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+                savePicker.DefaultFileExtension = ".pdf";
                 savePicker.SuggestedFileName = "Sample";
-                savePicker.FileTypeChoices.Add("PDF Files", new List<string>() { ".pdf" });
-
-                // Creates a storage file from FileSavePicker
-                StorageFile storageFile = await savePicker.PickSaveFileAsync();
-
-                if (storageFile != null)
+                savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+                stFile = await savePicker.PickSaveFileAsync();
+            }
+            else
+            {
+                StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+                stFile = await local.CreateFileAsync("Sample.pdf", CreationCollisionOption.ReplaceExisting);
+            }
+            if (stFile != null)
+            {
+                Windows.Storage.Streams.IRandomAccessStream fileStream = await stFile.OpenAsync(FileAccessMode.ReadWrite);
+                Stream st = fileStream.AsStreamForWrite();
+                st.SetLength(0);
+                st.Write((outputStream as MemoryStream).ToArray(), 0, (int)outputStream.Length);
+                st.Flush();
+                st.Dispose();
+                fileStream.Dispose();
+                MessageDialog msgDialog = new MessageDialog("Do you want to view the Document?", "File created.");
+                UICommand yesCmd = new UICommand("Yes");
+                msgDialog.Commands.Add(yesCmd);
+                UICommand noCmd = new UICommand("No");
+                msgDialog.Commands.Add(noCmd);
+                IUICommand cmd = await msgDialog.ShowAsync();
+                if (cmd == yesCmd)
                 {
-                    // Save the PDF data to the selected file.
-                    using (var storageStream = await storageFile.OpenStreamForWriteAsync())
-                    {
-                        await pdfStream.CopyToAsync(storageStream);
-                    }
+                    // Launch the retrieved file
+                    bool success = await Windows.System.Launcher.LaunchFileAsync(stFile);
                 }
-            }         
+            }
         }
     }
 }
