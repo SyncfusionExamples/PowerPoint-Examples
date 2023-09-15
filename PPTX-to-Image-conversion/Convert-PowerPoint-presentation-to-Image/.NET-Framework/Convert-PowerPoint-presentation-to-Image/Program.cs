@@ -21,10 +21,13 @@ namespace Convert_PowerPoint_presentation_to_Image
                 };
                 //Convert entire Presentation to images.
                 Image[] images = pptxDoc.RenderAsImages(Syncfusion.Drawing.ImageType.Metafile);
+                int i = 1;
                 //Save the image to file system.
                 foreach (Image image in images)
                 {
-                    image.Save("../../ImageOutput" + Guid.NewGuid().ToString() + ".png");
+                    image.Save("../../Output" + i++ + ".png");
+                    //Disposes the image.
+                    image.Dispose();
                 }
             }
         }

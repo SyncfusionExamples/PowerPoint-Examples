@@ -11,7 +11,7 @@ pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
 //Convert the PowerPoint presentation to PDF file.
 using PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 //Create new instance of file stream.
-FileStream pdfStream = new("../../../PPTXToPDF.pdf", FileMode.Create);
+using FileStream pdfStream = new("../../../PPTXToPDF.pdf", FileMode.Create);
 //Save the generated PDF to file stream.
 pdfDocument.Save(pdfStream);
 
