@@ -1,12 +1,8 @@
-﻿using Syncfusion.Drawing;
-using Syncfusion.OfficeChart;
+﻿using Syncfusion.OfficeChart;
 using Syncfusion.Presentation;
-using System;
-using System.ComponentModel;
-using System.Drawing;
 
 
-namespace Portable
+namespace Format_chart_title
 {
     class Program
     {

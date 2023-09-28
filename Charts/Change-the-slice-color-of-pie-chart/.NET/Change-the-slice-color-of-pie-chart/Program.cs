@@ -1,12 +1,9 @@
 ﻿using Syncfusion.Drawing;
 using Syncfusion.OfficeChart;
 using Syncfusion.Presentation;
-using System;
-using System.ComponentModel;
-using System.Drawing;
 
 
-namespace Portable
+namespace Change_the_slice_color_of_pie_chart
 {
     class Program
     {
@@ -60,9 +57,9 @@ namespace Portable
             serie.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.BestFit;
 
             //Change the color of each slice
-            serie.DataPoints[0].DataFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Cornsilk;
-            serie.DataPoints[1].DataFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Violet;
-            serie.DataPoints[2].DataFormat.Fill.ForeColor = Syncfusion.Drawing.Color.Pink;
+            serie.DataPoints[0].DataFormat.Fill.ForeColor = Color.Cornsilk;
+            serie.DataPoints[1].DataFormat.Fill.ForeColor = Color.Violet;
+            serie.DataPoints[2].DataFormat.Fill.ForeColor = Color.Pink;
         }
     }
 }

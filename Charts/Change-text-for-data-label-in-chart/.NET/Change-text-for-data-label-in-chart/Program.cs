@@ -1,12 +1,8 @@
-﻿using Syncfusion.Drawing;
-using Syncfusion.OfficeChart;
+﻿using Syncfusion.OfficeChart;
 using Syncfusion.Presentation;
-using System;
-using System.ComponentModel;
-using System.Drawing;
 
 
-namespace Portable
+namespace Change_text_for_data_label_in_chart
 {
     class Program
     {
