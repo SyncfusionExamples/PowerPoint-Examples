@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-PowerPoint-Presentation-to-PDF", "Convert-PowerPoint-Presentation-to-PDF\Convert-PowerPoint-Presentation-to-PDF.csproj", "{4644630A-BD7A-4A2B-803D-6F429891896E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4644630A-BD7A-4A2B-803D-6F429891896E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4644630A-BD7A-4A2B-803D-6F429891896E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4644630A-BD7A-4A2B-803D-6F429891896E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4644630A-BD7A-4A2B-803D-6F429891896E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {164F3BFE-8796-4880-92F2-90FCC0BE3913}
+	EndGlobalSection
+EndGlobal
