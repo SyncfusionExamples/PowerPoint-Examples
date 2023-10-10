@@ -33,10 +33,7 @@ namespace Convert_PowerPoint_Presentation_to_PDF
                     pdfDocument.Save(Path.GetFullPath(@"../../Sample.pdf"));
                 }
 
-                //Launch the PDF file
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../Sample.pdf")) { UseShellExecute = true };
-                process.Start();
+                //Launch the PDF file.
                 System.Diagnostics.Process.Start(Path.GetFullPath(@"../../Sample.pdf"));
             }
         }
