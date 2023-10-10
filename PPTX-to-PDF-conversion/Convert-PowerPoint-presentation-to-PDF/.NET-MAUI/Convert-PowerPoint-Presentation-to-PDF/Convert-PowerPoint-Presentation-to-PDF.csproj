@@ -59,7 +59,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="22.1.38" />
+	  <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="*" />
 	</ItemGroup>
 
 </Project>
