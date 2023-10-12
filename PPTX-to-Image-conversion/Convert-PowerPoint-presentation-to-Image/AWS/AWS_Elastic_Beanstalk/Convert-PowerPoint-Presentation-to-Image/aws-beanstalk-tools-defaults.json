@@ -1,0 +1,13 @@
+
+{
+    "region" : "us-east-1",
+    "configuration" : "Debug",
+    "framework"     : "net6.0",
+    "self-contained" : false,
+    "application"    : "application49506",
+    "environment"    : "Application49506-env",
+    "enable-xray"    : true,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "",
+    "proxy-server"         : "nginx"
+}
