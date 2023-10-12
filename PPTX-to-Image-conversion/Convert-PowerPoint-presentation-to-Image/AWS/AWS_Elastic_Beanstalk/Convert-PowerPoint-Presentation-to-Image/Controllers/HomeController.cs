@@ -40,7 +40,7 @@ namespace Convert_PowerPoint_Presentation_to_Image.Controllers
                     pptxDoc.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
                     stream.Position = 0;
                     //Download image file in the browser.
-                    return File(stream, "image/jpeg", "PPTXToimage_Page1.jpeg");
+                    return File(stream, "application/jpeg", "PPTXtoImage.jpeg");
                 }
             }
         }
