@@ -20,6 +20,7 @@ using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.Graphics.Imaging;
 using Syncfusion.OfficeChartToImageConverter;
+using Windows.UI.Xaml.Documents;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -40,22 +41,22 @@ namespace Convert_PowerPoint_Presentation_to_Image
             FileOpenPicker openPicker = new FileOpenPicker();
             openPicker.FileTypeFilter.Add(".pptx");
             StorageFile inputFile = await openPicker.PickSingleFileAsync();
-            IPresentation pptxDoc = await Presentation.OpenAsync(inputFile);
-            //Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides.
-            pptxDoc.ChartToImageConverter = new ChartToImageConverter();
-            //Pick the folder to save the converted images.
-            FolderPicker folderPicker = new FolderPicker
+            using (IPresentation pptxDoc = await Presentation.OpenAsync(inputFile))
             {
-                ViewMode = PickerViewMode.Thumbnail
-            };
-            folderPicker.FileTypeFilter.Add("*");
-            StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
-            StorageFile imageFile = await storageFolder.CreateFileAsync("PPTXtoImage.jpg", CreationCollisionOption.ReplaceExisting);
-            ISlide slide = pptxDoc.Slides[0];
-            //Convert the PPTX to image.
-            await slide.SaveAsImageAsync(imageFile);
-            //Closes the presentation instance.
-            pptxDoc.Close();
+                //Initialize the ‘ChartToImageConverter’ instance to convert the charts in the slides.
+                pptxDoc.ChartToImageConverter = new ChartToImageConverter();
+                //Pick the folder to save the converted images.
+                FolderPicker folderPicker = new FolderPicker
+                {
+                    ViewMode = PickerViewMode.Thumbnail
+                };
+                folderPicker.FileTypeFilter.Add("*");
+                StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
+                StorageFile imageFile = await storageFolder.CreateFileAsync("PPTXtoImage.jpg", CreationCollisionOption.ReplaceExisting);
+                ISlide slide = pptxDoc.Slides[0];
+                //Convert the PPTX to image.
+                await slide.SaveAsImageAsync(imageFile);
+            }
         }
     }
 }
