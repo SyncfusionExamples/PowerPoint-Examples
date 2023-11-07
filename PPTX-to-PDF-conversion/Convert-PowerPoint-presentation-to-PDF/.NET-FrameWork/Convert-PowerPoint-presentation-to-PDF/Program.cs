@@ -20,7 +20,7 @@ namespace Convert_PowerPoint_presentation_to_PDF
                     pdfDocument.Save(Path.GetFullPath(@"../../../Sample.pdf"));
                 }
             }
-            // Open the Word document located at the specified path using the default associated program.
+            // Open the PowerPoint located at the specified path using the default associated program.
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Sample.pdf"))
             {
