@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Convert-PowerPoint-Presentation-to-PDF (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Convert-PowerPoint-Presentation-to-PDF (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

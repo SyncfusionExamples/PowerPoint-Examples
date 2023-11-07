@@ -1,0 +1,21 @@
+﻿@page "/presentation"
+@using System.IO;
+@using Convert_PowerPoint_Presentation_to_Image;
+@inject Convert_PowerPoint_Presentation_to_Image.Data.PresentationService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion PowerPoint (Presentation) library</h2>
+<p>Syncfusion PowerPoint (Presentation) library is used to create, read, edit, and convert PowerPoint files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ConvertPPTXtoImage">Convert PPTX to Image</button>
+
+@code {
+    MemoryStream documentStream;
+    /// <summary>
+    /// Download the image file.
+    /// </summary>
+    protected async void ConvertPPTXtoImage()
+    {
+        documentStream = service.ConvertPPTXtoImage();
+        await JS.SaveAs("PPTXtoImage.Jpeg", documentStream.ToArray());
+    }
+}
