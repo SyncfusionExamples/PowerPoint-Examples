@@ -54,7 +54,7 @@ namespace Create_PowerPoint_presentation
                 //Save the PowerPoint Presentation 
                 pptxDoc.Save(Path.GetFullPath(@"../../../Sample.pptx"));
             }
-            // Open the Word document located at the specified path using the default associated program.
+            // Open the PowerPoint located at the specified path using the default associated program.
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Sample.pptx"))
             {
