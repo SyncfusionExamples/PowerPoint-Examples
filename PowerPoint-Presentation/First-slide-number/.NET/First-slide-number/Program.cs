@@ -27,13 +27,6 @@ namespace First_slide_number
                     }                       
                 }
             }
-            // Open the PowerPoint presentation located at the specified path using the default associated program.
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.pptx"))
-            {
-                UseShellExecute = true
-            };
-            process.Start();
         }
     }
 }
