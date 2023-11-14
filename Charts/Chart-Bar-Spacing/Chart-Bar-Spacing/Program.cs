@@ -30,13 +30,6 @@ namespace Chart_Bar_Spacing
                     //Save the PowerPoint Presentation.
                     pptxDoc.Save(outputStream);
                 }
-                // Open the PowerPoint Presentation located at the specified path using the default associated program.
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.pptx"))
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
