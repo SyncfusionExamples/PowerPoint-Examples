@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Format-Data-Labels", "Format-Data-Labels\Format-Data-Labels.csproj", "{81CC17C3-31B4-432C-81E3-73D893AEC61B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81CC17C3-31B4-432C-81E3-73D893AEC61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CC17C3-31B4-432C-81E3-73D893AEC61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CC17C3-31B4-432C-81E3-73D893AEC61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CC17C3-31B4-432C-81E3-73D893AEC61B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {628DABCE-496F-4F7C-9C10-F01B07445872}
+	EndGlobalSection
+EndGlobal
