@@ -8,7 +8,7 @@ using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Initialize the PresentationRenderer to perform image conversion.
 pptxDoc.PresentationRenderer = new PresentationRenderer();
 //Use a sets of default FallbackFont collection to IPresentation.
-pptxDoc.FontSettings.InitializeFallbackFonts();
+pptxDoc.FontSettings.FallbackFonts.InitializeDefault();
 //Convert PowerPoint slide to image as stream.
 using Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
 //Reset the stream position.

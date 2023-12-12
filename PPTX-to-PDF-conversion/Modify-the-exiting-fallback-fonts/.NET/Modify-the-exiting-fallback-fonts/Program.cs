@@ -9,7 +9,7 @@ using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.ppt
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Use a sets of default FallbackFont collection to IPresentation.
-pptxDoc.FontSettings.InitializeFallbackFonts();
+pptxDoc.FontSettings.FallbackFonts.InitializeDefault();
 // Customize a default fallback font name.
 // Modify the Hebrew script default font name as "David".
 pptxDoc.FontSettings.FallbackFonts[5].FontNames = "David";

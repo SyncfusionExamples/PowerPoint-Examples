@@ -8,7 +8,7 @@ using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.ppt
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Use a sets of default FallbackFont collection to IPresentation.
-pptxDoc.FontSettings.InitializeFallbackFonts();
+pptxDoc.FontSettings.FallbackFonts.InitializeDefault();
 //Create the MemoryStream to save the converted PDF.
 using MemoryStream pdfStream = new();
 //Convert the PowerPoint document to PDF document.
