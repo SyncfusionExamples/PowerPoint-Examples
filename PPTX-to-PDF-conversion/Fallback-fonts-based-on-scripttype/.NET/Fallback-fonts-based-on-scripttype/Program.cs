@@ -13,19 +13,19 @@ namespace Fallback_fonts_based_on_scripttype
             //Open the existing PowerPoint presentation with loaded stream
             using IPresentation pptxDoc = Presentation.Open(fileStreamInput);
             //Adds fallback font for "Arabic" script type
-            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Traditional Arabic");
+            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
             //Adds fallback font for "Hebrew" script type
-            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif");
+            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
             //Adds fallback font for "Hindi" script type
-            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah");
+            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
             //Adds fallback font for "Chinese" script type
-            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun");
+            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
             //Adds fallback font for "Japanese" script type
-            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic");
+            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
             //Adds fallback font for "Thai" script type
             pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
             //Adds fallback font for "Korean" script type
-            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim");
+            pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
             //Create the MemoryStream to save the converted PDF
             using MemoryStream pdfStream = new MemoryStream();
             //Convert the PowerPoint document to PDF document
