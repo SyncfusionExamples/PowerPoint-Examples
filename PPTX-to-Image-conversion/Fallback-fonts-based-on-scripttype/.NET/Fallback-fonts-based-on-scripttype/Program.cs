@@ -1,6 +1,7 @@
 ﻿using Syncfusion.Office;
 using Syncfusion.Presentation;
 using Syncfusion.Office;
+using Syncfusion.PresentationRenderer;
 namespace Fallback_fonts_based_on_scripttype
 {
     internal class Program
@@ -25,6 +26,8 @@ namespace Fallback_fonts_based_on_scripttype
             pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
             //Adds fallback font for "Korean" script type.
             pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
+            //Initialize the PresentationRenderer to perform image conversion.
+            pptxDoc.PresentationRenderer = new PresentationRenderer();
             //Convert PowerPoint slide to image as stream.
             using Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
             //Reset the stream position.
