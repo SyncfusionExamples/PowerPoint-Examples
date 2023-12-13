@@ -1,4 +1,6 @@
-﻿using Syncfusion.Office;
+﻿using Syncfusion.Drawing;
+using Syncfusion.Office;
+using Syncfusion.Pdf;
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
@@ -6,7 +8,7 @@ using Syncfusion.PresentationRenderer;
 using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
-//Add custom fallback font names.
+//Adds fallback font for specific unicode range.
 // Arabic.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
 // Hebrew.
@@ -19,13 +21,14 @@ pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXia
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
 // Korean.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
-//Initialize the PresentationRenderer to perform image conversion.
-pptxDoc.PresentationRenderer = new PresentationRenderer();
-//Convert PowerPoint slide to image as stream.
-Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
-//Reset the stream position.
-stream.Position = 0;
-//Create the output image file stream.
-using FileStream fileStreamOutput = File.Create("../../../Output.jpg");
-//Copy the converted image stream into created output stream.
-stream.CopyTo(fileStreamOutput);
+//Create the MemoryStream to save the converted PDF.
+using MemoryStream pdfStream = new MemoryStream();
+//Convert the PowerPoint document to PDF document.
+using PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+//Save the converted PDF document to MemoryStream.
+pdfDocument.Save(pdfStream);
+pdfStream.Position = 0;
+//Create the output PDF file stream.
+using FileStream fileStreamOutput = File.Create("../../../PPTXToPDF.pdf");
+//Copy the converted PDF stream into created output PDF stream.
+pdfStream.CopyTo(fileStreamOutput);
