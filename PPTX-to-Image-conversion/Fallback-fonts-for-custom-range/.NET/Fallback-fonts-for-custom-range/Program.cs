@@ -7,17 +7,17 @@ using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.ppt
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Add custom fallback font names.
-// Arabic
+// Arabic.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0600, 0x06ff, "Arial"));
-// Hebrew
+// Hebrew.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0590, 0x05ff, "Arial"));
-// Hindi
+// Hindi.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x0900, 0x097F, "Mangal"));
-// Chinese
+// Chinese.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x4E00, 0x9FFF, "DengXian"));
-// Japanese
+// Japanese.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0x3040, 0x309F, "MS Mincho"));
-// Korean
+// Korean.
 pptxDoc.FontSettings.FallbackFonts.Add(new FallbackFont(0xAC00, 0xD7A3, "Malgun Gothic"));
 //Initialize the PresentationRenderer to perform image conversion.
 pptxDoc.PresentationRenderer = new PresentationRenderer();
