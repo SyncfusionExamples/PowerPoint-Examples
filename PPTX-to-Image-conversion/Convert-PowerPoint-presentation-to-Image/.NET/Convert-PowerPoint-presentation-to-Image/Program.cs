@@ -16,25 +16,20 @@ namespace Create_PowerPoint_presentation
                 {
                     //Initialize the PresentationRenderer to perform image conversion.
                     pptxDoc.PresentationRenderer = new PresentationRenderer();
-                    //Convert PowerPoint slide to image as stream.
-                    Stream stream = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Presentation.ExportImageFormat.Jpeg);
-                    //Reset the stream position.
-                    stream.Position = 0;
-                    //Create the output image file stream.
-                    using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"../../../PPTXToImage.jpeg")))
+                    //Convert PowerPoint to image as stream.
+                    Stream[] images = pptxDoc.RenderAsImages(ExportImageFormat.Jpeg);
+                    //Saves the images to file system
+                    foreach (Stream stream in images)
                     {
-                        //Copy the converted image stream into created output stream.
-                        stream.CopyTo(fileStreamOutput);
+                        //Create the output image file stream
+                        using (FileStream fileStreamOutput = File.Create("Output" + Guid.NewGuid().ToString() + ".jpg"))
+                        {
+                            //Copy the converted image stream into created output stream
+                            stream.CopyTo(fileStreamOutput);
+                        }
                     }
                 }
             }
-            // Open the PowerPoint located at the specified path using the default associated program.
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../PPTXToImage.jpeg"))
-            {
-                UseShellExecute = true
-            };
-            process.Start();
         }
     }
 }
