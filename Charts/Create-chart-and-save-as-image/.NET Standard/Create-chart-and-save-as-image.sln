@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Create-chart-and-save-as-image", "Create-chart-and-save-as-image\Create-chart-and-save-as-image.csproj", "{8182257B-E0CB-404F-A8ED-1DB1CB0CBBDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8182257B-E0CB-404F-A8ED-1DB1CB0CBBDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8182257B-E0CB-404F-A8ED-1DB1CB0CBBDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8182257B-E0CB-404F-A8ED-1DB1CB0CBBDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8182257B-E0CB-404F-A8ED-1DB1CB0CBBDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E30F48D-7BB4-4ED0-807A-70B73F82FBD4}
+	EndGlobalSection
+EndGlobal
