@@ -7,19 +7,21 @@ namespace Remove_hidden_slides_in_powerpoint
         public static void Main(string[] args)
         {
             //Loads or open an PowerPoint Presentation.
-            FileStream inputStream = new FileStream(@"../../../Data/Template.pptx", FileMode.Open);
-            IPresentation pptxDoc = Presentation.Open(inputStream);
+            using (FileStream inputStream = new FileStream(@"../../../Data/Template.pptx", FileMode.Open))
+            {
+                IPresentation pptxDoc = Presentation.Open(inputStream);
 
-            //Remove every hidden slide.
-            RemoveHiddenSlides(pptxDoc);
+                //Remove every hidden slide.
+                RemoveHiddenSlides(pptxDoc);
 
-            //Save the PowerPoint Presentation as stream
-            FileStream outputStream = new FileStream(@"../../../Output.pptx", FileMode.Create);
-            pptxDoc.Save(outputStream);
-            //Release all resources of the stream
-            outputStream.Dispose();
-            //Closes the Presentation instance
-            pptxDoc.Close();
+                //Save the PowerPoint Presentation as stream
+                using (FileStream outputStream = new FileStream(@"../../../Output.pptx", FileMode.Create))
+                {
+                    pptxDoc.Save(outputStream);
+                    //Closes the Presentation instance
+                    pptxDoc.Close();
+                }
+            }
         }
 
         /// <summary>
