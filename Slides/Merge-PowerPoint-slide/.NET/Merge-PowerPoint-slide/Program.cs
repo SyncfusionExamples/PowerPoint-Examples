@@ -10,6 +10,6 @@ using IPresentation destinationPresentation = Presentation.Open(destinationPrese
 //Clone the first slide of the source Presentation.
 ISlide clonedSlide = sourcePresentation.Slides[0].Clone();
 //Merge the cloned slide to the destination Presentation with paste option - Destination Theme.
-destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme);
+destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation);
 using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 destinationPresentation.Save(outputStream);
