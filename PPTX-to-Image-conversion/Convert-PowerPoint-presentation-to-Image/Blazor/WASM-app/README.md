@@ -19,4 +19,5 @@ N> Install this `wasm-tools` and `wasm-tools-net6` by using `dotnet workload ins
 8. Add the JavaScript function in the [Index.html](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Blazor/Client-side-application/Convert-PPTX-to-Image/wwwroot/index.html) file present under the **wwwroot** folder.
 9. Add the code sample in the [razor](https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/PPTX-to-Image-conversion/Convert-PowerPoint-presentation-to-Image/Blazor/Client-side-application/Convert-PPTX-to-Image/Shared/NavMenu.razor) file of the Navigation menu in the **Shared** folder.
 10. Rebuild the solution.
+
 11. Run the application.
