@@ -8,10 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="*" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="SkiaSharp.HarfBuzz" Version="2.88.6" />
+    <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>
