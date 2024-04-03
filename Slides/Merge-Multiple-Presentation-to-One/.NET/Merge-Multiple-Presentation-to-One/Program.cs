@@ -1,10 +1,10 @@
 ﻿using Syncfusion.Presentation;
 
 
-List<string> sourceFiles = new List<string> { "Presentation_1.pptx", "Presentation_2.pptx", "Presentation_3.pptx" };
+List<string> sourceFiles = new List<string> { "Product overview.pptx", "About.pptx"};
 
 //Open the existing destination Presentation.
-using FileStream destinationPresentationStream = new(Path.GetFullPath(@"../../../Data/DestinationPresentation.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using FileStream destinationPresentationStream = new(Path.GetFullPath(@"../../../Data/Adventure.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 using IPresentation destinationPresentation = Presentation.Open(destinationPresentationStream);
 
 string path = Path.GetFullPath(@"../../../Data/");
