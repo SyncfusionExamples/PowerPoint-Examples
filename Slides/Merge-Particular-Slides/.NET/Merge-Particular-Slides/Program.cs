@@ -19,7 +19,7 @@ void MergeParticularSlides(int slideIndex, int count)
         //Clone the slide of the source Presentation.
         ISlide clonedSlide = sourcePresentation.Slides[i].Clone();
         //Merge the cloned slide to the destination Presentation with paste option - Destination Theme.
-        destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme, sourcePresentation);
+        destinationPresentation.Slides.Add(clonedSlide, PasteOptions.UseDestinationTheme);
     }
 
     //Save the PowerPoint presentation.
