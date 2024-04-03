@@ -1,6 +1,6 @@
 ﻿using Syncfusion.Presentation;
 
-MergeParticularSlides(0, 2);
+MergeParticularSlides(1, 3);
 
 
 void MergeParticularSlides(int slideIndex, int count)
