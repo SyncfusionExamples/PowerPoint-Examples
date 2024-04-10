@@ -15,7 +15,7 @@
     /// </summary>
     protected async void ConvertPPTXtoImage()
     {
-        documentStream = service.ConvertPPTXtoImage();
+        documentStream = service.ConvertPPTXToImage();
         await JS.SaveAs("PPTXtoImage.Jpeg", documentStream.ToArray());
     }
 }
