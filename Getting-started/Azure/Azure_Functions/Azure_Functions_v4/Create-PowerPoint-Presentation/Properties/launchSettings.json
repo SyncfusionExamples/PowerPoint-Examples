@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Create_PowerPoint_Presentation": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7152",
+      "launchBrowser": false
+    }
+  }
+}

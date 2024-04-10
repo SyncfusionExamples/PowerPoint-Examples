@@ -8,7 +8,8 @@ using IPresentation pptxDoc = Presentation.Open(inputStream);
 ISlide slide = pptxDoc.Slides[0];
 //Get the chart in slide.
 IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
-//Refresh the chart.
-chart.Refresh();
+// Refreshes the chart data. Set `true` to evaluate Excel formulas before refreshing,
+// or `false` to refresh only the data without evaluating formulas.
+chart.Refresh(false);
 using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

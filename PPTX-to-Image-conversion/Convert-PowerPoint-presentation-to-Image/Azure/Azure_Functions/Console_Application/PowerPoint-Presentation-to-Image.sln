@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPoint-Presentation-to-Image", "PowerPoint-Presentation-to-Image\PowerPoint-Presentation-to-Image.csproj", "{43501183-F932-4AEA-A40D-7E26DCFC4EAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43501183-F932-4AEA-A40D-7E26DCFC4EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43501183-F932-4AEA-A40D-7E26DCFC4EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43501183-F932-4AEA-A40D-7E26DCFC4EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43501183-F932-4AEA-A40D-7E26DCFC4EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7B5CBE7-C6C8-4BDB-93FB-757ABA11672E}
+	EndGlobalSection
+EndGlobal
