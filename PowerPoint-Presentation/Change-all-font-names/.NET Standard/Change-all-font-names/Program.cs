@@ -7,7 +7,7 @@ using (FileStream inputStream = new(Path.GetFullPath(@"../../../Template.pptx"),
     using (IPresentation pptxDoc = Presentation.Open(inputStream))
     {
         //Replace font of the all text contents in the presentation.
-        ReplaceSpecificFont(pptxDoc, "Arial", "Times New Roman");
+        ReplaceAllFonts(pptxDoc, "Times New Roman");
         //Save the presentation
         using (FileStream outputStream = new FileStream(@"../../../Result.pptx", FileMode.Create, FileAccess.Write)){
             pptxDoc.Save(outputStream);
@@ -19,7 +19,7 @@ using (FileStream inputStream = new(Path.GetFullPath(@"../../../Template.pptx"),
 /// <summary>
 /// Iterate through each slide in the Presentation.
 /// </summary>
-void ReplaceSpecificFont(IPresentation pptxDoc, string fontNameToBeReplaced, string replacingFontName)
+void ReplaceAllFonts(IPresentation pptxDoc, string replacingFontName)
 {
     //Iterate in master slides.
     foreach (IMasterSlide masterSlide in pptxDoc.Masters)
@@ -27,23 +27,23 @@ void ReplaceSpecificFont(IPresentation pptxDoc, string fontNameToBeReplaced, str
         foreach (ILayoutSlide layoutSlide in masterSlide.LayoutSlides)
         {
             //Iterate in layout slide.
-            IterateShapes(layoutSlide.Shapes, fontNameToBeReplaced, replacingFontName);
+            IterateShapes(layoutSlide.Shapes, replacingFontName);
         }
-        IterateShapes(masterSlide.Shapes, fontNameToBeReplaced, replacingFontName);
+        IterateShapes(masterSlide.Shapes, replacingFontName);
     }
     //Iterate in slides.
     foreach (ISlide slide in pptxDoc.Slides)
     {
         //Iterate in layout slide.
-        IterateShapes(slide.LayoutSlide.Shapes, fontNameToBeReplaced, replacingFontName);
-        IterateShapes(slide.Shapes, fontNameToBeReplaced, replacingFontName);
+        IterateShapes(slide.LayoutSlide.Shapes, replacingFontName);
+        IterateShapes(slide.Shapes, replacingFontName);
     }
 }
 
 /// <summary>
 /// Iterate through each shapes in the slide.
 /// </summary>
-void IterateShapes(IShapes shapes, string fontNameToBeReplaced, string replacingFontName)
+void IterateShapes(IShapes shapes, string replacingFontName)
 {
     //Iterate through each shape in the slide.
     foreach (IShape shape in shapes)
@@ -53,7 +53,7 @@ void IterateShapes(IShapes shapes, string fontNameToBeReplaced, string replacing
         {
             case SlideItemType.AutoShape:
                 //Replace font of the text content in textbody of the shape.
-                ReplaceSpecificFontInTextPart(shape.TextBody, fontNameToBeReplaced, replacingFontName);
+                ReplaceSpecificFontInTextPart(shape.TextBody, replacingFontName);
                 break;
             //Identify the table from the shape collection.
             case SlideItemType.Table:
@@ -65,12 +65,12 @@ void IterateShapes(IShapes shapes, string fontNameToBeReplaced, string replacing
                     foreach (ICell cell in row.Cells)
                     {
                         //Replace font of the text content in the textbody of the cell.
-                        ReplaceSpecificFontInTextPart(cell.TextBody, fontNameToBeReplaced, replacingFontName);
+                        ReplaceSpecificFontInTextPart(cell.TextBody, replacingFontName);
                     }
                 }
                 break;
             case SlideItemType.Placeholder:
-                ReplaceSpecificFontInTextPart(shape.TextBody, fontNameToBeReplaced, replacingFontName);
+                ReplaceSpecificFontInTextPart(shape.TextBody, replacingFontName);
                 break;
             case SlideItemType.GroupShape:
                 IGroupShape groupShape = (IGroupShape)shape;
@@ -78,7 +78,7 @@ void IterateShapes(IShapes shapes, string fontNameToBeReplaced, string replacing
                 foreach (IShape childShape in groupShape.Shapes)
                 {
                     //Replace font of the text content in the textbody of the child shapes.
-                    ReplaceSpecificFontInTextPart(childShape.TextBody, fontNameToBeReplaced, replacingFontName);
+                    ReplaceSpecificFontInTextPart(childShape.TextBody, replacingFontName);
                 }
                 break;
         }
@@ -88,22 +88,19 @@ void IterateShapes(IShapes shapes, string fontNameToBeReplaced, string replacing
 /// <summary>
 /// Iterate through each textpart of the paragraph and set the font name.
 /// </summary>
-void ReplaceSpecificFontInTextPart(ITextBody textBody, string fontNameToBeReplaced, string replacingFontName)
+void ReplaceSpecificFontInTextPart(ITextBody textBody, string replacingFontName)
 {
     if (!string.IsNullOrEmpty(textBody.Text))
     {
         //Iterate through each paragraph of the textbody.
         foreach (IParagraph paragraph in textBody.Paragraphs)
         {
-            paragraph.EndParagraphFont.FontName = fontNameToBeReplaced;
+            paragraph.EndParagraphFont.FontName = replacingFontName;
             //Iterate through each textpart of the paragraph.
             foreach (ITextPart textPart in paragraph.TextParts)
             {
-                if (textPart.Font.FontName == fontNameToBeReplaced)
-                {
-                    //Replace the font name.
+                //Replace the font name.
                     textPart.Font.FontName = replacingFontName;
-                }
             }
         }
     }
