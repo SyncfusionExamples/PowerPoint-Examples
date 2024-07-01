@@ -20,7 +20,7 @@ namespace Save_PowerPoint_document.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> CreateDocument()
+        public async Task<IActionResult> UploadDocument()
         {
             //Create a new instance of PowerPoint Presentation file
             IPresentation pptxDocument = Presentation.Create();
