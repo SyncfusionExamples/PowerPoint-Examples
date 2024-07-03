@@ -74,7 +74,6 @@ namespace Save_PowerPoint_document.Controllers
             //Saves the PowerPoint document to MemoryStream
             MemoryStream stream = new MemoryStream();
             pptxDocument.Save(stream);
-            stream.Position = 0;
 
             //Your Azure Storage Account connection string
             string connectionString = "Your_connection_string";
@@ -90,6 +89,12 @@ namespace Save_PowerPoint_document.Controllers
 
             return Ok("PowerPoint document uploaded to Azure Blob Storage.");
         }
+        /// <summary>
+        /// Upload file to Azure Blob cloud storage
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public async Task<MemoryStream> UploadDocumentToAzure(string connectionString, string containerName, string blobName, MemoryStream stream)
         {
             try
@@ -108,7 +113,6 @@ namespace Save_PowerPoint_document.Controllers
             }
             return stream;
         }
-
         public IActionResult Privacy()
         {
             return View();

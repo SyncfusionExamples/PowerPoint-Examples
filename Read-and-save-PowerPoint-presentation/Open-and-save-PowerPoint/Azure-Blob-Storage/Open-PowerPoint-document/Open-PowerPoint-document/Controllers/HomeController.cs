@@ -56,9 +56,6 @@ namespace Open_PowerPoint_document.Controllers
                     MemoryStream outputStream = new MemoryStream();
                     pptxDocument.Save(outputStream);
 
-                    //Set the position as '0'
-                    outputStream.Position = 0;
-
                     //Download the PowerPoint file in the browser
                     FileStreamResult fileStreamResult = new FileStreamResult(outputStream, "application/powerpoint");
                     fileStreamResult.FileDownloadName = "EditPowerPoint.pptx";
@@ -72,6 +69,12 @@ namespace Open_PowerPoint_document.Controllers
                 return Content("Error occurred while processing the file.");
             }
         }
+        /// <summary>
+        /// Download file from Azure Blob cloud storage
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public async Task<MemoryStream> GetDocumentFromAzure(string connectionString, string containerName, string blobName)
         {
             try
@@ -94,7 +97,6 @@ namespace Open_PowerPoint_document.Controllers
                 throw; // or handle the exception as needed
             }
         }
-
         public IActionResult Privacy()
         {
             return View();
