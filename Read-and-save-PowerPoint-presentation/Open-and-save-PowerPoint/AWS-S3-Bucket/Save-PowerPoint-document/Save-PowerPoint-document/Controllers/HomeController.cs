@@ -75,7 +75,6 @@ namespace Save_PowerPoint_document.Controllers
             //Saves the PowerPoint document to MemoryStream
             MemoryStream stream = new MemoryStream();
             pptxDocument.Save(stream);
-            stream.Position = 0;
 
             //Your AWS Storage Account bucket name 
             string bucketName = "your-bucket-name";
@@ -88,6 +87,13 @@ namespace Save_PowerPoint_document.Controllers
 
             return Ok("PowerPoint document uploaded to AWS S3 Storage.");
         }
+        /// <summary>
+        /// Upload file to AWS S3 cloud storage
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="key"></param>
+        /// <param name="stream"></param>
+        /// <returns></returns>
         public async Task<MemoryStream> UploadDocumentToS3(string bucketName, string key, MemoryStream stream)
         {
             //Configure AWS credentials and region
@@ -119,7 +125,6 @@ namespace Save_PowerPoint_document.Controllers
             }
             return stream;
         }
-
         public IActionResult Privacy()
         {
             return View();
