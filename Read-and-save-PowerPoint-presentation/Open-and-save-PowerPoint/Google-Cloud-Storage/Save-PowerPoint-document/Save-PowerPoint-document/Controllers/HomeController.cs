@@ -74,23 +74,14 @@ namespace Save_PowerPoint_document.Controllers
             stampShape.Fill.FillType = FillType.None;
             stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmentType.Center;
 
-            //Saves the PowerPoint document to MemoryStream
+            //Saves the PowerPoint to MemoryStream
             MemoryStream stream = new MemoryStream();
-            pptxDocument.Save(stream);
+            pptxDocument.Save(stream);            
 
-            //Your bucket name
-            string bucketName = "Your_bucket_name";
+            //Upload the file to Google
+            await UploadDocumentToGoogle(stream);
 
-            //Your service account key path
-            string keyPath = "Your_service_account_key_path";
-
-            //Name of the file to upload to Google Cloud Storage
-            string fileName = "CreatePowerPoint.pptx";
-
-            //Upload the document to Google
-            await UploadDocumentToGoogle(bucketName, keyPath, fileName, stream);
-
-            return Ok("PowerPoint document uploaded to Google Cloud Storage.");
+            return Ok("PowerPoint uploaded to Google Cloud Storage.");
         }
         /// <summary>
         /// Upload file to Google
@@ -100,10 +91,19 @@ namespace Save_PowerPoint_document.Controllers
         /// <param name="fileName"></param>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> UploadDocumentToGoogle(string bucketName, string keyPath, string fileName, MemoryStream stream)
+        public async Task<MemoryStream> UploadDocumentToGoogle(MemoryStream stream)
         {
             try
             {
+                //Your bucket name
+                string bucketName = "Your_bucket_name";
+
+                //Your service account key path
+                string keyPath = "Your_service_account_key_path";
+
+                //Name of the file to upload to Google Cloud Storage
+                string fileName = "CreatePowerPoint.pptx";
+
                 //Create Google Credential from the service account key file
                 GoogleCredential credential = GoogleCredential.FromFile(keyPath);
 

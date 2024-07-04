@@ -23,17 +23,8 @@ namespace Open_PowerPoint_document.Controllers
         }
         public async Task<IActionResult> EditDocument()
         {
-            //Your bucket name
-            string bucketName = "Your_bucket_name";
-
-            //Your service account key path
-            string keyPath = "Your_service_account_key_path";
-
-            //Name of the file to download from the Google Cloud Storage
-            string fileName = "PowerPointTemplate.pptx";
-
             //Download the file from Google
-            MemoryStream memoryStream = await GetDocumentFromGoogle(bucketName, keyPath, fileName);
+            MemoryStream memoryStream = await GetDocumentFromGoogle();
 
             //Create an instance of PowerPoint Presentation file
             using (IPresentation pptxDocument = Presentation.Open(memoryStream))
@@ -48,7 +39,7 @@ namespace Open_PowerPoint_document.Controllers
                 if (shape.TextBody.Text == "Company History")
                     shape.TextBody.Text = "Company Profile";
 
-                //Saving the PowerPoint document to a MemoryStream 
+                //Saving the PowerPoint to a MemoryStream 
                 MemoryStream outputStream = new MemoryStream();
                 pptxDocument.Save(outputStream);
 
@@ -65,10 +56,19 @@ namespace Open_PowerPoint_document.Controllers
         /// <param name="keyPath"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> GetDocumentFromGoogle(string bucketName, string keyPath, string fileName)
+        public async Task<MemoryStream> GetDocumentFromGoogle()
         {
             try
             {
+                //Your bucket name
+                string bucketName = "Your_bucket_name";
+
+                //Your service account key path
+                string keyPath = "Your_service_account_key_path";
+
+                //Name of the file to download from the Google Cloud Storage
+                string fileName = "PowerPointTemplate.pptx";
+
                 //Create Google Credential from the service account key file
                 GoogleCredential credential = GoogleCredential.FromFile(keyPath);
 
@@ -76,13 +76,11 @@ namespace Open_PowerPoint_document.Controllers
                 StorageClient storageClient = StorageClient.Create(credential);
 
                 //Download a file from Google Cloud Storage
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    await storageClient.DownloadObjectAsync(bucketName, fileName, memoryStream);
-                    memoryStream.Position = 0;
+                MemoryStream memoryStream = new MemoryStream();
+                await storageClient.DownloadObjectAsync(bucketName, fileName, memoryStream);
+                memoryStream.Position = 0;
 
-                    return memoryStream;
-                }
+                return memoryStream;
             }
             catch (Exception ex)
             {

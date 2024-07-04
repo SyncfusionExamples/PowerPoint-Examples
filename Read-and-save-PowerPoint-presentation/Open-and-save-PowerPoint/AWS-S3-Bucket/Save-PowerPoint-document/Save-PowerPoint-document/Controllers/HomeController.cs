@@ -72,20 +72,14 @@ namespace Save_PowerPoint_document.Controllers
             stampShape.Fill.FillType = FillType.None;
             stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmentType.Center;
 
-            //Saves the PowerPoint document to MemoryStream
+            //Saves the PowerPoint to MemoryStream
             MemoryStream stream = new MemoryStream();
-            pptxDocument.Save(stream);
-
-            //Your AWS Storage Account bucket name 
-            string bucketName = "your-bucket-name";
-
-            //Name of the PowerPoint file you want to upload
-            string key = "CreatePowerPoint.pptx";
+            pptxDocument.Save(stream);            
 
             //Upload the document to AWS S3
-            await UploadDocumentToS3(bucketName, key, stream);
+            await UploadDocumentToS3(stream);
 
-            return Ok("PowerPoint document uploaded to AWS S3 Storage.");
+            return Ok("PowerPoint uploaded to AWS S3 Storage.");
         }
         /// <summary>
         /// Upload file to AWS S3 cloud storage
@@ -94,8 +88,14 @@ namespace Save_PowerPoint_document.Controllers
         /// <param name="key"></param>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> UploadDocumentToS3(string bucketName, string key, MemoryStream stream)
+        public async Task<MemoryStream> UploadDocumentToS3(MemoryStream stream)
         {
+            //Your AWS Storage Account bucket name 
+            string bucketName = "your-bucket-name";
+
+            //Name of the PowerPoint file you want to upload
+            string key = "CreatePowerPoint.pptx";
+
             //Configure AWS credentials and region
             var region = Amazon.RegionEndpoint.USEast1;
             var credentials = new Amazon.Runtime.BasicAWSCredentials("your-access-key", "your-secret-key");

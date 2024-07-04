@@ -22,19 +22,10 @@ namespace Open_PowerPoint_document.Controllers
         }
         public async Task<IActionResult> EditDocument()
         {
-            //Your Azure Storage Account connection string
-            string connectionString = "Your_connection_string";
-
-            //Name of the Azure Blob Storage container
-            string containerName = "Your_container_name";
-
-            //Name of the Powerpoint file you want to load
-            string blobName = "PowerPointTemplate.pptx";
-
             try
             {
                 //Retrieve the document from Azure
-                MemoryStream stream = await GetDocumentFromAzure(connectionString, containerName, blobName);
+                MemoryStream stream = await GetDocumentFromAzure();
 
                 //Set the position to the beginning of the MemoryStream
                 stream.Position = 0;
@@ -52,7 +43,7 @@ namespace Open_PowerPoint_document.Controllers
                     if (shape.TextBody.Text == "Company History")
                         shape.TextBody.Text = "Company Profile";
 
-                    //Saving the PowerPoint document to a MemoryStream 
+                    //Saving the PowerPoint file to a MemoryStream 
                     MemoryStream outputStream = new MemoryStream();
                     pptxDocument.Save(outputStream);
 
@@ -75,11 +66,20 @@ namespace Open_PowerPoint_document.Controllers
         /// <param name="bucketName"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> GetDocumentFromAzure(string connectionString, string containerName, string blobName)
+        public async Task<MemoryStream> GetDocumentFromAzure()
         {
             try
             {
-                //Download the PowerPoint document from Azure Blob Storage
+                //Your Azure Storage Account connection string
+                string connectionString = "Your_connection_string";
+
+                //Name of the Azure Blob Storage container
+                string containerName = "Your_container_name";
+
+                //Name of the Powerpoint file you want to load
+                string blobName = "PowerPointTemplate.pptx";
+
+                //Download the PowerPoint from Azure Blob Storage
                 BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
                 BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
                 BlobClient blobClient = containerClient.GetBlobClient(blobName);
