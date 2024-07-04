@@ -83,8 +83,7 @@ namespace Save_PowerPoint_document.Controllers
         /// <summary>
         /// Upload file to Azure Blob cloud storage
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="key"></param>
+        /// <param name="stream"></param>
         /// <returns></returns>
         public async Task<MemoryStream> UploadDocumentToAzure(MemoryStream stream)
         {

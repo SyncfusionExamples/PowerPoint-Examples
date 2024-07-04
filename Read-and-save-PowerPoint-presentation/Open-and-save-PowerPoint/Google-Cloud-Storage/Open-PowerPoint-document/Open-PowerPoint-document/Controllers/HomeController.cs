@@ -52,9 +52,6 @@ namespace Open_PowerPoint_document.Controllers
         /// <summary>
         /// Download file from Google
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="keyPath"></param>
-        /// <param name="fileName"></param>
         /// <returns></returns>
         public async Task<MemoryStream> GetDocumentFromGoogle()
         {
