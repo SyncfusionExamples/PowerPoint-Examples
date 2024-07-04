@@ -52,7 +52,6 @@ namespace Open_PowerPoint_document.Controllers
                     fileStreamResult.FileDownloadName = "EditPowerPoint.pptx";
                     return fileStreamResult;
                 }
-
             }
             catch (Exception ex)
             {
