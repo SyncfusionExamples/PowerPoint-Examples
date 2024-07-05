@@ -21,16 +21,10 @@ namespace Open_PowerPoint_document.Controllers
         }
         public async Task<IActionResult> EditDocument()
         {
-            //Your AWS Storage Account bucket name 
-            string bucketName = "your-bucket-name";
-
-            //Name of the PowerPoint file you want to load from AWS S3
-            string key = "PowerPointTemplate.pptx";
-
             try
             {
                 //Retrieve the document from AWS S3
-                MemoryStream stream = await GetDocumentFromS3(bucketName, key);
+                MemoryStream stream = await GetDocumentFromS3();
 
                 //Set the position to the beginning of the MemoryStream
                 stream.Position = 0;
@@ -48,7 +42,7 @@ namespace Open_PowerPoint_document.Controllers
                     if (shape.TextBody.Text == "Company History")
                         shape.TextBody.Text = "Company Profile";
 
-                    //Saving the PowerPoint document to a MemoryStream 
+                    //Saving the PowerPoint file to a MemoryStream 
                     MemoryStream outputStream = new MemoryStream();
                     pptxDocument.Save(outputStream);
 
@@ -67,11 +61,15 @@ namespace Open_PowerPoint_document.Controllers
         /// <summary>
         /// Download file from AWS S3 cloud storage
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="key"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> GetDocumentFromS3(string bucketName, string key)
+        public async Task<MemoryStream> GetDocumentFromS3()
         {
+            //Your AWS Storage Account bucket name 
+            string bucketName = "your-bucket-name";
+
+            //Name of the PowerPoint file you want to load from AWS S3
+            string key = "PowerPointTemplate.pptx";
+
             //Configure AWS credentials and region
             var region = Amazon.RegionEndpoint.USEast1;
             var credentials = new Amazon.Runtime.BasicAWSCredentials("your-access-key", "your-secret-key");
@@ -98,7 +96,6 @@ namespace Open_PowerPoint_document.Controllers
                     await response.ResponseStream.CopyToAsync(stream);
 
                     return stream;
-
                 }
             }
             catch (Exception ex)

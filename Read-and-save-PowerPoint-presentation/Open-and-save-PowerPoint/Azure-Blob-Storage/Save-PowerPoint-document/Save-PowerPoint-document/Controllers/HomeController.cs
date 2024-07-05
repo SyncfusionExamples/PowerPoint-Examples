@@ -73,33 +73,32 @@ namespace Save_PowerPoint_document.Controllers
 
             //Saves the PowerPoint document to MemoryStream
             MemoryStream stream = new MemoryStream();
-            pptxDocument.Save(stream);
-
-            //Your Azure Storage Account connection string
-            string connectionString = "Your_connection_string";
-
-            //Name of the Azure Blob Storage container
-            string containerName = "Your_container_name";
-
-            //Name of the PowerPoint file you want to load
-            string blobName = "CreatePowerPoint.pptx";
+            pptxDocument.Save(stream);            
 
             //Upload the document to azure
-            await UploadDocumentToAzure(connectionString, containerName, blobName, stream);
+            await UploadDocumentToAzure(stream);
 
-            return Ok("PowerPoint document uploaded to Azure Blob Storage.");
+            return Ok("PowerPoint uploaded to Azure Blob Storage.");
         }
         /// <summary>
         /// Upload file to Azure Blob cloud storage
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="key"></param>
+        /// <param name="stream"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> UploadDocumentToAzure(string connectionString, string containerName, string blobName, MemoryStream stream)
+        public async Task<MemoryStream> UploadDocumentToAzure(MemoryStream stream)
         {
             try
             {
-                //Download the PowerPoint document from Azure Blob Storage
+                //Your Azure Storage Account connection string
+                string connectionString = "Your_connection_string";
+
+                //Name of the Azure Blob Storage container
+                string containerName = "Your_container_name";
+
+                //Name of the PowerPoint file you want to load
+                string blobName = "CreatePowerPoint.pptx";
+
+                //Download the PowerPoint from Azure Blob Storage
                 BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
                 BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
                 BlobClient blobClient = containerClient.GetBlobClient(blobName);
