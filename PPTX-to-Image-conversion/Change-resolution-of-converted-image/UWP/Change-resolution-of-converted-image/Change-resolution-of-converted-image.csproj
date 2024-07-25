@@ -154,7 +154,7 @@
       <Version>6.2.14</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Presentation.UWP">
-      <Version>20.4.0.40</Version>
+      <Version>*</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
