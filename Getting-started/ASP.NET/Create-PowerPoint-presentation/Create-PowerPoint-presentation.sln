@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Create-PowerPoint-presentation", "Create-PowerPoint-presentation\Create-PowerPoint-presentation.csproj", "{AC79D434-17AD-4A6E-A81F-8CA8D4BD7A30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Create-PowerPoint-presentation", "Create-PowerPoint-presentation\Create-PowerPoint-presentation.csproj", "{47319CE1-8F2A-4C77-AB99-C6FCF4F509F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AC79D434-17AD-4A6E-A81F-8CA8D4BD7A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC79D434-17AD-4A6E-A81F-8CA8D4BD7A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC79D434-17AD-4A6E-A81F-8CA8D4BD7A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC79D434-17AD-4A6E-A81F-8CA8D4BD7A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47319CE1-8F2A-4C77-AB99-C6FCF4F509F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47319CE1-8F2A-4C77-AB99-C6FCF4F509F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47319CE1-8F2A-4C77-AB99-C6FCF4F509F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47319CE1-8F2A-4C77-AB99-C6FCF4F509F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F902D010-3E93-4572-B946-51DB13FE2480}
+		SolutionGuid = {AD018A73-DF21-4D19-BE23-8A4CBDB2F2EC}
 	EndGlobalSection
 EndGlobal
