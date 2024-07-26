@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="21b47cd5-8e72-436d-9b4b-010f43cf34c2"
-    Publisher="CN=VenkateshMurugananda"
+    Name="1da9d7f6-5f52-41ba-b826-ff9bf8f51e54"
+    Publisher="CN=KonduruKeerthiKondur"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="21b47cd5-8e72-436d-9b4b-010f43cf34c2" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1da9d7f6-5f52-41ba-b826-ff9bf8f51e54" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Convert-PowerPoint-Presentation-to-Image</DisplayName>
-    <PublisherDisplayName>VenkateshMurugananda</PublisherDisplayName>
+    <PublisherDisplayName>KonduruKeerthiKondur</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
