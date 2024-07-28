@@ -16,14 +16,6 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
         public ActionResult ConvertPPTXtoPDF()
         {
             //Open the file as Stream
@@ -31,7 +23,7 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
             {
                 //Opens a PowerPoint Presentation
                 using (IPresentation pptxDoc = Presentation.Open(pathStream))
-                {     
+                {
                     //Converts the PowerPoint Presentation into PDF document
                     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                     {
@@ -41,9 +33,16 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
                         stream.Position = 0;
                         //Download PDF document in the browser.
                         return File(stream, "application/pdf", "Sample.pdf");
-                    }                    
-                }                   
+                    }
+                }
             }
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
         }
 
         public ActionResult Contact()

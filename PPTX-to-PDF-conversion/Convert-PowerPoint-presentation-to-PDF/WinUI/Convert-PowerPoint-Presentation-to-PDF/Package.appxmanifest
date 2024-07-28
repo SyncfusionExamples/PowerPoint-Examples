@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="d2a24fef-faa2-4224-976d-3d019954513b"
-    Publisher="CN=VenkateshMurugananda"
+    Name="59c7d5a3-350a-4cb5-8da6-62fea00037f7"
+    Publisher="CN=KonduruKeerthiKondur"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="d2a24fef-faa2-4224-976d-3d019954513b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="59c7d5a3-350a-4cb5-8da6-62fea00037f7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Convert-PowerPoint-Presentation-to-PDF</DisplayName>
-    <PublisherDisplayName>VenkateshMurugananda</PublisherDisplayName>
+    <PublisherDisplayName>KonduruKeerthiKondur</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
