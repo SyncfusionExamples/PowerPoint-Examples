@@ -11,7 +11,7 @@ namespace Convert_PowerPoint_Presentation_to_Image
 {
 
 
-    public partial class WebForm1
+    public partial class MainPage
     {
 
         /// <summary>

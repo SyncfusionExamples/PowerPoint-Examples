@@ -11,7 +11,7 @@ namespace Create_PowerPoint_presentation
 {
 
 
-    public partial class WebForm1
+    public partial class MainPage
     {
 
         /// <summary>

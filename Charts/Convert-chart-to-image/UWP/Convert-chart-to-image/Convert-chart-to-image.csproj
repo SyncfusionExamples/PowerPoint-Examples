@@ -154,7 +154,7 @@
       <Version>6.2.14</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core">
-      <Version>24.1.46</Version>
+      <Version>*</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Read-and-edit-PowerPoint-presentation (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Read-and-edit-PowerPoint-presentation (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

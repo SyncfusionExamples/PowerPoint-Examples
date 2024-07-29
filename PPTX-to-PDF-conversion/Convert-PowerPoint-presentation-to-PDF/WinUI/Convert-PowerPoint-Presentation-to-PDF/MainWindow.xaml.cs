@@ -5,7 +5,6 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
-using Syncfusion.Pdf;
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 using System;
@@ -16,7 +15,7 @@ using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Storage.Streams;
+using Syncfusion.Pdf;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -48,7 +47,7 @@ namespace Convert_PowerPoint_Presentation_to_PDF
                     pdfDocument.Save(pdfStream);
                     //Save the stream as a PDF document file in the local machine.
                     SaveHelper.SaveAndLaunch("Sample.pdf", pdfStream);
-                }              
+                }
             }
         }
     }

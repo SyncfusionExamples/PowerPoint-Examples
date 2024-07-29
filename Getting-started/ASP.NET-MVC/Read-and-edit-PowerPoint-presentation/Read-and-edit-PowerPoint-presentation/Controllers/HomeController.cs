@@ -1,5 +1,9 @@
 ﻿using Syncfusion.Presentation;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Read_and_edit_PowerPoint_presentation.Controllers
@@ -8,20 +12,6 @@ namespace Read_and_edit_PowerPoint_presentation.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
         public ActionResult CreatePowerPoint()
@@ -46,6 +36,20 @@ namespace Read_and_edit_PowerPoint_presentation.Controllers
                     return File(pptxStream, "application/powerpoint", "Result.pptx");
                 }
             }
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
         }
     }
 }

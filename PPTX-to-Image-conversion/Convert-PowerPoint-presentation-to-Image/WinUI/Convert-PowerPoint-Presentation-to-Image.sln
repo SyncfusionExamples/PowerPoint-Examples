@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.7.34031.279
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-PowerPoint-Presentation-to-Image", "Convert-PowerPoint-Presentation-to-Image\Convert-PowerPoint-Presentation-to-Image.csproj", "{9B6176B5-051E-4825-8DAB-79BDF09A3993}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-PowerPoint-Presentation-to-Image", "Convert-PowerPoint-Presentation-to-Image\Convert-PowerPoint-Presentation-to-Image.csproj", "{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,29 +15,29 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|ARM64.Build.0 = Debug|ARM64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|ARM64.Deploy.0 = Debug|ARM64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|x64.ActiveCfg = Debug|x64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|x64.Build.0 = Debug|x64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|x64.Deploy.0 = Debug|x64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|x86.ActiveCfg = Debug|x86
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|x86.Build.0 = Debug|x86
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Debug|x86.Deploy.0 = Debug|x86
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|ARM64.ActiveCfg = Release|ARM64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|ARM64.Build.0 = Release|ARM64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|ARM64.Deploy.0 = Release|ARM64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|x64.ActiveCfg = Release|x64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|x64.Build.0 = Release|x64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|x64.Deploy.0 = Release|x64
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|x86.ActiveCfg = Release|x86
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|x86.Build.0 = Release|x86
-		{9B6176B5-051E-4825-8DAB-79BDF09A3993}.Release|x86.Deploy.0 = Release|x86
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|ARM64.Build.0 = Debug|ARM64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|x64.ActiveCfg = Debug|x64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|x64.Build.0 = Debug|x64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|x64.Deploy.0 = Debug|x64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|x86.ActiveCfg = Debug|x86
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|x86.Build.0 = Debug|x86
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Debug|x86.Deploy.0 = Debug|x86
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|ARM64.ActiveCfg = Release|ARM64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|ARM64.Build.0 = Release|ARM64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|ARM64.Deploy.0 = Release|ARM64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|x64.ActiveCfg = Release|x64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|x64.Build.0 = Release|x64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|x64.Deploy.0 = Release|x64
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|x86.ActiveCfg = Release|x86
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|x86.Build.0 = Release|x86
+		{D272C8EB-8693-4AD9-AD4A-52B5440A96B5}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0466E1C0-D28D-4A54-B628-D210558E1C5A}
+		SolutionGuid = {0AF1C77B-49EE-4B04-B9FE-C422C5EDE7D8}
 	EndGlobalSection
 EndGlobal
