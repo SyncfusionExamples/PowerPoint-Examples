@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34205.153
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Set-SlideSize-to-destination-slides", "Set-SlideSize-to-destination-slides\Set-SlideSize-to-destination-slides.csproj", "{7D350B0E-6310-4CC9-8D9B-6C520B51AD6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D350B0E-6310-4CC9-8D9B-6C520B51AD6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D350B0E-6310-4CC9-8D9B-6C520B51AD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D350B0E-6310-4CC9-8D9B-6C520B51AD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D350B0E-6310-4CC9-8D9B-6C520B51AD6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C47C15A-D676-45F3-BC37-A33C3AE3B398}
+	EndGlobalSection
+EndGlobal
