@@ -19,5 +19,9 @@ chart.Elevation = 90;
 chart.SideWall.Shadow.Angle = 60;
 //Sets the back wall border weight
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow;
+//Set the right angle axes property of the chart
+chart.RightAngleAxes = true;
+//Set the auto scaling of chart
+chart.AutoScaling = true;
 using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
