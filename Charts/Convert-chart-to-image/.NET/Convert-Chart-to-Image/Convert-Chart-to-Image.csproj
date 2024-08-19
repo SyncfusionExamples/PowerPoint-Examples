@@ -10,4 +10,16 @@
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\ChartToImage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Sample.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Output\gitkeep.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

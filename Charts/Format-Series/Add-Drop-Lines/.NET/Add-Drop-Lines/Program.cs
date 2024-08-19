@@ -10,7 +10,7 @@ namespace Add_Drop_Lines
     {
         static void Main(string[] args)
         {
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
             //Open an existing PowerPoint Presentation.
             using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
@@ -28,7 +28,7 @@ namespace Add_Drop_Lines
                 chart.Series[0].SerieFormat.CommonSerieOptions.DropLines.LinePattern = OfficeChartLinePattern.Dot;
                 chart.Series[0].SerieFormat.CommonSerieOptions.DropLines.LineWeight = OfficeChartLineWeight.Hairline;
 
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     //Save the PowerPoint Presentation.
                     pptxDoc.Save(outputStream);

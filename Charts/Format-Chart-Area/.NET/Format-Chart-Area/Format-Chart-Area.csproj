@@ -11,4 +11,13 @@
   <ItemGroup>
     <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="*" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\Template.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Output\gitkeep.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

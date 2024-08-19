@@ -16,7 +16,7 @@ namespace Change_the_slice_color_of_pie_chart
             //Add pie chart
             CreatePieChart(slide);
             //Save the output PowerPoint Presentation
-            using FileStream outputStream = new(Path.GetFullPath("Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
+            using FileStream outputStream = new(Path.GetFullPath("Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
             pptxDoc.Save(outputStream);
         }
         /// <summary>
