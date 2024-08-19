@@ -12,5 +12,5 @@ ISequence sequence = slide.Timeline.MainSequence;
 IEffect effect = sequence.AddEffect(cubeShape, EffectType.RandomBars, EffectSubtype.None, EffectTriggerType.OnClick);
 //Change the preset class type of the effect from default entrance to exit.
 effect.PresetClassType = EffectPresetClassType.Exit;
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
