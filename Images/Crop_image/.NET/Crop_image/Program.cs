@@ -1,7 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
 //Open an existing PowerPoint Presentation.
-using FileStream inputStream = new FileStream(@"../../../Data/Sample.pptx", FileMode.Open, FileAccess.Read);
+using FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Sample.pptx"), FileMode.Open, FileAccess.Read);
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 
 //Retrieve the first slide from the Presentation.
@@ -22,5 +22,5 @@ picture.Crop.OffsetX = 329.04f;
 picture.Crop.OffsetY = -9.36f;
 
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new FileStream("Output.pptx", FileMode.Create);
+using FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create);
 pptxDoc.Save(outputStream);
