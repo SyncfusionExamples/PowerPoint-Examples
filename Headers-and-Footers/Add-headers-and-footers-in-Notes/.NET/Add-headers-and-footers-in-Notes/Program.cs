@@ -19,5 +19,5 @@ notesSlide.HeadersFooters.Footer.Visible = true;
 //Set the text to be added to the Footer of the Notes slide.
 notesSlide.HeadersFooters.Footer.Text = "Notes slide Footer";
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
