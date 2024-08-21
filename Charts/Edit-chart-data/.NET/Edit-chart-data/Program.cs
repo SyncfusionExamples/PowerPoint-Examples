@@ -1,7 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
 //Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Get the first slide.
@@ -21,5 +21,5 @@ chart.ChartData.SetValue(2, 3, 70);
 chart.ChartData.SetValue(2, 4, 80);
 //Refresh the chart.
 chart.Refresh(); 
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

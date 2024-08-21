@@ -49,5 +49,5 @@ seriesMarch.Values = chart.ChartData[2, 4, 4, 4];
 chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 4, 1];
 //Specify the chart type.
 chart.ChartType = OfficeChartType.Column_Clustered;
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

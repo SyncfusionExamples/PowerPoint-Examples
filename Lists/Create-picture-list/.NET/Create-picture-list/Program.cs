@@ -8,7 +8,7 @@ ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 IShape textBoxShape = slide.AddTextBox(65, 140, 410, 270);
 
 //Get a picture as stream.
-using FileStream pictureStream = new(@"../../../Data/Image.jpg", FileMode.Open);
+using FileStream pictureStream = new(Path.GetFullPath(@"Data/Image.jpg"), FileMode.Open);
 //Add a new paragraph with the text in the left hand side textbox.
 IParagraph paragraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 //Set the list type as Numbered.
@@ -35,5 +35,5 @@ paragraph.IndentLevelNumber = 1;
 //Set the hanging value.
 paragraph.FirstLineIndent = -20;
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

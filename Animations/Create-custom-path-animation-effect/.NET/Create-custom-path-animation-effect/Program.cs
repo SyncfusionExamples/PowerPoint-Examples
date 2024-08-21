@@ -22,5 +22,5 @@ points[0] = new PointF(0, 0.25f);
 motionBehavior.Path.Add(MotionCommandPathType.LineTo, points, MotionPathPointsType.Auto, false);
 //Add the end command to finish the path animation.
 motionBehavior.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
