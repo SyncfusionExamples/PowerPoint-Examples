@@ -9,5 +9,5 @@ IShape shape = layoutSlide.Shapes.AddShape(AutoShapeType.Diamond, 30, 20, 400, 3
 //Change the background color for LayoutSlide.
 layoutSlide.Background.Fill.SolidFill.Color = ColorObject.FromArgb(78, 89, 90);
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
