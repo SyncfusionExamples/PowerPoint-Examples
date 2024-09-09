@@ -9,7 +9,7 @@ namespace Fallback_fonts_based_on_scripttype
         static void Main(string[] args)
         {
             //Load the PowerPoint presentation into stream.
-            using FileStream fileStreamInput = new FileStream(@"../../../Data/Template.pptx", FileMode.Open, FileAccess.Read);
+            using FileStream fileStreamInput = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read);
             //Open the existing PowerPoint presentation with loaded stream.
             using IPresentation pptxDoc = Presentation.Open(fileStreamInput);
             //Adds fallback font for "Arabic" script type.
@@ -34,7 +34,7 @@ namespace Fallback_fonts_based_on_scripttype
             pdfDocument.Save(pdfStream);
             pdfStream.Position = 0;
             //Create the output PDF file stream.
-            using FileStream fileStreamOutput = File.Create(@"../../../PPTXToPDF.pdf");
+            using FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/PPTXToPDF.pdf"));
             //Copy the converted PDF stream into created output PDF stream.
             pdfStream.CopyTo(fileStreamOutput);
         }

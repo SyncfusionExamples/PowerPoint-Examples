@@ -1,7 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
 //Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Retrieve the first slide from Presentation.
@@ -13,5 +13,5 @@ IParagraph paragraph = shape.TextBody.Paragraphs[0];
 //Remove the first paragraph from the textbody of the shape.
 shape.TextBody.Paragraphs.Remove(paragraph);
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

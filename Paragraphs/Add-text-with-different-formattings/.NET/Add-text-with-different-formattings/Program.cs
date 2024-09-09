@@ -31,5 +31,5 @@ IFont font2 = textPartFormatting2.Font;
 font2.Color.SystemColor = Color.Blue;
 //Set the underline type.
 font2.Underline = TextUnderlineType.WavyDouble;
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

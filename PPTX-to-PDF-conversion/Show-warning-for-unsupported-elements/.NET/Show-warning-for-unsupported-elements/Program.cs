@@ -3,7 +3,7 @@ using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 //Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Instantiation of PresentationToPdfConverterSettings.
@@ -18,7 +18,7 @@ using PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, sett
 if (!PresentationToPdfConverter.IsCanceled)
 {
     //Save the PDF file.
-    using FileStream outputStream = new("../../../PPTXToPDF.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+    using FileStream outputStream = new(Path.GetFullPath(@"Output/PPTXToPDF.pdf"), FileMode.OpenOrCreate, FileAccess.ReadWrite);
     pdfDocument.Save(outputStream);
     outputStream.Position = 0;
 }

@@ -12,5 +12,23 @@
     <PackageReference Include="Syncfusion.Presentation.NET" Version="*" />
     <PackageReference Include="Syncfusion.PresentationRenderer.NET" Version="*" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="Data\BROADW.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+	<None Update="Data\cambriab.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+	<None Update="Data\COOPBL.TTF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+	<None Update="Data\Template.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Output\.gitkeep">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
