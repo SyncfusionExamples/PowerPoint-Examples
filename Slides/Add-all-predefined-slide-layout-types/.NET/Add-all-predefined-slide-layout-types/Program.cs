@@ -26,5 +26,5 @@ ISlide slide10 = pptxDoc.Slides.Add(SlideLayoutType.TwoContent);
 //Add a slide of VerticalTitleAndText type.
 ISlide slide11 = pptxDoc.Slides.Add(SlideLayoutType.VerticalTitleAndText);
 
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

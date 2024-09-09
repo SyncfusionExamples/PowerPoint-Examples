@@ -11,5 +11,15 @@
   <ItemGroup>
     <PackageReference Include="Syncfusion.Presentation.NET" Version="*" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Update="Data\SourcePresentation.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+	<None Update="Data\DestinationPresentation.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Output\.gitkeep">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
