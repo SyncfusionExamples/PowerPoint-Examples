@@ -130,7 +130,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\Image.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -155,7 +154,7 @@
       <Version>6.2.14</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Presentation.UWP">
-      <Version>20.4.0.40</Version>
+      <Version>*</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

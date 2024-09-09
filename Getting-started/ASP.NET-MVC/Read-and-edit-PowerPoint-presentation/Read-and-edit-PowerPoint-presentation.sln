@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33110.190
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Read-and-edit-PowerPoint-presentation", "Read-and-edit-PowerPoint-presentation\Read-and-edit-PowerPoint-presentation.csproj", "{0B2C50FD-30E9-4C7F-978E-F747CCE4F849}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Read-and-edit-PowerPoint-presentation", "Read-and-edit-PowerPoint-presentation\Read-and-edit-PowerPoint-presentation.csproj", "{A2A8E549-5AA2-46D8-B9B8-D899FF62AA01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0B2C50FD-30E9-4C7F-978E-F747CCE4F849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B2C50FD-30E9-4C7F-978E-F747CCE4F849}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B2C50FD-30E9-4C7F-978E-F747CCE4F849}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B2C50FD-30E9-4C7F-978E-F747CCE4F849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2A8E549-5AA2-46D8-B9B8-D899FF62AA01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2A8E549-5AA2-46D8-B9B8-D899FF62AA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2A8E549-5AA2-46D8-B9B8-D899FF62AA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2A8E549-5AA2-46D8-B9B8-D899FF62AA01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {39C08ED3-BE59-4195-8F37-B0C32321A38F}
+		SolutionGuid = {AC677998-0DE5-4C99-B003-45718E04EA08}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="Create_PowerPoint_presentation.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="Create_PowerPoint_presentation.MainPage" %>
 
 <!DOCTYPE html>
 
@@ -9,8 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-       <asp:Button ID="Button1" runat="server" Text="Create PowerPoint Presentation" OnClick="OnButtonClicked" />
-       </div>
+            <asp:Button ID="Button1" runat="server" Text="Create PowerPoint Presentation" OnClick="OnButtonClicked" />
+        </div>
     </form>
 </body>
 </html>

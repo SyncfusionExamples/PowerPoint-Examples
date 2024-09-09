@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.3.32901.215
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-PPTX-to-Image", "Convert-PPTX-to-Image\Convert-PPTX-to-Image.csproj", "{A791F58B-AE7E-44D6-A216-BE18DD9973C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-PPTX-to-Image", "Convert-PPTX-to-Image\Convert-PPTX-to-Image.csproj", "{49FC3E46-F6C2-4C67-A86B-938E1A0CFDAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A791F58B-AE7E-44D6-A216-BE18DD9973C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A791F58B-AE7E-44D6-A216-BE18DD9973C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A791F58B-AE7E-44D6-A216-BE18DD9973C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A791F58B-AE7E-44D6-A216-BE18DD9973C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49FC3E46-F6C2-4C67-A86B-938E1A0CFDAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49FC3E46-F6C2-4C67-A86B-938E1A0CFDAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49FC3E46-F6C2-4C67-A86B-938E1A0CFDAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49FC3E46-F6C2-4C67-A86B-938E1A0CFDAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {348522B5-8050-4BEF-9954-8F149F6B3292}
+		SolutionGuid = {E2B80963-DAC5-4789-9560-79EDC23CA7F7}
 	EndGlobalSection
 EndGlobal

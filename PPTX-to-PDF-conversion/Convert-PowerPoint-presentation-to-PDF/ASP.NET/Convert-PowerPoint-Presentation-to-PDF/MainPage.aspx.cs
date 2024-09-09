@@ -1,23 +1,24 @@
-﻿using System;
-using System.Web;
-
-using System.IO;
-
-using System.Web.Configuration;
+﻿using Syncfusion.Pdf;
 using Syncfusion.Presentation;
-using Syncfusion.Pdf;
-using Syncfusion.PresentationRenderer;
+using Syncfusion.PresentationToPdfConverter;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Convert_PowerPoint_Presentation_to_PDF
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class MainPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
         protected void OnButtonClicked(object sender, EventArgs e)
-        {           
+        {
             string filePath = Server.MapPath("~/App_Data/Input.pptx");
             //Open the existing PowerPoint presentation.
             using (IPresentation pptxDoc = Presentation.Open(filePath))
@@ -39,7 +40,7 @@ namespace Convert_PowerPoint_Presentation_to_PDF
                         pdfStream.CopyTo(fileStreamOutput);
                     }
                 }
-            }           
+            }
         }
     }
 }

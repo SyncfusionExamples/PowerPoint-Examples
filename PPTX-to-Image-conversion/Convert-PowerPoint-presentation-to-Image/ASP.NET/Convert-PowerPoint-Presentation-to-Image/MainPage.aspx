@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="Convert_PowerPoint_Presentation_to_Image.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="Convert_PowerPoint_Presentation_to_Image.MainPage" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-             <asp:Button ID="Button1" runat="server" Text="Convert PPTX to Image" OnClick="OnButtonClicked" />
+            <asp:Button ID="Button1" runat="server" Text="Convert PPTX to Image" OnClick="OnButtonClicked" />
         </div>
     </form>
 </body>

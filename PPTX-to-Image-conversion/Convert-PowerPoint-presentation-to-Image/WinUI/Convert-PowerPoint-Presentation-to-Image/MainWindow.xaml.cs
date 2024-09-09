@@ -5,15 +5,14 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Syncfusion.Presentation;
+using Syncfusion.PresentationRenderer;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Data.Pdf;
-using Syncfusion.Presentation;
-using Syncfusion.PresentationRenderer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 

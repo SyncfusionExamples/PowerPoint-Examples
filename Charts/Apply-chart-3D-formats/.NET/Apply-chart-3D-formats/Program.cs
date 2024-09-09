@@ -2,7 +2,7 @@
 using Syncfusion.Presentation;
 
 //Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Gets the first slide
@@ -19,5 +19,9 @@ chart.Elevation = 90;
 chart.SideWall.Shadow.Angle = 60;
 //Sets the back wall border weight
 chart.BackWall.Border.LineWeight = OfficeChartLineWeight.Narrow;
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+//Set the right angle axes property of the chart
+chart.RightAngleAxes = true;
+//Set the auto scaling of chart
+chart.AutoScaling = true;
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

@@ -9,11 +9,11 @@ using System.Web.UI.WebControls;
 
 namespace Create_PowerPoint_presentation
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class MainPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
         protected void OnButtonClicked(object sender, EventArgs e)
         {

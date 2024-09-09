@@ -1,11 +1,12 @@
-﻿namespace ReadPowerPoint;
-
-public partial class App : Application
+﻿namespace Read_and_edit_presentation
 {
-	public App()
-	{
-		InitializeComponent();
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
 
-		MainPage = new MainPage();
-	}
+            MainPage = new AppShell();
+        }
+    }
 }

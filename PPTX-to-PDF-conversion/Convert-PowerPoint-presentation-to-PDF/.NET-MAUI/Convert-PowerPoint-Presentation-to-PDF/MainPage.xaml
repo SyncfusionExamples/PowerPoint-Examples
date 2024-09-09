@@ -5,14 +5,14 @@
 
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
-            Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+        Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button 
-                Text="Convert PPTX to PDF"
-                FontAttributes="Bold"
-                Grid.Row="0"
-                SemanticProperties.Hint="Convert PPTX to PDF"
-                Clicked="ConvertPPTXtoPDF"
-                HorizontalOptions="Center" />
+            Text="Convert PPTX to PDF"
+            FontAttributes="Bold"
+            Grid.Row="0"
+            SemanticProperties.Hint="Convert PPTX to PDF"
+            Clicked="ConvertPPTXtoPDF"
+            HorizontalOptions="Center" />
         </Grid>
     </ScrollView>
 

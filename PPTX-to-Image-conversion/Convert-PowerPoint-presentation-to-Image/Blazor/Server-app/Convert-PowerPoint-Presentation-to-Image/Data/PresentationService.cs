@@ -7,7 +7,7 @@ namespace Convert_PowerPoint_Presentation_to_Image.Data
 {
     public class PresentationService
     {
-        public MemoryStream ConvertPPTXtoImage()
+        public MemoryStream ConvertPPTXToImage()
         {
             //Open the file as Stream.
             using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.pptx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))

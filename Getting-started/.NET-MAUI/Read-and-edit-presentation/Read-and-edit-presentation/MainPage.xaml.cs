@@ -1,19 +1,18 @@
-﻿using System;
-using System.IO;
+﻿using Syncfusion.Presentation;
 using System.Reflection;
-using Microsoft.Maui.Controls;
 using ReadPowerPoint.Services;
-using Syncfusion.Presentation;
 
-namespace ReadPowerPoint
+namespace Read_and_edit_presentation
 {
     public partial class MainPage : ContentPage
     {
+        int count = 0;
+
         public MainPage()
         {
             InitializeComponent();
         }
-        
+
         /// <summary>
         /// Read and edit a PowerPoint file.
         /// </summary>
@@ -21,7 +20,7 @@ namespace ReadPowerPoint
         {
             Assembly assembly = typeof(MainPage).GetTypeInfo().Assembly;
             //Opens an existing PowerPoint presentation.
-            using IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("ReadAndEditPowerPoint.Resources.Presentation.Sample.pptx"));
+            using IPresentation pptxDoc = Presentation.Open(assembly.GetManifestResourceStream("Read_and_edit_presentation.Resources.Presentation.Sample.pptx"));
 
             //Gets the first slide from the PowerPoint presentation.
             ISlide slide = pptxDoc.Slides[0];
@@ -42,5 +41,4 @@ namespace ReadPowerPoint
         }
     }
 
-    
 }

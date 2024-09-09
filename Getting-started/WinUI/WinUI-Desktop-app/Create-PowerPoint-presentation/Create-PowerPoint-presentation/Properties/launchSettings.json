@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Create-PowerPoint-presentation (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Create-PowerPoint-presentation (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

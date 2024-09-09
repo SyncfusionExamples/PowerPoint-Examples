@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Syncfusion.Presentation;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Syncfusion.Presentation;
 using System.Drawing;
 using System.Drawing.Imaging;
 
@@ -45,6 +44,7 @@ namespace Convert_PowerPoint_Presentation_to_Image.Controllers
                 image.Save(response.OutputStream, imageFormat);
             Response.End();
         }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
