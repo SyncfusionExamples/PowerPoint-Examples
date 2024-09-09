@@ -37,11 +37,11 @@ paragraph.ListFormat.Type = ListType.Bulleted;
 paragraph.IndentLevelNumber = 2;
 
 //Get a picture as stream.
-using FileStream pictureStream = new(@"../../../Data/Image.jpg", FileMode.Open);
+using FileStream pictureStream = new(@"Data/Image.jpg", FileMode.Open);
 //Get the image from file path.
 Image image = Image.FromStream(pictureStream);
 // Add the image to the slide by specifying position and size.
 firstSlide.Pictures.AddPicture(new MemoryStream(image.ImageData), 300, 270, 410, 250);
 
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

@@ -8,7 +8,7 @@ namespace Add_font_substitution
         static void Main()
         {
             //Load the PowerPoint presentation and convert to image
-            using (IPresentation pptxDoc = Presentation.Open(@"../../../Data/Template.pptx"))
+            using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
             {
                 //Initialize the PresentationRenderer to perform image conversion.
                 pptxDoc.PresentationRenderer = new PresentationRenderer();
@@ -18,7 +18,7 @@ namespace Add_font_substitution
                 using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
                 {
                     //Create the output image file stream
-                    using (FileStream fileStreamOutput = File.Create("Output.jpg"))
+                    using (FileStream fileStreamOutput = File.Create("Output/Output.jpg"))
                     {
                         //Copy the converted image stream into created output stream
                         stream.CopyTo(fileStreamOutput);

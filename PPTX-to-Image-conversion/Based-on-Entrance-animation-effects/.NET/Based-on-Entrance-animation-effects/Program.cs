@@ -15,7 +15,7 @@ namespace Based_on_Entrance_animation_effects
         static void Main(string[] args)
         {
             //Opens a PowerPoint Presentation
-            IPresentation pptxDoc = Presentation.Open(@"../../../Data/AnimationConverter.pptx");
+            IPresentation pptxDoc = Presentation.Open(@"Data/AnimationConverter.pptx");
 
             //Initialize the PresentationAnimationConverter to perform slide to image conversion based on animation order.
             using (PresentationAnimationConverter animationConverter = new PresentationAnimationConverter())
@@ -34,7 +34,7 @@ namespace Based_on_Entrance_animation_effects
                         stream.Position = 0;
 
                         //Create the output image file stream.
-                        using (FileStream fileStreamOutput = File.Create(@"../../../Output" + i + ".png"))
+                        using (FileStream fileStreamOutput = File.Create(@"Output/Output" + i + ".png"))
                         {
                             //Copy the converted image stream into created output stream.
                             stream.CopyTo(fileStreamOutput);
