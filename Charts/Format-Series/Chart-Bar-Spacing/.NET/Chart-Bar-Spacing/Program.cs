@@ -9,7 +9,7 @@ namespace Chart_Bar_Spacing
     {
         static void Main(string[] args)
         {
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
             //Open an existing PowerPoint Presentation.
             using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
@@ -25,7 +25,7 @@ namespace Chart_Bar_Spacing
                 //Adding space between bars of different categories.
                 chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 100;
 
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     //Save the PowerPoint Presentation.
                     pptxDoc.Save(outputStream);

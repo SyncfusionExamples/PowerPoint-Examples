@@ -37,7 +37,7 @@ seriesC.SerieFormat.ShowMeanMarkers = true;
 seriesC.SerieFormat.ShowMeanLine = false;
 seriesC.SerieFormat.QuartileCalculationType = QuartileCalculation.ExclusiveMedian;
 
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream); 
 
 /// <summary>

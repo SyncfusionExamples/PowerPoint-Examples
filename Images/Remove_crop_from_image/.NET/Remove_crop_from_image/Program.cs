@@ -2,7 +2,7 @@
 using SkiaSharp;
 
 //Open an existing PowerPoint Presentation.
-using FileStream inputStream = new FileStream(Path.GetFullPath(@"../../../Data/Sample.pptx"), FileMode.Open, FileAccess.Read);
+using FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Sample.pptx"), FileMode.Open, FileAccess.Read);
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Retrieve the first slide from the Presentation.
 ISlide slide = pptxDoc.Slides[0];
@@ -18,7 +18,7 @@ picture.Crop.ContainerHeight = PixelToPoint(bitmap.Height);
 picture.Crop.OffsetX = 0;
 picture.Crop.OffsetY = 0;
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Output.pptx"), FileMode.Create);
+using FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create);
 pptxDoc.Save(outputStream);
 
 
