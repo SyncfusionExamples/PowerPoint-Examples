@@ -5,7 +5,7 @@ using System.IO;
 
 
 //Open an existing PowerPoint Presentation.
-using FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Sample.pptx"), FileMode.Open, FileAccess.Read);
+using FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Sample.pptx"), FileMode.Open, FileAccess.Read);
 using IPresentation presentation = Presentation.Open(fileStream);
 //Get the first slide.
 ISlide slide = presentation.Slides[0];
@@ -14,7 +14,7 @@ IPicture picture = slide.Pictures[0];
 //Get cropped image stream.
 using MemoryStream stream = GetCroppedPictureData(new MemoryStream(picture.ImageData), picture.Crop);
 //Save the image as stream.
-using FileStream fileStreamOutput = new FileStream(Path.GetFullPath(@"../../../Output.png"), FileMode.Create);
+using FileStream fileStreamOutput = new FileStream(Path.GetFullPath(@"Output/Output.png"), FileMode.Create);
 stream.CopyTo(fileStreamOutput);
 
 // Get the cropped picture data stream.

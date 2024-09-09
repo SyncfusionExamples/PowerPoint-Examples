@@ -12,7 +12,7 @@ IPresentationChart pieChart = CreatePieChart(slide);
 //Initialize the PresentationRenderer
 pptxDoc.PresentationRenderer = new PresentationRenderer();
 // Converts the chart to image.
-Stream image = new FileStream("../../../ChartToImage.jpg", FileMode.Create, FileAccess.ReadWrite);
+Stream image = new FileStream(Path.GetFullPath(@"Output/Output.jpg"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.PresentationRenderer.ConvertToImage(pieChart, image);
 //Closes the presentation
 pptxDoc.Close();

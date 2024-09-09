@@ -35,5 +35,5 @@ chart.PrimaryValueAxis.Title = "Number of students";
 chart.PrimaryCategoryAxis.Title = "Height";
 //Hiding the legend.
 chart.HasLegend = false;
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

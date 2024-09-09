@@ -51,5 +51,5 @@ paragraph.ListFormat.NumberStyle = NumberedListStyle.ArabicPeriod;
 paragraph.IndentLevelNumber = 1;
 //Set the hanging value.
 paragraph.FirstLineIndent = -20;
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

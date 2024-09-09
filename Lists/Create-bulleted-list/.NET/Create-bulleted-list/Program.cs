@@ -51,5 +51,5 @@ paragraph.IndentLevelNumber = 1;
 paragraph.ListFormat.FontName = "Symbol";
 //Set the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
 paragraph.ListFormat.Size = 100;
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

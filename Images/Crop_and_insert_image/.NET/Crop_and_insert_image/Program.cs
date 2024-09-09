@@ -5,7 +5,7 @@ using IPresentation pptxDoc = Presentation.Create();
 //Add a blank slide.
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 //Get a picture as stream.
-using FileStream pictureStream = new FileStream(Path.GetFullPath(@"../../../Data/Image.png"), FileMode.Open);
+using FileStream pictureStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open);
 //Add the picture to a slide by specifying its size and position.
 IPicture picture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250);
 
@@ -22,5 +22,5 @@ picture.Crop.OffsetX = 329.04f;
 picture.Crop.OffsetY = -9.36f;
 
 //Save the PowerPoint Presentation.
-using FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Output.pptx"), FileMode.Create);
+using FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create);
 pptxDoc.Save(outputStream);

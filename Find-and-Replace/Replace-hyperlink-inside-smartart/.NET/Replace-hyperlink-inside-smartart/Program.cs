@@ -1,6 +1,6 @@
 ﻿using Syncfusion.Presentation;
 
-FileStream stream = new FileStream("../../../Data/Input.pptx", FileMode.Open, FileAccess.Read);
+FileStream stream = new FileStream(Path.GetFullPath(@"Data/Input.pptx"), FileMode.Open, FileAccess.Read);
 IPresentation pptxDoc = Presentation.Open(stream);
 //Hyperlinks to find
 string findText1 = "www.xyz.com";
@@ -13,7 +13,7 @@ ReplaceHyperlink(slide, findText1);
 ReplaceHyperlink(slide, findText2);
 ReplaceHyperlink(slide, findText3);
 //Save the output
-FileStream output = new FileStream("../../../Data/Output.pptx", FileMode.Create, FileAccess.Write);
+FileStream output = new FileStream(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.Write);
 pptxDoc.Save(output);
 pptxDoc.Close();
 

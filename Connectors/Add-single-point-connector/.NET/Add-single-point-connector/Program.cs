@@ -18,5 +18,5 @@ connector.LineFormat.Fill.FillType = FillType.Solid;
 //Set the connector solid fill as black.
 connector.LineFormat.Fill.SolidFill.Color = ColorObject.Black;
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
