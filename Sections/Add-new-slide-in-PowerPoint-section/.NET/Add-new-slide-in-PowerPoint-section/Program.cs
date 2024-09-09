@@ -11,5 +11,5 @@ ISlide slide = section.AddSlide(SlideLayoutType.Blank);
 //Add a text box to the slide.
 slide.AddTextBox(10, 10, 150, 100).TextBody.AddParagraph("Slide in SectionDemo");
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
