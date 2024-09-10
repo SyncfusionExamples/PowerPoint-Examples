@@ -22,7 +22,7 @@ namespace Create_PowerPoint_presentation
                     foreach (Stream stream in images)
                     {
                         //Create the output image file stream
-                        using (FileStream fileStreamOutput = File.Create("Output/Output" + Guid.NewGuid().ToString() + ".jpg"))
+                        using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output" + Guid.NewGuid().ToString() + ".jpg")))
                         {
                             //Copy the converted image stream into created output stream
                             stream.CopyTo(fileStreamOutput);
