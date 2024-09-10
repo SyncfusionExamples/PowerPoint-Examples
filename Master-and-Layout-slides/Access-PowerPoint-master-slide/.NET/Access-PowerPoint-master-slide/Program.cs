@@ -7,5 +7,5 @@ IMasterSlide masterSlide = pptxDoc.Masters[0];
 //Get the first shape name from the master slide.
 string shapeName = masterSlide.Shapes[0].ShapeName;
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
