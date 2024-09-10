@@ -9,7 +9,7 @@ namespace Create_PowerPoint_presentation
         static void Main(string[] args)
         {
             //Open the file as Stream.
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read))
             {
                 //Open the existing PowerPoint presentation.
                 using (IPresentation pptxDoc = Presentation.Open(fileStream))
@@ -22,7 +22,7 @@ namespace Create_PowerPoint_presentation
                     foreach (Stream stream in images)
                     {
                         //Create the output image file stream
-                        using (FileStream fileStreamOutput = File.Create("Output" + Guid.NewGuid().ToString() + ".jpg"))
+                        using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output" + Guid.NewGuid().ToString() + ".jpg")))
                         {
                             //Copy the converted image stream into created output stream
                             stream.CopyTo(fileStreamOutput);
