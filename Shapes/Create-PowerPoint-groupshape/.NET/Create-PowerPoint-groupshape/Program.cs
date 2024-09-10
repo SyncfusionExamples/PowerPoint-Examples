@@ -9,7 +9,7 @@ IGroupShape groupShape = slide.GroupShapes.AddGroupShape(20, 20, 450, 300);
 //Add a TextBox to the group shape.
 groupShape.Shapes.AddTextBox(30, 25, 100, 100).TextBody.AddParagraph("My TextBox");
 //Get a picture as stream.
-using FileStream pictureStream = new FileStream(@"Data/Image.jpg", FileMode.Open);
+using FileStream pictureStream = new FileStream(Path.GetFullPath(@"Data/Image.jpg"), FileMode.Open);
 //Add a picture to the group shape.
 groupShape.Shapes.AddPicture(pictureStream, 40, 100, 100, 100);
 //Add a shape to the group shape.
