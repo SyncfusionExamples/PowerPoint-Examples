@@ -13,5 +13,5 @@ ISolidFill solidFill = background.Fill.SolidFill;
 //Set the color for solid fill object.
 solidFill.Color = ColorObject.Green; 
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

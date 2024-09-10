@@ -8,5 +8,5 @@ ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 INotesSlide notesSlide = slide.AddNotesSlide();
 //Add text content into the Notes Slide.
 notesSlide.NotesTextBody.AddParagraph("Notes content");
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
