@@ -11,5 +11,5 @@ slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
 //Set the transition effect options.
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Across;
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
