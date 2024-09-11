@@ -16,5 +16,5 @@ textPart.Text = "Adventure Works Cycles";
 //Set a language as "Spanish (Argentina)" for TextPart.
 textPart.Font.LanguageID = (short)LocaleIDs.es_AR;
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

@@ -1,7 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
 //Load or open an PowerPoint Presentation
-using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open the specified presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 //Gets the first slide of the Presentation
@@ -13,5 +13,5 @@ string linkOlePath = oleObject.LinkPath;
 //Prints the path of linked Ole Object.
 System.Console.WriteLine("OleObject link path: "+ linkOlePath);
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

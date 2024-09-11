@@ -13,5 +13,5 @@ slide.SlideTransition.TriggerOnTimeDelay = true;
 //Assign the value for the advance time delay in seconds.
 slide.SlideTransition.TimeDelay = 5;
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

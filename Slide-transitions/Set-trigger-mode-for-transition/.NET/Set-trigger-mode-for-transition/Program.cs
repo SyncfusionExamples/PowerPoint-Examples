@@ -11,5 +11,5 @@ slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
 //Set transition advance on click to true. This will enable the next transition after a click
 slide.SlideTransition.TriggerOnClick = true;
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);

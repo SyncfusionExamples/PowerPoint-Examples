@@ -4,7 +4,7 @@ using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 //Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"../../../Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
 using IPresentation pptxDoc = Presentation.Open(inputStream);
 // Initialize the 'SubstituteFont' event to set the replacement font.
@@ -12,7 +12,7 @@ pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
 //Convert the PowerPoint presentation to PDF file.
 using PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
 //Create new instance of file stream.
-using FileStream pdfStream = new("../../../PPTXToPDF.pdf", FileMode.Create);
+using FileStream pdfStream = new(Path.GetFullPath(@"Output/PPTXToPDF.pdf"), FileMode.Create);
 //Save the generated PDF to file stream.
 pdfDocument.Save(pdfStream);
 
@@ -24,9 +24,9 @@ pdfDocument.Save(pdfStream);
 static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
 {
     if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Bold)
-        args.AlternateFontStream = new FileStream("../../../Data/cambriab.ttf", FileMode.Open);
+        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/cambriab.ttf"), FileMode.Open);
     else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
-        args.AlternateFontStream = new FileStream("../../../Data/BROADW.TTF", FileMode.Open);
+        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/BROADW.TTF"), FileMode.Open);
     else
-        args.AlternateFontStream = new FileStream("../../../Data/COOPBL.TTF", FileMode.Open, FileAccess.ReadWrite);
+        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/COOPBL.TTF"), FileMode.Open, FileAccess.ReadWrite);
 }
