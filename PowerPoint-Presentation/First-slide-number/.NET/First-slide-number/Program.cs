@@ -10,9 +10,9 @@ namespace First_slide_number
         static void Main(string[] args)
         {
             //Open an existing PowerPoint Presentation.
-            using (FileStream inputStream = new FileStream("../../../Data/Input.pptx", FileMode.Open))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.pptx"), FileMode.Open))
             {
-                using (IPresentation pptxDoc = Presentation.Open("../../../Data/Input.pptx"))
+                using (IPresentation pptxDoc = Presentation.Open(inputStream))
                 {
                     //Get the FirstSlideNumber of Presentation.
                     int firstSlideNumber = pptxDoc.FirstSlideNumber;
@@ -21,7 +21,7 @@ namespace First_slide_number
                     pptxDoc.FirstSlideNumber = 10;
 
                     //Save the PowerPoint Presentation as stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.pptx"), FileMode.Create))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create))
                     {
                         pptxDoc.Save(outputStream);
                     }                       
