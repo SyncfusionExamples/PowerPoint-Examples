@@ -7,6 +7,6 @@ IPresentation pptxDoc = Presentation.Open(inputStream);
 //Remove the second section from the PowerPoint presentation.
 pptxDoc.Sections.Remove(pptxDoc.Sections[1]);
 //Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Ouptut/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
 pptxDoc.Close();
