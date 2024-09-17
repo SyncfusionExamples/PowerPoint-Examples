@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using Syncfusion.Drawing;
+﻿using Syncfusion.Drawing;
 using Syncfusion.Presentation;
 
 //Load or open an PowerPoint Presentation.
