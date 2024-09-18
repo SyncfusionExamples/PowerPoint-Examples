@@ -52,7 +52,7 @@ public class DocumentWarning : IWarning
             if (warning.Description.Contains("Metafile") || warning.Description.Contains("Chart"))
             {
                 Console.WriteLine("Type [Y] if you want Do you want to continue Presentation to Pdf conversion or Type [N] to cancel the conversion");
-                String confrimation = Console.ReadLine();
+                String confrimation = "y";
                 //Based on warning.WarningType enumeration, you can do your manipulation.
                 //Skips the PowerPoint to Pdf conversion by setting isContinueConversion value as false.
                 //Continue the PowerPoint to PDF conversion by setting the isContinueConversion as true.
