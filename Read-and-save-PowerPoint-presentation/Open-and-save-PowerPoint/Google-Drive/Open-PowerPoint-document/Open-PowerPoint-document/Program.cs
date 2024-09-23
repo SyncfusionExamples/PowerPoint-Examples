@@ -24,27 +24,28 @@ namespace Open_PowerPoint_document
                     new FileDataStore(credPath, true)).Result;
             }
 
-            // Step 2: Create Drive API service
+            // Step 2: Create Drive API service.
             var service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
 
-            // Step 3: Specify the file ID of the PowerPoint presentation you want to open
-            string fileId = "YOUR_FILE_ID"; // Replace with the actual file ID YOUR_FILE_ID
+            // Step 3: Specify the file ID of the PowerPoint presentation you want to open.
+            string fileId = "YOUR_FILE_ID"; // Replace with the actual file ID YOUR_FILE_ID.
 
-            // Step 4: Download the PowerPoint presentation from Google Drive
+            // Step 4: Download the PowerPoint presentation from Google Drive.
             var request = service.Files.Get(fileId);
             var stream = new MemoryStream();
             request.Download(stream);
 
-            // Step 5: Save the PowerPoint presentation locally
+            // Step 5: Save the PowerPoint presentation locally.
             using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create, FileAccess.Write))
             {
                 stream.WriteTo(fileStream);
             }
-
+            //Dispose the memory stream.
+            stream.Dispose();
         }
     }
 }
