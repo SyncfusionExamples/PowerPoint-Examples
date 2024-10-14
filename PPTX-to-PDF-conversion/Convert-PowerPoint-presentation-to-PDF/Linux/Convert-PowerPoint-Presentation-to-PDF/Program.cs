@@ -13,7 +13,7 @@ namespace Convert_PowerPoint_Presentation_to_PDF
         static void Main(string[] args)
         {
             //Open the file as Stream
-            using (FileStream fileStreamInput = new FileStream(Path.GetFullPath(@"../../../Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+            using (FileStream fileStreamInput = new FileStream(Path.GetFullPath(@"Data/Input.pptx"), FileMode.Open, FileAccess.Read))
             {
                 //Open the existing PowerPoint presentation with loaded stream.
                 using (IPresentation pptxDoc = Presentation.Open(fileStreamInput))
