@@ -53,7 +53,7 @@ public class Function
         }
     }
 
-    //Sets the alternate font when a specified font is not installed in the production environment.
+    //Set the alternate font when a specified font is not installed in the production environment.
     private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
     {
         if (args.OriginalFontName == "Calibri" && args.FontStyle == FontStyle.Regular)
