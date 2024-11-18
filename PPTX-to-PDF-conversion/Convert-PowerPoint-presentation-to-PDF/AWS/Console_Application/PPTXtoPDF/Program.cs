@@ -33,11 +33,11 @@ namespace PPTXtoPDF
             var responseText = serilizer.Deserialize(reader);
             //Convert Base64String into PDF document.
             byte[] bytes = Convert.FromBase64String(responseText.ToString());
-            FileStream fileStream = new FileStream("Sample.Pdf", FileMode.Create);
+            FileStream fileStream = new FileStream("Sample.pdf", FileMode.Create);
             BinaryWriter writer = new BinaryWriter(fileStream);
             writer.Write(bytes, 0, bytes.Length);
             writer.Close();
-            System.Diagnostics.Process.Start("Sample.Pdf");
+            System.Diagnostics.Process.Start("Sample.pdf");
         }
     }
 }
