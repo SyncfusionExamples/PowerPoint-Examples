@@ -1,6 +1,8 @@
 using Amazon.Lambda.Core;
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
+using Syncfusion.Drawing;
+
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
@@ -17,14 +19,31 @@ public class Function
     /// <returns></returns>
     public string FunctionHandler(string input, ILambdaContext context)
     {
+        //Path to the original library file.
+        string originalLibraryPath = "/lib64/libdl.so.2";
+
+        //Path to the symbolic link where the library will be copied.
+        string symlinkLibraryPath = "/tmp/libdl.so";
+
+        //Check if the original library file exists.
+        if (File.Exists(originalLibraryPath))
+        {
+            //Copy the original library file to the symbolic link path, overwriting if it already exists.
+            File.Copy(originalLibraryPath, symlinkLibraryPath, true);
+        }
+
         string filePath = Path.GetFullPath(@"Data/Input.pptx");
         //Open the existing PowerPoint presentation with loaded stream.
         using (IPresentation pptxDoc = Presentation.Open(filePath))
         {
+            //Hooks the font substitution event.
+            pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
             //Initialize the PresentationRenderer to perform image conversion.
             pptxDoc.PresentationRenderer = new PresentationRenderer();
             //Convert PowerPoint slide to image as stream.
             Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
+            //Unhooks the font substitution event after converting to image file.
+            pptxDoc.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
             //Reset the stream position.
             stream.Position = 0;
             // Create a memory stream to save the image file.
@@ -32,5 +51,14 @@ public class Function
             stream.CopyTo(memoryStream);
             return Convert.ToBase64String(memoryStream.ToArray());
         }
+    }
+
+    //Set the alternate font when a specified font is not installed in the production environment.
+    private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+    {
+        if (args.OriginalFontName == "Calibri" && args.FontStyle == FontStyle.Regular)
+            args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/calibri.ttf"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+        else
+            args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/times.ttf"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
     }
 }
