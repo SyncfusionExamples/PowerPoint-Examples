@@ -19,13 +19,16 @@ namespace Create_PowerPoint_presentation
                     //Convert PowerPoint to image as stream.
                     Stream[] images = pptxDoc.RenderAsImages(ExportImageFormat.Jpeg);
                     //Saves the images to file system
-                    foreach (Stream stream in images)
+                    for (int i = 0; i < images.Length; i++)
                     {
-                        //Create the output image file stream
-                        using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output" + Guid.NewGuid().ToString() + ".jpg")))
+                        using (Stream stream = images[i])
                         {
-                            //Copy the converted image stream into created output stream
-                            stream.CopyTo(fileStreamOutput);
+                            //Create the output image file stream
+                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output" + i + ".jpg")))
+                            {
+                                //Copy the converted image stream into created output stream
+                                stream.CopyTo(fileStreamOutput);
+                            }
                         }
                     }
                 }

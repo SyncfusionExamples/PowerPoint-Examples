@@ -17,7 +17,7 @@
     <None Update="Data\Template.pptx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Output\.gitkeep">
+    <None Update="Output\Output.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
