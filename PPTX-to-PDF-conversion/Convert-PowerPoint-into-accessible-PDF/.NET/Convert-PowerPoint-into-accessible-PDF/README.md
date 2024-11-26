@@ -30,10 +30,10 @@ PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfC
 pdfConverterSettings.AutoTag = true;
 //Convert the PowerPoint document to a PDF document.
 using PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings);
-//Save the converted PDF document to the fileStream.
-using FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/PPTXToPDF.pdf"));
+//Create new instance of file stream.
+using FileStream fileStreamOutput = new(Path.GetFullPath(@"Output/PPTXToPDF.pdf"), FileMode.Create);
+//Save the generated PDF to file stream.
 pdfDocument.Save(fileStreamOutput);
-fileStreamOutput.Position = 0;
 ```
 
 More information about PPTX to PDF/UA conversion can be found in this [documentation](https://help.syncfusion.com/document-processing/powerpoint/conversions/powerpoint-to-pdf/net/presentation-to-pdf#accessible-pdf-document) section.
