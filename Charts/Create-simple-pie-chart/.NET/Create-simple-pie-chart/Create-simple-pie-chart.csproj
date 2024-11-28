@@ -12,7 +12,7 @@
     <PackageReference Include="Syncfusion.Presentation.NET" Version="*" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Output\Result.pptx">
+    <None Update="Output\.gitkeep">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
