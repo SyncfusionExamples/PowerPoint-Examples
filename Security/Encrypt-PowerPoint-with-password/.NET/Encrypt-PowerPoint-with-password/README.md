@@ -12,23 +12,17 @@ Step 3: Include the following namespaces in the Program.cs file.
 
 ```csharp
 using Syncfusion.Presentation;
-using System.IO;
 ```
 
 Step 4: Add the following code snippet in Program.cs file to encrypt the PowerPoint Presentation.
 
 ```csharp
-//Load or open an PowerPoint Presentation.
-using IPresentation presentation = Presentation.Create();
-//Add slide to Presentation.
-ISlide slide = presentation.Slides.Add(SlideLayoutType.Blank);
-//Add textbox to slide.
-IShape shape = slide.Shapes.AddTextBox(100, 30, 200, 300);
-//Add a paragraph with text content.
-IParagraph paragraph = shape.TextBody.AddParagraph("Password Protected.");
-//Protects the file with password.
-presentation.Encrypt("PASSWORD!@1#$");
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
+//Open an existing presentation.
+using FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read);
+using IPresentation presentation = Presentation.Open(inputStream);
+//Encrypt the presentation with a password.
+presentation.Encrypt("syncfusion");
+using FileStream outputStream = new (Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 presentation.Save(outputStream);
 ```
 

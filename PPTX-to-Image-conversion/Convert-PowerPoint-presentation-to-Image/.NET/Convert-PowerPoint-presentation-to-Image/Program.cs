@@ -14,18 +14,20 @@ namespace Create_PowerPoint_presentation
                 //Open the existing PowerPoint presentation.
                 using (IPresentation pptxDoc = Presentation.Open(fileStream))
                 {
-                    //Initialize the PresentationRenderer to perform image conversion.
+                    //Initialize PresentationRenderer.
                     pptxDoc.PresentationRenderer = new PresentationRenderer();
                     //Convert PowerPoint to image as stream.
                     Stream[] images = pptxDoc.RenderAsImages(ExportImageFormat.Jpeg);
-                    //Saves the images to file system
-                    foreach (Stream stream in images)
+                    //Save the images to file.
+                    for (int i = 0; i < images.Length; i++)
                     {
-                        //Create the output image file stream
-                        using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output" + Guid.NewGuid().ToString() + ".jpg")))
+                        using (Stream stream = images[i])
                         {
-                            //Copy the converted image stream into created output stream
-                            stream.CopyTo(fileStreamOutput);
+                            //Save the image stream to a file.
+                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output" + i + ".jpg")))
+                            {
+                                stream.CopyTo(fileStreamOutput);
+                            }
                         }
                     }
                 }

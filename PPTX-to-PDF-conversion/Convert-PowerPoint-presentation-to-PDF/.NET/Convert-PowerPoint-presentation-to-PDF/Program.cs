@@ -2,18 +2,20 @@
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
-//Create the MemoryStream to save the converted PDF.
-using MemoryStream pdfStream = new();
-//Convert the PowerPoint document to PDF document.
-using PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
-//Save the converted PDF document to MemoryStream.
-pdfDocument.Save(pdfStream);
-pdfStream.Position = 0;
-//Create the output PDF file stream.
-using FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/PPTXToPDF.pdf"));
-//Copy the converted PDF stream into created output PDF stream.
-pdfStream.CopyTo(fileStreamOutput);
+//Open the PowerPoint file stream. 
+using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+{
+    //Load an existing PowerPoint Presentation. 
+    using (IPresentation pptxDoc = Presentation.Open(fileStream))
+    {
+        //Convert PowerPoint into PDF document. 
+        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+        {
+            //Save the PDF file to file system. 
+            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/PPTXToPDF.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+            {
+                pdfDocument.Save(outputStream);
+            }
+        }
+    }
+}
