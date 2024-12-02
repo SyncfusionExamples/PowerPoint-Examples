@@ -1,6 +1,6 @@
 # Merge PowerPoint Presentations using C#
 
-The Syncfusion [.NET PowerPoint Library](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library) (Presentation) enables you to create, read, and edit PowerPoint files programmatically without Microsoft Office or interop dependencies. Using this library, you can **merge PowerPoint Presentations** using C#.
+The Syncfusion&reg; [.NET PowerPoint Library](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library) (Presentation) enables you to create, read, and edit PowerPoint files programmatically without Microsoft Office or interop dependencies. Using this library, you can **merge PowerPoint Presentations** using C#.
 
 ## Steps to merge PowerPoint Presentations programmatically
 
