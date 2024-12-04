@@ -1,6 +1,6 @@
-# Syncfusion .NET PowerPoint Library
+# Syncfusion&reg; .NET PowerPoint Library
 
-The Syncfusion [.NET PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library?utm_source=github&utm_medium=github&utm_campaign=github-powerpoint-examples) (Essential Presentation) allows you to create, read, and edit PowerPoint files programmatically in any .NET application and does not require Microsoft PowerPoint application to be installed in the machine. It is a non-UI component that provides a full-fledged PowerPoint presentation instance that facilitates accessing and manipulating the presentations without any dependency of Microsoft Office COM libraries and Microsoft Office. Using this library, you can convert PowerPoint files to PDFs and images easy.
+The Syncfusion&reg; [.NET PowerPoint library](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library?utm_source=github&utm_medium=github&utm_campaign=github-powerpoint-examples) (Essential&reg; Presentation) allows you to create, read, and edit PowerPoint files programmatically in any .NET application and does not require Microsoft PowerPoint application to be installed in the machine. It is a non-UI component that provides a full-fledged PowerPoint presentation instance that facilitates accessing and manipulating the presentations without any dependency of Microsoft Office COM libraries and Microsoft Office. Using this library, you can convert PowerPoint files to PDFs and images easy.
 
 ## Key Features
 ------------
@@ -47,19 +47,19 @@ The Syncfusion [.NET PowerPoint library](https://www.syncfusion.com/document-pro
 ## Resources
 ---------
 
-*   **Product page:** [Syncfusion PowerPoint Framework](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
-*   **Documentation:** [Syncfusion PowerPoint library](https://help.syncfusion.com/file-formats/presentation/overview?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
-*   **Online demo:** [Syncfusion PowerPoint library - Online demos](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples#/material)
-*   **Blog:** [Syncfusion PowerPoint library - Blog](https://www.syncfusion.com/blogs/?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples&s=powerpoint)
-*   **Knowledge Base:** [Syncfusion PowerPoint library - Knowledge Base](https://www.syncfusion.com/kb/windowsforms/presentation?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
-*   **Ebooks:** [Syncfusion PowerPoint library - Ebooks](https://www.syncfusion.com/succinctly-free-ebooks?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
-*   **FAQ:** [Syncfusion PowerPoint library - FAQ](https://www.syncfusion.com/faq/?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
+*   **Product page:** [Syncfusion&reg; PowerPoint Framework](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
+*   **Documentation:** [Syncfusion&reg; PowerPoint library](https://help.syncfusion.com/file-formats/presentation/overview?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
+*   **Online demo:** [Syncfusion&reg; PowerPoint library - Online demos](https://ej2.syncfusion.com/aspnetcore/PowerPoint/Default?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples#/material)
+*   **Blog:** [Syncfusion&reg; PowerPoint library - Blog](https://www.syncfusion.com/blogs/?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples&s=powerpoint)
+*   **Knowledge Base:** [Syncfusion&reg; PowerPoint library - Knowledge Base](https://www.syncfusion.com/kb/windowsforms/presentation?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
+*   **Ebooks:** [Syncfusion&reg; PowerPoint library - Ebooks](https://www.syncfusion.com/succinctly-free-ebooks?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
+*   **FAQ:** [Syncfusion&reg; PowerPoint library - FAQ](https://www.syncfusion.com/faq/?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
 
 ## Support and feedback
 --------------------
 
-*   For any other queries, reach our [Syncfusion support team](https://www.syncfusion.com/support/directtrac/incidents/newincident?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples) or post the queries through the [community forums](https://www.syncfusion.com/forums?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples).
-*   Request new feature through [Syncfusion feedback portal](https://www.syncfusion.com/feedback?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples).
+*   For any other queries, reach our [Syncfusion&reg; support team](https://www.syncfusion.com/support/directtrac/incidents/newincident?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples) or post the queries through the [community forums](https://www.syncfusion.com/forums?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples).
+*   Request new feature through [Syncfusion&reg; feedback portal](https://www.syncfusion.com/feedback?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples).
 
 ## License
 -------

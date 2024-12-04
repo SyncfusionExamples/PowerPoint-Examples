@@ -1,6 +1,6 @@
 # Add transition to a PowerPoint Presentation using C#
 
-The Syncfusion [.NET PowerPoint Library](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library) (Presentation) enables you to create, read, and edit PowerPoint files programmatically without Microsoft office or interop dependencies. Using this library, you can **add transition to a PowerPoint Presentation** using C#.
+The Syncfusion&reg; [.NET PowerPoint Library](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library) (Presentation) enables you to create, read, and edit PowerPoint files programmatically without Microsoft office or interop dependencies. Using this library, you can **add transition to a PowerPoint Presentation** using C#.
 
 ## Steps to add transition programmatically
 
