@@ -13,7 +13,7 @@ using (FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), Fil
         using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
         {
             //Save the image stream to a file.
-            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Output.jpg")))
+            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Image.jpg")))
             {
                 stream.CopyTo(fileStreamOutput);
             }  
