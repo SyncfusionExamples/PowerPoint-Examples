@@ -31,7 +31,7 @@ foreach (ITextSelection textSelection in textSelections)
 	//Replace the text.
 	textPart.Text = "Service";
 }
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
+using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
 pptxDoc.Save(outputStream);
 ```
 
