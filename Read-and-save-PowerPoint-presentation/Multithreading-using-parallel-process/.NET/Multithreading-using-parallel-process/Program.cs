@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Multithreaded_using_parallel_process
+namespace Multithreading_using_parallel_process
 {
     class MultiThreading
     {
