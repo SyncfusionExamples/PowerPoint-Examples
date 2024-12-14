@@ -1,11 +1,9 @@
 ﻿using Syncfusion.Presentation;
-using Syncfusion.Pdf;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Syncfusion.PresentationRenderer;
 
-namespace Multithreaded_using_parallel_process
+namespace Multithreading_using_parallel_process
 {
     class MultiThreading
     {
@@ -17,30 +15,29 @@ namespace Multithreaded_using_parallel_process
             Parallel.For(0, limit, count =>
             {
                 Console.WriteLine("Task {0} started", count);
-                //Convert multiple presentations, one PPT on each thread.
-                ConvertPowerPointToPDF(count);
+                //Create multiple presentations, one PPT on each thread.
+                OpenAndSavePresentation(count);
                 Console.WriteLine("Task {0} is done", count);
             });
         }
-        //Convert a Powerpoint presentation to PDF using multi-threading.
-        static void ConvertPowerPointToPDF(int count)
+        //Open and save a Powerpoint presentation using multi-threading.
+        static void OpenAndSavePresentation(int count)
         {
             using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.pptx"), FileMode.Open, FileAccess.Read))
             {
                 //Load an existing PowerPoint presentation.
                 using (IPresentation presentation = Presentation.Open(inputStream))
                 {
-                    //Convert PowerPoint presentation to PDF.
-                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation))
+                    //Add a slide of TitleAndContent type.
+                    ISlide slide = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
+                    //Save the presentation in the desired format.
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output" + count + ".pptx"), FileMode.Create, FileAccess.Write))
                     {
-                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output" + count + ".pdf"), FileMode.Create, FileAccess.Write))
-                        {
-                            //Save the PDF document.
-                            pdfDocument.Save(outputFileStream);
-                        }
+                        presentation.Save(outputFileStream);
                     }
                 }
             }
         }
     }
+
 }

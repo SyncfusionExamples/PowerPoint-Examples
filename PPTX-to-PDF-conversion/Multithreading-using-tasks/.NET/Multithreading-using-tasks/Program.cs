@@ -1,9 +1,11 @@
 ﻿using Syncfusion.Presentation;
+using Syncfusion.Pdf;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Syncfusion.PresentationRenderer;
 
-namespace Multithreaded_using_tasks
+namespace Multithreading_using_tasks
 {
     class MultiThreading
     {
@@ -15,26 +17,28 @@ namespace Multithreaded_using_tasks
             Task[] tasks = new Task[TaskCount];
             for (int i = 0; i < TaskCount; i++)
             {
-                tasks[i] = Task.Run(() => OpenAndSavePresentation());
+                tasks[i] = Task.Run(() => ConvertPowerPointToPDF());
             }
             //Ensure all tasks complete by waiting on each task.
             await Task.WhenAll(tasks);
         }
 
-        //Open and save a Powerpoint presentation using multi-threading.
-        static void OpenAndSavePresentation()
+        //Convert a Powerpoint presentation to PDF using multi-threading.
+        static void ConvertPowerPointToPDF()
         {
             using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.pptx"), FileMode.Open, FileAccess.Read))
             {
                 //Load an existing PowerPoint presentation.
                 using (IPresentation presentation = Presentation.Open(inputStream))
                 {
-                    //Add a slide of TitleAndContent type.
-                    ISlide slide = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
-                    //Save the presentation in the desired format.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output" + Guid.NewGuid().ToString() + ".pptx"), FileMode.Create, FileAccess.Write))
+                    //Convert PowerPoint presentation to PDF.
+                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(presentation))
                     {
-                        presentation.Save(outputFileStream);
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output" + Guid.NewGuid().ToString() + ".pdf"), FileMode.Create, FileAccess.Write))
+                        {
+                            //Save the PDF document.
+                            pdfDocument.Save(outputFileStream);
+                        }
                     }
                 }
             }
