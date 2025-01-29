@@ -1,7 +1,4 @@
 using Convert_PowerPoint_Presentation_to_PDF.Data;
-using Convert_PowerPoint_Presentation_to_PDF.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddSingleton<PresentationService>();
+builder.Services.AddSingleton<PowerPointService>();
 
 var app = builder.Build();
 

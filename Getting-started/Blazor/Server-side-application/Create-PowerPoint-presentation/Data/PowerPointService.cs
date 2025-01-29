@@ -1,4 +1,4 @@
-﻿using Syncfusion.Presentation;
+using Syncfusion.Presentation;
 using System.IO;
 
 namespace Create_PowerPoint_presentation.Data

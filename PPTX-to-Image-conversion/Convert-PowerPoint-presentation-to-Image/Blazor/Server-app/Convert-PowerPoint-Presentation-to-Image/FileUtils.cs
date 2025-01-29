@@ -1,4 +1,4 @@
-﻿using Microsoft.JSInterop;
+using Microsoft.JSInterop;
 
 namespace Convert_PowerPoint_Presentation_to_Image
 {
