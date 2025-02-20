@@ -31,7 +31,7 @@ using (IPresentation pptxDoc = Presentation.Create())
     titleShape.TextBody.AddParagraph("Company History").HorizontalAlignment = HorizontalAlignmentType.Center;
     //Add description content to the slide by adding a new TextBox
     IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
-    descriptionShape.TextBody.Text = "IMN Solutions PVT LTD is the software company, established in 1987, by George Milton. The company has been listed as the trusted partner for many high-profile organizations since 1988 and got awards for quality products from reputed organizations.";
+    descriptionShape.TextBody.Text = "IMN Solutions PVT LTD is the software company, established in 1987, by George Milton. The company has been listed as the trusted partner for many high-profile organizations
     //Add bullet points to the slide
     IShape bulletPointsShape = slide.AddTextBox(53.22, 270, 437.90, 116.32);
     //Add a paragraph for a bullet point
@@ -47,7 +47,7 @@ using (IPresentation pptxDoc = Presentation.Create())
     secondPara.LeftIndent = 35;
     secondPara.FirstLineIndent = -35;
     //Gets a picture as stream.
-    FileStream pictureStream = new FileStream("Image.jpg", FileMode.Open);
+    FileStream pictureStream = new FileStream(Path.GetFullPath(@"Data/Image.jpg"), FileMode.Open);
     //Adds the picture to a slide by specifying its size and position.
     slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
     //Add an auto-shape to the slide
@@ -56,7 +56,7 @@ using (IPresentation pptxDoc = Presentation.Create())
     stampShape.Fill.FillType = FillType.None;
     stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmentType.Center;
     //Save the PowerPoint Presentation as stream
-    using (FileStream outputStream = new FileStream("Sample.pptx", FileMode.Create))
+    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Sample.pptx"), FileMode.Create))
     {
         pptxDoc.Save(outputStream);
     }
