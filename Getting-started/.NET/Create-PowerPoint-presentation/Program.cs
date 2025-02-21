@@ -37,7 +37,7 @@ namespace Create_PowerPoint_presentation
                 secondPara.LeftIndent = 35;
                 secondPara.FirstLineIndent = -35;
                 //Gets a picture as stream.
-                FileStream pictureStream = new FileStream(Path.GetFullPath(@"../../../Data/Image.jpg"), FileMode.Open);
+                FileStream pictureStream = new FileStream(Path.GetFullPath(@"Data/Image.jpg"), FileMode.Open);
                 //Adds the picture to a slide by specifying its size and position.
                 slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
                 //Add an auto-shape to the slide
@@ -46,18 +46,11 @@ namespace Create_PowerPoint_presentation
                 stampShape.Fill.FillType = FillType.None;
                 stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmentType.Center;
                 //Save the PowerPoint Presentation as stream
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.pptx"), FileMode.Create))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Sample.pptx"), FileMode.Create))
                 {
                     pptxDoc.Save(outputStream);
                 }
             }
-            // Open the PowerPoint located at the specified path using the default associated program.
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Sample.pptx"))
-            {
-                UseShellExecute = true
-            };
-            process.Start();
         }
     }
 }
