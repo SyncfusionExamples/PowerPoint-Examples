@@ -14,6 +14,18 @@ class Program
                 // Iterate through each slide in the presentation
                 foreach (ISlide slide in presentation.Slides)
                 {
+                    // Iterate through each shape in the master slide shapes.
+                    foreach (IShape shape in slide.LayoutSlide.MasterSlide.Shapes)
+                    {
+                        // Modify the shape properties (text, size, hyperlinks, etc.)
+                        ModifySlideElements(shape, presentation);
+                    }
+                    // Iterate through each shape in the layout slide shapes.
+                    foreach (IShape shape in slide.LayoutSlide.Shapes)
+                    {
+                        // Modify the shape properties (text, size, hyperlinks, etc.)
+                        ModifySlideElements(shape, presentation);
+                    }
                     // Iterate through each shape in the slide
                     foreach (IShape shape in slide.Shapes)
                     {
@@ -122,8 +134,11 @@ class Program
                 {
                     // Modify SmartArt content
                     ISmartArt smartArt = shape as ISmartArt;
-                    ISmartArtNode smartArtNode = smartArt.Nodes[0];
-                    smartArtNode.TextBody.Text = "Requirement";
+                    //Traverse through all nodes inside SmartArt
+                    foreach (ISmartArtNode node in smartArt.Nodes)
+                    {
+                        ModifyTextPart(node.TextBody);
+                    }
                     break;
                 }
 
