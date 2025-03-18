@@ -122,8 +122,11 @@ class Program
                 {
                     // Modify SmartArt content
                     ISmartArt smartArt = shape as ISmartArt;
-                    ISmartArtNode smartArtNode = smartArt.Nodes[0];
-                    smartArtNode.TextBody.Text = "Requirement";
+                    //Traverse through all nodes inside SmartArt
+                    foreach (ISmartArtNode node in smartArt.Nodes)
+                    {
+                        ModifyTextPart(node.TextBody);
+                    }
                     break;
                 }
 
