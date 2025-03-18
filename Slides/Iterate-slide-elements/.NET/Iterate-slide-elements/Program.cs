@@ -1,5 +1,6 @@
 ﻿using Syncfusion.Presentation;
 using Syncfusion.OfficeChart;
+using System.IO;
 
 class Program
 {
@@ -22,7 +23,7 @@ class Program
                 }
 
                 // Save the modified presentation to an output file
-                using (FileStream outputStream = new(Path.GetFullPath(@"../../../Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     presentation.Save(outputStream);
                 }
@@ -49,6 +50,14 @@ class Program
                     {
                         shape.SetHyperlink("www.google.com");
                     }
+                    break;
+                }
+
+            case SlideItemType.ConnectionShape:
+                {
+                    IConnector connector = shape as IConnector;
+                    // Modify the arrowhead style at the beginning of the connector line
+                    connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.ArrowDiamond;
                     break;
                 }
 
