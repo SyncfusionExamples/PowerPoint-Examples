@@ -18,19 +18,19 @@ class Program
                     foreach (IShape shape in slide.LayoutSlide.MasterSlide.Shapes)
                     {
                         // Modify the shape properties (text, size, hyperlinks, etc.)
-                        ModifySlideElements(shape, presentation);
+                        ModifySlideElements(shape);
                     }
                     // Iterate through each shape in the layout slide shapes.
                     foreach (IShape shape in slide.LayoutSlide.Shapes)
                     {
                         // Modify the shape properties (text, size, hyperlinks, etc.)
-                        ModifySlideElements(shape, presentation);
+                        ModifySlideElements(shape);
                     }
                     // Iterate through each shape in the slide
                     foreach (IShape shape in slide.Shapes)
                     {
                         // Modify the shape properties (text, size, hyperlinks, etc.)
-                        ModifySlideElements(shape, presentation);
+                        ModifySlideElements(shape);
                     }
                 }
 
@@ -46,7 +46,7 @@ class Program
     /// <summary>
     /// Modifies slide elements based on their type.
     /// </summary>
-    private static void ModifySlideElements(IShape shape, IPresentation presentation)
+    private static void ModifySlideElements(IShape shape )
     {
         switch (shape.SlideItemType)
         {
@@ -114,7 +114,7 @@ class Program
                     IGroupShape groupShape = shape as IGroupShape;
                     foreach (IShape childShape in groupShape.Shapes)
                     {
-                        ModifySlideElements(childShape, presentation);
+                        ModifySlideElements(childShape);
                     }
                     break;
                 }
