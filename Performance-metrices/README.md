@@ -9,7 +9,7 @@ The following system configurations were used for benchmarking:
 - Processor: 11th Gen Intel(R) Core(TM)  
 - RAM: 16GB  
 - .NET Version: .NET 8.0  
-- Syncfusion® Version: [Syncfusion.Presentation.Net.Core v30.1.37](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/30.1.37)
+- Syncfusion® Version: [Syncfusion.PresentationRenderer.Net.Core v30.1.37](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/30.1.37) ,   [Syncfusion.Presentation.Net.Core v30.1.37](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/30.1.37)
 
 **Open and Save Presentation**
 
@@ -29,8 +29,6 @@ The following system configurations were used for benchmarking:
   </tbody>
 </table>
 
-You can find the sample used for this performance evaluation on [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Performance-metrices/Open-and-save/).
-
 **Clone and Merge Slides**
 
 <table>
@@ -48,8 +46,6 @@ You can find the sample used for this performance evaluation on [GitHub](https:/
     <tr><td>500</td><td><a href="https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Performance-metrices/PPTX-to-Image/.NET/Convert-PowerPoint-slide-to-Image/Data/PowerPoint-500.pptx">PowerPoint-500.pptx</a></td><td>0.5</td></tr>
   </tbody>
 </table>
-
-You can find the sample used for this performance evaluation on [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Performance-metrices/Clone-and-merge-slides/).
 
 **PowerPoint to PDF Conversion**
 
@@ -69,8 +65,6 @@ You can find the sample used for this performance evaluation on [GitHub](https:/
   </tbody>
 </table>
 
-You can find the sample used for this performance evaluation on [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Performance-metrices/PPTX-to-PDF/).
-
 **PowerPoint to Image Conversion**
 
 <table>
@@ -88,5 +82,3 @@ You can find the sample used for this performance evaluation on [GitHub](https:/
     <tr><td>500</td><td><a href="https://github.com/SyncfusionExamples/PowerPoint-Examples/blob/master/Performance-metrices/PPTX-to-Image/.NET/Convert-PowerPoint-slide-to-Image/Data/PowerPoint-500.pptx">PowerPoint-500.pptx</a></td><td>32</td></tr>
   </tbody>
 </table>
-
-You can find the sample used for this performance evaluation on [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Performance-metrices/PPTX-to-Image/).
