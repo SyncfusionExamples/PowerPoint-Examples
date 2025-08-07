@@ -29,7 +29,7 @@ The following system configurations were used for benchmarking:
   </tbody>
 </table>
 
-You can find the sample used for this performance evaluation on [GitHub](https://github.com).
+You can find the sample used for this performance evaluation on [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Performance-metrices/Open-and-save/).
 
 **Clone and Merge Slides**
 
@@ -49,7 +49,7 @@ You can find the sample used for this performance evaluation on [GitHub](https:/
   </tbody>
 </table>
 
-You can find the sample used for this performance evaluation on [GitHub](https://github.com).
+You can find the sample used for this performance evaluation on [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Performance-metrices/Clone-and-merge-slides/).
 
 **PowerPoint to PDF Conversion**
 
@@ -69,7 +69,7 @@ You can find the sample used for this performance evaluation on [GitHub](https:/
   </tbody>
 </table>
 
-You can find the sample used for this performance evaluation on [GitHub](https://github.com).
+You can find the sample used for this performance evaluation on [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Performance-metrices/PPTX-to-PDF/).
 
 **PowerPoint to Image Conversion**
 
@@ -89,4 +89,4 @@ You can find the sample used for this performance evaluation on [GitHub](https:/
   </tbody>
 </table>
 
-You can find the sample used for this performance evaluation on [GitHub](https://github.com).
+You can find the sample used for this performance evaluation on [GitHub](https://github.com/SyncfusionExamples/PowerPoint-Examples/tree/master/Performance-metrices/PPTX-to-Image/).
