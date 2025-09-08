@@ -9,7 +9,7 @@ The following system configurations were used for benchmarking:
 - Processor: 11th Gen Intel(R) Core(TM)  
 - RAM: 16GB  
 - .NET Version: .NET 8.0  
-- Syncfusion® Version: [Syncfusion.PresentationRenderer.Net.Core v30.1.37](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/30.1.37) ,   [Syncfusion.Presentation.Net.Core v30.1.37](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/30.1.37)
+- Syncfusion® Version: [Syncfusion.PresentationRenderer.Net.Core v31.1.17](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/31.1.17) ,   [Syncfusion.Presentation.Net.Core v31.1.17](https://www.nuget.org/packages/Syncfusion.PresentationRenderer.Net.Core/31.1.17)
 
 **Open and Save Presentation**
 
