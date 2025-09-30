@@ -1,0 +1,34 @@
+﻿@page "/presentation"
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject HttpClient client
+@using System.IO
+@using Syncfusion.Presentation
+@using Syncfusion.PresentationRenderer
+
+<h2>Syncfusion PowerPoint library (Essential Presentation)</h2>
+<p>Syncfusion Blazor PowerPoint library (Essential Presentation) used to create, read, edit, and convert PowerPoint files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@PPTXToImage">Convert PPTX to Image</button>
+
+@functions {
+    async void PPTXToImage()
+    {
+        //Input data file is inside the wwwroot folder.
+        using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.pptx"))
+        {
+            //Open an existing PowerPoint Presentation file.
+            using (IPresentation pptxDoc = Syncfusion.Presentation.Presentation.Open(inputStream))
+            {
+                //Initialize the PresentationRenderer to perform image conversion.
+                pptxDoc.PresentationRenderer = new PresentationRenderer();
+                //Convert the entire Presentation to images.
+                Stream[] imageStreams = pptxDoc.RenderAsImages(ExportImageFormat.Jpeg);
+                for (int i = 0; i < imageStreams.Length; i++)
+                {
+                    imageStreams[i].Position = 0;
+                    //Download image file in the browser.
+                    await JS.SaveAs("PPTXToImage_" + i + ".jpeg", (imageStreams[i] as MemoryStream).ToArray());
+                }
+            }
+        }
+    }
+}
