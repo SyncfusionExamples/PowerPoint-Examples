@@ -1,0 +1,37 @@
+﻿@page "/presentation"
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject HttpClient client
+@using System.IO
+@using Syncfusion.Presentation
+@using Syncfusion.PresentationRenderer
+@using Syncfusion.Pdf
+
+<h2>Syncfusion PowerPoint library (Essential Presentation)</h2>
+<p>Syncfusion Blazor PowerPoint library (Essential Presentation) used to create, read, edit, and convert PowerPoint files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@PPTXToPDF">Convert PPTX to PDF</button>
+
+@functions {
+    async void PPTXToPDF()
+    {
+        //Input data file is inside the wwwroot folder.
+        using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.pptx"))
+        {
+            //Open an existing PowerPoint Presentation file.
+            using (IPresentation pptxDoc = Syncfusion.Presentation.Presentation.Open(inputStream))
+            {
+                //Convert PowerPoint into PDF document.
+                using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+                {
+                    //Save the PDF document to MemoryStream.
+                    using (MemoryStream outputStream = new MemoryStream())
+                    {
+                        pdfDocument.Save(outputStream);
+                        outputStream.Position = 0;
+                        //Download PDF file in the browser.
+                        await JS.SaveAs("Output.pdf", outputStream.ToArray());
+                    }
+                }
+            }
+        }
+    }
+}
