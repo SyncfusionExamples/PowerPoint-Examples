@@ -1,0 +1,6 @@
+@Convert_PowerPoint_Presentation_to_Image_HostAddress = http://localhost:5166
+
+GET {{Convert_PowerPoint_Presentation_to_Image_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

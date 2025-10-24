@@ -1,0 +1,6 @@
+@Convert_PowerPoint_Presentation_to_PDF_HostAddress = http://localhost:5195
+
+GET {{Convert_PowerPoint_Presentation_to_PDF_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
