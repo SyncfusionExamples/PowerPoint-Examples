@@ -14,7 +14,7 @@ namespace Read_and_edit_PowerPoint_presentation.Controllers
         {
             try
             {
-                var fileDownloadName = "Output.docx";
+                var fileDownloadName = "Output.pptx";
                 const string contentType = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
                 var stream = OpenandSavePresentation();
                 stream.Position = 0;
