@@ -5,7 +5,6 @@ using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 using System.IO;
 
-
 namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
 {
     [Route("api/[controller]")]
@@ -14,11 +13,11 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
     {
         [HttpGet]
         [Route("api/ConvertToPdf")]
-        public IActionResult ConvertToPdf()
+        public IActionResult ConvertPPTXToPdf()
         {
             try
             {
-                var fileDownloadName = "Converted.pdf";
+                var fileDownloadName = "Output.pdf";
                 const string contentType = "application/pdf";
                 var stream = ConvertPresentationToPdf();
                 stream.Position = 0;
@@ -31,10 +30,9 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
         }
         public static MemoryStream ConvertPresentationToPdf()
         {
-            //Open the existing PowerPoint presentation with loaded stream.
+            //Open the existing PowerPoint presentation.
             using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath("Data/Input.pptx")))
             {
-
                 //Convert the PowerPoint presentation to PDF document.
                 using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                 {  
