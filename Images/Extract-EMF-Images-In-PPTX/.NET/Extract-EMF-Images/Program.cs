@@ -1,12 +1,12 @@
 ﻿using Syncfusion.Presentation;
-using System.IO;
+using Syncfusion.Drawing;
 
 public static class Program
 {
     public static void Main()
     {
         // Open the PowerPoint file as a stream.
-        using (FileStream inputStream = new FileStream(@"../../../Data/Input.pptx", FileMode.Open, FileAccess.Read))
+        using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.pptx", FileMode.Open, FileAccess.Read))
         {
             // Load the presentation from the stream.
             using (IPresentation presentation = Presentation.Open(inputStream))
@@ -20,7 +20,7 @@ public static class Program
                     foreach (IShape shape in slide.Shapes)
                     {
                         // Check if the shape is an image.
-                        if (shape is IPicture picture)
+                        if (shape is IPicture picture && picture.ImageFormat== ImageFormat.Emf)
                         {
                             // Retrieve the raw image data.
                             byte[] imageData = picture.ImageData;
@@ -30,7 +30,7 @@ public static class Program
                             {
                                 // Determine the image format extension.
                                 string extension = picture.ImageFormat.ToString();
-                                string outputPath = Path.Combine($"../../../Output/Slide{slide.SlideNumber}_Image{++imageIndex}.{extension}");
+                                string outputPath = Path.Combine($"Output/Slide{slide.SlideNumber}_Image{++imageIndex}.{extension}");
                                 // Save the image data to the specified path.
                                 File.WriteAllBytes(outputPath, imageData);
                             }
