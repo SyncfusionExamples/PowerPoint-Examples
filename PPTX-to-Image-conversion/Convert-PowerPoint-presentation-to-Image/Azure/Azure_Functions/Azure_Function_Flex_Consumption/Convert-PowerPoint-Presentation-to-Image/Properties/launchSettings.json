@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Convert_PowerPoint_Presentation_to_Image": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7283",
+      "launchBrowser": false
+    }
+  }
+}
