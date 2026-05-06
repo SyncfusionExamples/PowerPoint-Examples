@@ -1,0 +1,22 @@
+﻿@rendermode InteractiveServer
+@page "/Presentation"
+@using System.IO;
+@using Create_PowerPoint_presentation;
+@inject Create_PowerPoint_presentation.Data.PowerPointService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion Presentation Library (Essential Presentation)</h2>
+<p>The Syncfusion Blazor Presentation library (Essential Presentation) used to create, read, edit, and convert Presentation files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@CreatePowerPoint">Create PowerPoint</button>
+
+@code {
+    MemoryStream documentStream;
+    /// <summary>
+    /// Create and download the Presentation document
+    /// </summary>
+    protected async void CreatePowerPoint()
+    {
+        documentStream = service.CreatePowerPoint();
+        await JS.SaveAs("Sample.pptx", documentStream.ToArray());
+    }
+}
