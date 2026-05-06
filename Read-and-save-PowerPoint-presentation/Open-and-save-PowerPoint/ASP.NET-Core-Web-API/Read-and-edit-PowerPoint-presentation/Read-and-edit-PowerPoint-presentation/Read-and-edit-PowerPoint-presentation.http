@@ -1,0 +1,6 @@
+@Read_and_edit_PowerPoint_presentation_HostAddress = http://localhost:5071
+
+GET {{Read_and_edit_PowerPoint_presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

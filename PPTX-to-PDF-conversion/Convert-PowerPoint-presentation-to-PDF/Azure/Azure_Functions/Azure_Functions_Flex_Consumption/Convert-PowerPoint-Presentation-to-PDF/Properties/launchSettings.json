@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Convert_PowerPoint_Presentation_to_PDF": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7221",
+      "launchBrowser": false
+    }
+  }
+}
