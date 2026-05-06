@@ -1,0 +1,49 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PowerPoint-Examples\\Update-Placeholders\\.NET\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{69225E4D-21BE-4845-D4E8-ED8A4B545A62}|Update-Placeholders\\Update-Placeholders.csproj|d:\\powerpoint-examples\\update-placeholders\\.net\\update-placeholders\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69225E4D-21BE-4845-D4E8-ED8A4B545A62}|Update-Placeholders\\Update-Placeholders.csproj|solutionrelative:update-placeholders\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2023932186:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\PowerPoint-Examples\\Update-Placeholders\\.NET\\Update-Placeholders\\Program.cs",
+              "RelativeDocumentMoniker": "Update-Placeholders\\Program.cs",
+              "ToolTip": "D:\\PowerPoint-Examples\\Update-Placeholders\\.NET\\Update-Placeholders\\Program.cs",
+              "RelativeToolTip": "Update-Placeholders\\Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T02:38:42.763Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
