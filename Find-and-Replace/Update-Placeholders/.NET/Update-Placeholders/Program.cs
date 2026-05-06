@@ -38,7 +38,7 @@ using (IPresentation pptxDoc = Presentation.Open(inputStream))
                 if (shape.Description == "{ProfileImage}")
                 {
                     // Replace the image
-                    FileStream pictureStream = new FileStream(Path.GetFullPath(@"Data/Nancy Davolio.png"), FileMode.Open);
+                    FileStream pictureStream = new FileStream(Path.GetFullPath(@"Data/Customer_profile.png"), FileMode.Open);
                     MemoryStream memoryStream = new MemoryStream();
                     pictureStream.CopyTo(memoryStream);
                     slide.Shapes.AddPicture(memoryStream, shape.Left, shape.Top, shape.Width, shape.Height);
