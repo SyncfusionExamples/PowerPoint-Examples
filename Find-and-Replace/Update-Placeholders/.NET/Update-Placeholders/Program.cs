@@ -19,24 +19,22 @@ for (int customerIndex = 0; customerIndex < customersArray.GetArrayLength(); cus
 
     using (IPresentation pptxDoc = Presentation.Open(inputStream))
     {
-        // Replace {CustomerName} placeholder
-        ITextSelection[] textSelections1 = pptxDoc.FindAll("{CustomerName}", false, false);
-        foreach (ITextSelection textSelection in textSelections1)
-        {
-            // Gets the found text as a single text part
-            ITextPart textPart = textSelection.GetAsOneTextPart();
-            // Replaces the text
-            textPart.Text = customerName;
-        }
+        // Maintain placeholder keys and their replacement values as arrays
+        string[] placeholders = { "{CustomerName}", "{Price}" };
+        string[] replacementValues = { customerName, price };
 
-        // Replace {Price} placeholder
-        ITextSelection[] textSelections2 = pptxDoc.FindAll("{Price}", false, false);
-        foreach (ITextSelection textSelection in textSelections2)
+        // Iterate through the placeholder array and perform replacement in a single loop
+        for (int index = 0; index < placeholders.Length; index++)
         {
-            // Gets the found text as a single text part
-            ITextPart textPart = textSelection.GetAsOneTextPart();
-            // Replaces the text
-            textPart.Text = price;
+            //Finds all the occurrences of a particular text in the PowerPoint presentation
+            ITextSelection[] textSelections = presentation.FindAll(placeholders[index], false, false);
+            foreach (ITextSelection textSelection in textSelections)
+            {
+                //Gets the found text as a single text part
+                ITextPart textPart = textSelection.GetAsOneTextPart();
+                //Replaces the text
+                textPart.Text = replacementValues[index];
+            }
         }
 
         // Iterate through all slides in the presentation
