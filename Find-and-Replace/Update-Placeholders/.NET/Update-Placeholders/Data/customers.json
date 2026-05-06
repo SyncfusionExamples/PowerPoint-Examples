@@ -1,0 +1,29 @@
+{
+  "customers": [
+    {
+      "Name": "Nancy Davolio",
+      "Price": "$50",
+      "Photo": "Nancy.jpeg"
+    },
+    {
+      "Name": "Andrew Fuller",
+      "Price": "$100",
+      "Photo": "Andrew.jpeg"
+    },
+    {
+      "Name": "Janet Leverling",
+      "Price": "$55",
+      "Photo": "Janet.jpeg"
+    },
+    {
+      "Name": "Margaret Peacock",
+      "Price": "$60",
+      "Photo": "Margaret.jpeg"
+    },
+    {
+      "Name": "Steven Buchanan",
+      "Price": "$70",
+      "Photo": "Steven.jpeg"
+    }
+  ]
+}
