@@ -1,6 +1,6 @@
 # update placeholder text or images in a PowerPoint Presentation using C#
 
-The Syncfusion&reg; [.NET PowerPoint Library](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library) (Presentation) enables you to create, read, and edit PowerPoint files programmatically without Microsoft Office or interop dependencies. Using this library, you can **update placeholder text or images in a PowerPoint Presentation** using C#.
+The [.NET PowerPoint library](https://www.syncfusion.com/document-sdk/net-powerpoint-library) (Presentation) enables you to create, read, and edit PowerPoint files programmatically without Microsoft Office or interop dependencies. Using this library, you can **update placeholder text or images in a PowerPoint Presentation** using C#.
 
 ## Steps to update placeholder text or images programmatically
 

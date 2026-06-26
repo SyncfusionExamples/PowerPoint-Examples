@@ -1,6 +1,6 @@
 # Create Presentation using C#
 
-The Syncfusion&reg; [.NET PowerPoint Library](https://www.syncfusion.com/document-processing/powerpoint-framework/net/powerpoint-library) (Presentation) enables you to create, read, and edit PowerPoint files programmatically without Microsoft Office or interop dependencies. Using this library, you can **create an PowerPoint Presentation** using C#.
+The [.NET PowerPoint library](https://www.syncfusion.com/document-sdk/net-powerpoint-library) (Presentation) enables you to create, read, and edit PowerPoint files programmatically without Microsoft Office or interop dependencies. Using this library, you can **create an PowerPoint Presentation** using C#.
 
 ## Steps to create an PowerPoint Presentation programmatically
 
