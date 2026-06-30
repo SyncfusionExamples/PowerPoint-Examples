@@ -1,4 +1,4 @@
-# Syncfusion&reg; .NET PowerPoint Library
+# .NET PowerPoint Library
 
 The [.NET PowerPoint library](https://www.syncfusion.com/document-sdk/net-powerpoint-library) (Essential&reg; Presentation) allows you to create, read, and edit PowerPoint files programmatically in any .NET application and does not require Microsoft PowerPoint application to be installed in the machine. It is a non-UI component that provides a full-fledged PowerPoint presentation instance that facilitates accessing and manipulating the presentations without any dependency of Microsoft Office COM libraries and Microsoft Office. Using this library, you can convert PowerPoint files to PDFs and images easy.
 
@@ -47,13 +47,13 @@ The [.NET PowerPoint library](https://www.syncfusion.com/document-sdk/net-powerp
 ## Resources
 ---------
 
-*   **Product page:** [.NET PowerPoint Library](https://www.syncfusion.com/document-sdk/net-powerpoint-library)
-*   **Documentation:** [.NET PowerPoint Library](https://help.syncfusion.com/document-processing/powerpoint/powerpoint-library/net/overview)
-*   **Online demo:** [.NET PowerPoint Library - Online demos](https://document.syncfusion.com/demos/powerpoint/default#/tailwind)
+*   **Product page:** [Syncfusion&reg; PowerPoint Framework](https://www.syncfusion.com/document-sdk/net-powerpoint-library)
+*   **Documentation:** [Syncfusion&reg; PowerPoint library](https://help.syncfusion.com/document-processing/powerpoint/powerpoint-library/net/overview)
+*   **Online demo:** [Syncfusion&reg; PowerPoint library - Online demos](https://document.syncfusion.com/demos/powerpoint/default#/tailwind)
 *   **Blog:** [.NET PowerPoint Library - Blog](https://www.syncfusion.com/blogs/?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples&s=powerpoint)
-*   **Knowledge Base:** [.NET PowerPoint Library - Knowledge Base](https://www.syncfusion.com/kb/windowsforms/presentation?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
-*   **Ebooks:** [.NET PowerPoint Library - Ebooks](https://www.syncfusion.com/succinctly-free-ebooks?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
-*   **FAQ:** [.NET PowerPoint Library - FAQ](https://www.syncfusion.com/faq/?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
+*   **Knowledge Base:** [Syncfusion&reg; PowerPoint library - Knowledge Base](https://www.syncfusion.com/kb/windowsforms/presentation?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
+*   **Ebooks:** [Syncfusion&reg; PowerPoint library - Ebooks](https://www.syncfusion.com/succinctly-free-ebooks?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
+*   **FAQ:** [Syncfusion&reg; PowerPoint library - FAQ](https://www.syncfusion.com/faq/?utm_source=github&utm_medium=listing&utm_campaign=github-powerpoint-examples)
 
 ## Support and feedback
 --------------------
