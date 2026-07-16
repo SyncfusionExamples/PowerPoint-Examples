@@ -9,7 +9,7 @@ namespace Extract_Text_From_PPTX
         static void Main(string[] args)
         {
             //Load the PowerPoint presentation 
-            IPresentation presentation = Presentation.Open("../../../Data/Input.pptx");
+            IPresentation presentation = Presentation.Open(Path.GetFullPath(@"Data/Input.pptx"));
             //Text collection to store the extracted text 
             StringBuilder textBuilder = new StringBuilder();
             // Extract text from all slides
@@ -52,7 +52,7 @@ namespace Extract_Text_From_PPTX
             }
             string extractedText = textBuilder.ToString();
             //Write the text collection to a text file
-            System.IO.File.WriteAllText("../../../Output/Sample.txt", extractedText);
+            System.IO.File.WriteAllText(Path.GetFullPath(@"Output/Sample.txt"), extractedText);
             //Dispose the presentation instance 
             presentation.Close();
         }
