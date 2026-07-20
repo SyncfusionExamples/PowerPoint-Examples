@@ -1,6 +1,8 @@
 ﻿using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 using Syncfusion.Pdf;
+using System.Drawing;
+using System.Drawing.Imaging;
 using Image = System.Drawing.Image;
 using ImageFormat = System.Drawing.Imaging.ImageFormat;
 
@@ -83,30 +85,27 @@ namespace ShowWarningsSample
                 {
                     case SlideItemType.Picture:
                         IPicture picture = shape as IPicture;
-
-                        Image image = Image.FromStream(new MemoryStream(picture.ImageData));
-                        if (image.RawFormat.Equals(ImageFormat.Emf))
+                        if (picture.ImageData != null)
                         {
-                            double height = picture.Height;
-                            double width = picture.Width;
-                            using (FileStream imgFile = new FileStream("Output.png", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                            Image image = Image.FromStream(new MemoryStream(picture.ImageData));
+                            if (image.RawFormat.Equals(ImageFormat.Emf))
                             {
-                                image.Save(imgFile, ImageFormat.Png);
-                                image.Dispose();
-                            }
+                                // Store original properties
+                                double left = picture.Left;
+                                double top = picture.Top;
+                                double width = picture.Width;
+                                double height = picture.Height;
+                                // Convert EMF to PNG stream
+                                MemoryStream stream;
+                                stream = ConvertEmfToPng(picture.ImageData);
 
-                            using (FileStream imageStream = new FileStream(@"Output.png", FileMode.Open, FileAccess.ReadWrite))
-                            {
-                                //Creates instance for memory stream
-                                using (MemoryStream memoryStream = new MemoryStream())
-                                {
-                                    //Copies stream to memoryStream.
-                                    imageStream.CopyTo(memoryStream);
-                                    //Replaces the existing image with new image.
-                                    picture.ImageData = memoryStream.ToArray();
-                                    picture.Height = height;
-                                    picture.Width = width;
-                                }
+                                // Add replacement picture
+                                IPicture newPicture = shapes.AddPicture(stream, left, top, width, height);
+                                newPicture.Left = left;
+                                newPicture.Top = top;
+                                // Remove original EMF picture
+                                shapes.Remove(picture);
+                                image.Dispose();
                             }
                         }
                         break;
@@ -126,23 +125,36 @@ namespace ShowWarningsSample
                             Image fillImage = Image.FromStream(new MemoryStream(pictureFill.ImageBytes));
                             if (fillImage.RawFormat.Equals(ImageFormat.Emf))
                             {
-                                using (FileStream imgFile = new FileStream("Output.png", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-                                {
-                                    fillImage.Save(imgFile, ImageFormat.Png);
-                                    fillImage.Dispose();
-                                }
+                                byte[] imageBytes = shape.Fill.PictureFill.ImageBytes;
 
-                                using (FileStream imageStream = new FileStream(@"Output.png", FileMode.Open, FileAccess.ReadWrite))
-                                {
-                                    //Creates instance for memory stream
-                                    using (MemoryStream memoryStream = new MemoryStream())
-                                    {
-                                        //Copies stream to memoryStream.
-                                        imageStream.CopyTo(memoryStream);
-                                        //Replaces the existing image with new image.
-                                        pictureFill.ImageBytes = memoryStream.ToArray();
-                                    }
-                                }
+                                using Image image = Image.FromStream(new MemoryStream(imageBytes));
+
+                                // Process only EMF images
+                                if (image.RawFormat.Guid != ImageFormat.Emf.Guid)
+                                    return;
+
+                                // Convert EMF -> PNG
+                                using MemoryStream pngStream = ConvertEmfToPng(imageBytes);
+
+                                // Save existing properties
+                                double left = shape.Left;
+                                double top = shape.Top;
+                                double width = shape.Width;
+                                double height = shape.Height;
+
+                                // Create replacement shape
+                                IShape newShape = shapes.AddShape(shape.AutoShapeType, left, top, width, height);
+
+                                // Apply PNG picture fill
+                                newShape.Fill.FillType = FillType.Picture;
+                                newShape.Fill.PictureFill.ImageBytes = pngStream.ToArray();
+
+                                // Copy rotation
+                                newShape.Rotation = shape.Rotation;
+
+                                // Remove original shape
+                                shapes.Remove(shape);
+
                             }
                         }
                         break;
@@ -157,38 +169,82 @@ namespace ShowWarningsSample
                             double left = oleObject.Left;
                             double top = oleObject.Top;
 
-                            FileStream imgFile = new FileStream("Output.png", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                            oleImage.Save(imgFile, ImageFormat.Png);
+                            // Convert preview image to PNG stream
+                            MemoryStream pngStream = new MemoryStream();
+                            oleImage.Save(pngStream, ImageFormat.Png);
+                            pngStream.Position = 0;
 
+                            // Get OLE data
+                            byte[] objectData = oleObject.ObjectData;
+                            MemoryStream objectStream = new MemoryStream(objectData);
 
-                            //Gets the data of Ole object.
-                            byte[] array = oleObject.ObjectData;
-                            //Convert Ole object data into memory system
-                            MemoryStream objectStream = new MemoryStream(array);
-
-                            //Gets the ProgID of OLE Object
+                            // Get ProgID
                             string progID = oleObject.ProgID;
 
-                            //Removed the existing OLE object.
+                            // Remove the existing OLE object
                             shapes.Remove(oleObject);
 
-                            //Add an new OLE object to the slide with PNG format image.
-                            IOleObject replacedOleObject = shapes.AddOleObject(imgFile, progID, objectStream);
-                            //Set size and position of the OLE object
+                            // Add a new OLE object with PNG preview image
+                            IOleObject replacedOleObject = shapes.AddOleObject(pngStream, progID, objectStream);
+
+                            // Restore position and size
                             replacedOleObject.Left = left;
                             replacedOleObject.Top = top;
                             replacedOleObject.Width = width;
                             replacedOleObject.Height = height;
 
-                            //Dispose all the instance.
-                            imgFile.Dispose();
+                            // Dispose
                             objectStream.Dispose();
+                            pngStream.Dispose();
                             oleImage.Dispose();
                         }
 
                         break;
                 }
             }
+        }
+        /// <summary>
+        /// Convert EMF to PNG
+        /// </summary>
+        private static MemoryStream ConvertEmfToPng(byte[] emfBytes)
+        {
+            using MemoryStream emfStream = new MemoryStream(emfBytes);
+            using Metafile metafile = new Metafile(emfStream);
+
+            GraphicsUnit pageUnit = GraphicsUnit.Pixel;
+            RectangleF bounds = metafile.GetBounds(ref pageUnit);
+
+            int width = (int)Math.Ceiling(bounds.Width);
+            int height = (int)Math.Ceiling(bounds.Height);
+
+            MemoryStream pngStream = new MemoryStream();
+
+            using (Bitmap bitmap = new Bitmap(width, height))
+            {
+                bitmap.SetResolution(300, 300);
+
+                using (Graphics graphics = Graphics.FromImage(bitmap))
+                {
+                    graphics.Clear(Color.Transparent);
+
+                    graphics.SmoothingMode =
+                                    System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                    graphics.InterpolationMode =
+                        System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    graphics.PixelOffsetMode =
+                        System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+
+                    graphics.DrawImage(
+                        metafile,
+                        new Rectangle(0, 0, width, height));
+                }
+
+                bitmap.Save(pngStream, ImageFormat.Png);
+            }
+
+            pngStream.Position = 0;
+            return pngStream;
+
         }
     }
 }
