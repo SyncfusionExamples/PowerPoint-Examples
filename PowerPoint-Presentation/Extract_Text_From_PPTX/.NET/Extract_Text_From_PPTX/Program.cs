@@ -6,7 +6,7 @@ using(IPresentation presentation = Presentation.Open(Path.GetFullPath(@"Data/Inp
 {    
     string extractedText = ExtractDocumentText(presentation);
     //Write the text collection to a text file
-    System.IO.File.WriteAllText(Path.GetFullPath(@"../../../Output/Sample.txt"), extractedText);
+    System.IO.File.WriteAllText(Path.GetFullPath(@"Output/Output.txt"), extractedText);
 }
 
 static string ExtractDocumentText(IPresentation presentation)
