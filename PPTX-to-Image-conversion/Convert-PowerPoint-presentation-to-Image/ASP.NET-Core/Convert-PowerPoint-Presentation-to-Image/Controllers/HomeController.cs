@@ -28,22 +28,18 @@ namespace Convert_PowerPoint_Presentation_to_Image.Controllers
         /// <returns></returns>
         public ActionResult ConvertPPTXtoImage(string button)
         {
-            //Open the file as Stream.
-            using (FileStream fileStream = new FileStream(Path.GetFullPath("Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+            //Open an existing PowerPoint presentation.
+            using (IPresentation pptxDoc = Presentation.Open("Data/Input.pptx"))
             {
-                //Open the existing PowerPoint presentation.
-                using (IPresentation pptxDoc = Presentation.Open(fileStream))
-                {
-                    //Initialize the PresentationRenderer to perform image conversion.
-                    pptxDoc.PresentationRenderer = new PresentationRenderer();
-                    //Convert PowerPoint slide to image as stream.
-                    Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
-                    //Reset the stream position.
-                    stream.Position = 0;
-                    //Download image in the browser.
-                    return File(stream, "application/jpeg", "PPTXtoImage.Jpeg");
-                }
-            }                       
+                //Initialize the PresentationRenderer to perform image conversion.
+                pptxDoc.PresentationRenderer = new PresentationRenderer();
+                //Convert PowerPoint slide to image as stream.
+                Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
+                //Reset the stream position.
+                stream.Position = 0;
+                //Download image in the browser.
+                return File(stream, "application/jpeg", "PPTXtoImage.Jpeg");
+            }
         }
 
         public IActionResult Privacy()

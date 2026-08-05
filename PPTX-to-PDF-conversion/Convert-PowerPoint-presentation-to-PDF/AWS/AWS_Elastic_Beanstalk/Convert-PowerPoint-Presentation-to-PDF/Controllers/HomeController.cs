@@ -24,27 +24,25 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
         }
         public ActionResult ConvertPPTXtoPDF()
         {
-            using (FileStream inputStream = new FileStream(Path.GetFullPath("wwwroot/Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+            //Open the existing PPTX document.
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath("wwwroot/Data/Input.pptx")))
             {
-                //Open the existing PPTX document.
-                using (IPresentation pptxDoc = Presentation.Open(inputStream))
+                //Hooks the font substitution event.
+                pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+                //Converts PPTX document into PDF document.
+                using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                 {
-                    //Hooks the font substitution event.
-                    pptxDoc.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
-                    //Converts PPTX document into PDF document.
-                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-                    {
-                        //Saves the PDF document to MemoryStream.
-                        MemoryStream stream = new MemoryStream();
-                        pdfDocument.Save(stream);
-                        //Unhooks the font substitution event after converting to PDF.
-                        pptxDoc.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
-                        stream.Position = 0;
-                        //Download PDF document in the browser.
-                        return File(stream, "application/pdf", "Sample.pdf");
-                    }
+                    //Saves the PDF document to MemoryStream.
+                    MemoryStream stream = new MemoryStream();
+                    pdfDocument.Save(stream);
+                    //Unhooks the font substitution event after converting to PDF.
+                    pptxDoc.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
+                    stream.Position = 0;
+                    //Download PDF document in the browser.
+                    return File(stream, "application/pdf", "Sample.pdf");
                 }
             }
+
         }
         private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
         {

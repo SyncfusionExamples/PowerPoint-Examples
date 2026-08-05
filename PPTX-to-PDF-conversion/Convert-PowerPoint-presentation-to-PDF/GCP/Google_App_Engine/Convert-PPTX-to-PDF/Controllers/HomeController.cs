@@ -19,25 +19,23 @@ namespace Convert_PPTX_to_PDF.Controllers
 
         public ActionResult ConvertPPTXToPDF()
         {
-            MemoryStream stream = new MemoryStream();
             try
             {
-                using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+                //Open the existing PPTX document.
+                using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath("Data/Input.pptx")))
                 {
-                    //Opens the existing PPTX document.
-                    using (IPresentation pptxDoc = Presentation.Open(inputStream))
+                    //Convert the PPTX document into a PDF document.
+                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                     {
-                        //Converts PPTX document into PDF document.
-                        using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-                        {
-                            //Saves the PDF document to MemoryStream.
-                            pdfDocument.Save(stream);
-                            stream.Position = 0;
-                        }
+                        //Create a MemoryStream to hold the converted PDF.
+                        MemoryStream stream = new MemoryStream();
+                        //Save the PDF document to the MemoryStream.
+                        pdfDocument.Save(stream);
+                        stream.Position = 0;
+                        //Download PDF document in the browser.
+                        return File(stream, "application/pdf", "PPTXtoPDF.pdf");
                     }
                 }
-                //Download PDF document in the browser.
-                return File(stream, "application/pdf", "PPTXtoPDF.pdf");
             }
             catch (Exception ex)
             {

@@ -26,26 +26,22 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
 
         public ActionResult ConvertPPTXtoPDF()
         {
-            //Open the file as Stream
-            using (FileStream fileStream = new FileStream(Path.GetFullPath("Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+            //Open the existing PowerPoint presentation.
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath("Data/Input.pptx")))
             {
-                //Open the existing PowerPoint presentation with loaded stream.
-                using (IPresentation pptxDoc = Presentation.Open(fileStream))
+                //Convert the PowerPoint presentation to PDF document.
+                using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                 {
-                    //Convert the PowerPoint document to PDF document.
-                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-                    {
-                        //Create the MemoryStream to save the converted PDF.      
-                        MemoryStream pdfStream = new MemoryStream();
-                        //Save the converted PDF document to MemoryStream.
-                        pdfDocument.Save(pdfStream);
-                        pdfStream.Position = 0;
-                        //Download PDF document in the browser.
-                        return File(pdfStream, "application/pdf", "Sample.pdf");
-                    }
+                    //Create the MemoryStream to save the converted PDF.
+                    MemoryStream pdfStream = new MemoryStream();
+                    //Save the converted PDF document to MemoryStream.
+                    pdfDocument.Save(pdfStream);
+                    pdfStream.Position = 0;
+                    //Download PDF document in the browser.
+                    return File(pdfStream, "application/pdf", "Sample.pdf");
                 }
             }
-            
+
         }
         public IActionResult Privacy()
         {

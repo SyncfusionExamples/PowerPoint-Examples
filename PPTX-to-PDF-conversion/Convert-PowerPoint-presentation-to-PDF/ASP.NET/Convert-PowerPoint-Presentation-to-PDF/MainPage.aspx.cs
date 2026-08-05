@@ -23,22 +23,11 @@ namespace Convert_PowerPoint_Presentation_to_PDF
             //Open the existing PowerPoint presentation.
             using (IPresentation pptxDoc = Presentation.Open(filePath))
             {
-                //Create the MemoryStream to save the converted PDF.
-                using (MemoryStream pdfStream = new MemoryStream())
+                //Convert the PowerPoint presentation to PDF document.
+                using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                 {
-                    //Convert the PowerPoint document to PDF document.
-                    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
-                    {
-                        //Save the converted PDF document to MemoryStream.
-                        pdfDocument.Save(pdfStream);
-                        pdfStream.Position = 0;
-                    }
-                    //Create the output PDF file stream
-                    using (FileStream fileStreamOutput = File.Create(Server.MapPath("~/Sample.pdf")))
-                    {
-                        //Copy the converted PDF stream into created output PDF stream
-                        pdfStream.CopyTo(fileStreamOutput);
-                    }
+                    //Save the converted PDF document to disk.
+                    pdfDocument.Save(Server.MapPath("~/Sample.pdf"));
                 }
             }
         }
