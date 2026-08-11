@@ -17,12 +17,9 @@ namespace Open_and_save_PowerPoint
 				//Change the text of the shape.
 				if (shape.TextBody.Text == "Company History")
 					shape.TextBody.Text = "Company Profile";
-				using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../Result.pptx"), FileMode.Create, FileAccess.ReadWrite))
-				{
-					pptxDoc.Save(outputStream);
-					//Close the Presentation instance and free the memory consumed.
-					pptxDoc.Close();
-				}
+				pptxDoc.Save(@"../../Result.pptx");
+				//Close the Presentation instance and free the memory consumed.
+				pptxDoc.Close();
 			}
         }
     }

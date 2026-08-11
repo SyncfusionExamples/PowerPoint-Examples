@@ -9,9 +9,8 @@ namespace Send_PowerPoint_to_client_browser.Controllers
     {
         public ActionResult CreateDocument()
         {
-            using FileStream fileStreamPath = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             //Open an existing PowerPoint presentation.
-            using IPresentation pptxDoc = Presentation.Open(fileStreamPath);
+            using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
             //Get the first slide from the PowerPoint presentation.
             ISlide slide = pptxDoc.Slides[0];
             //Get the first shape of the slide.

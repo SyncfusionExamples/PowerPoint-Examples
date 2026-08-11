@@ -16,11 +16,9 @@ namespace Read_and_edit_PowerPoint_presentation.Controllers
         }
         public ActionResult CreatePowerPoint()
         {
-            using (FileStream fileStreamPath = new FileStream(Server.MapPath("~/App_Start/Template.pptx"), FileMode.Open, FileAccess.Read))
+            //Open an existing PowerPoint presentation.
+            using (IPresentation pptxDoc = Presentation.Open(Server.MapPath("~/App_Start/Template.pptx")))
             {
-                //Open an existing PowerPoint presentation.
-                using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
-                {
                     //Gets the first slide from the PowerPoint presentation
                     ISlide slide = pptxDoc.Slides[0];
                     //Gets the first shape of the slide
@@ -35,7 +33,6 @@ namespace Read_and_edit_PowerPoint_presentation.Controllers
                     //Download Powerpoint document in the browser.
                     return File(pptxStream, "application/powerpoint", "Result.pptx");
                 }
-            }
         }
         public ActionResult About()
         {

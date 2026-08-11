@@ -15,7 +15,7 @@
                 {
                     // Read the content as a string
                     Stream responseBody = await response.Content.ReadAsStreamAsync();
-                    FileStream fileStream = File.Create("../../../Output/Output.pptx");
+                    FileStream fileStream = File.Create(@"../../../Output/Output.pptx");
                     responseBody.CopyTo(fileStream);
                     fileStream.Close();
                 }
