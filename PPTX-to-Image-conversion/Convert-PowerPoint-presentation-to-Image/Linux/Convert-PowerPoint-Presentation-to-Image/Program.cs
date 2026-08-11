@@ -12,7 +12,7 @@ namespace Convert_PowerPoint_Presentation_to_Image
         static void Main(string[] args)
         {
             //Open the existing PowerPoint presentation.
-            using (IPresentation pptxDoc = Presentation.Open("Data/Input.pptx"))
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Input.pptx")))
             {
                 //Initialize the PresentationRenderer to perform image conversion.
                 pptxDoc.PresentationRenderer = new PresentationRenderer();

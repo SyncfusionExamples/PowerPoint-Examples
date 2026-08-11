@@ -6,5 +6,4 @@ using IPresentation pptxDoc = Presentation.Create();
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
 //Mark the presentation as final.
 pptxDoc.Final = true;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

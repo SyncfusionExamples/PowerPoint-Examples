@@ -1,39 +1,40 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using IPresentation pptxDoc = Presentation.Create();
-//Add the slide into the Presentation.
+//Creates a new Presentation instance.
+IPresentation pptxDoc = Presentation.Create();
+//Adds the slide into the Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a textbox to hold the list.
+//Adds a textbox to hold the list
 IShape textBoxShape = slide.AddTextBox(65, 140, 410, 270);
-
-//Get a picture as stream.
-using FileStream pictureStream = new(Path.GetFullPath(@"Data/Image.jpg"), FileMode.Open);
-//Add a new paragraph with the text in the left hand side textbox.
+//Opens the image file used as the picture bullet.
+FileStream pictureStream = new FileStream(Path.GetFullPath(@"Data/Image.jpg"), FileMode.Open, FileAccess.Read);
+//Adds a new paragraph with the text in the left hand side textbox.
 IParagraph paragraph = textBoxShape.TextBody.AddParagraph("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
-//Set the list type as Numbered.
+//Sets the list type as Picture
 paragraph.ListFormat.Type = ListType.Picture;
-//Set the image for the list.
+//Sets the image for the list.
 paragraph.ListFormat.Picture(pictureStream);
-//Set the picture size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
+//Sets the picture size. Here, 100 means 100% of the text. Possible values can range from 25 to 400.
 paragraph.ListFormat.Size = 150;
-//Set the list level as 1.
+//Sets the list level as 1
 paragraph.IndentLevelNumber = 1;
-//Set the hanging value.
+//Sets the hanging value
 paragraph.FirstLineIndent = -20;
-
-//Add another paragraph with the text in the left hand side textbox.
+//Adds another paragraph with the text in the left hand side textbox.
 paragraph = textBoxShape.TextBody.AddParagraph("The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets.");
-//Set the list type as picture.
+//Sets the list type as Picture
 paragraph.ListFormat.Type = ListType.Picture;
-//Set the image for the list.
+//Sets the image for the list.
 paragraph.ListFormat.Picture(pictureStream);
-//Set the picture size. Here, 100 means 100% of its text. Possible values can range from 25 to 400.
+//Sets the picture size. Here, 100 means 100% of the text. Possible values can range from 25 to 400.
 paragraph.ListFormat.Size = 150;
-//Set the list level as 1.
+//Sets the list level as 1
 paragraph.IndentLevelNumber = 1;
-//Set the hanging value.
+//Sets the hanging value
 paragraph.FirstLineIndent = -20;
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Saves the Presentation to the file system.
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+//Closes the picture stream.
+pictureStream.Close();
+//Closes the Presentation
+pptxDoc.Close();

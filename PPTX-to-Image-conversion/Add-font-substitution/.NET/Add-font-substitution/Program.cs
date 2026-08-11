@@ -18,7 +18,7 @@ namespace Add_font_substitution
                 using (Stream stream = pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg))
                 {
                     //Create the output image file stream
-                    using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output.jpg")))
+                    using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Output.jpg")))
                     {
                         //Copy the converted image stream into created output stream
                         stream.CopyTo(fileStreamOutput);

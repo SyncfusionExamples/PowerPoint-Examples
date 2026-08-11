@@ -17,5 +17,4 @@ textPart.Font.Bold = true;
 textPart.Font.FontName = "Times New Roman";
 //Set text content size using FontSize property.
 textPart.Font.FontSize = 20;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

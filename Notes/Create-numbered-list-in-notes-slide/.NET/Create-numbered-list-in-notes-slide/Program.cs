@@ -44,6 +44,5 @@ paragraph.IndentLevelNumber = 1;
 paragraph.FirstLineIndent = -20;
 //Set the bullet character size. Here, 100 means 100% of its text. Possible values can range from 25 to 400. 
 paragraph.ListFormat.Size = 100;
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

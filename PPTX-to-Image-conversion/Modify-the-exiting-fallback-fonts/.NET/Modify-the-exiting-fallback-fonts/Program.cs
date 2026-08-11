@@ -3,7 +3,7 @@ using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 //Open the existing PowerPoint presentation.
-using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
+using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
 {
     //Initialize the PresentationRenderer to perform image conversion.
     pptxDoc.PresentationRenderer = new PresentationRenderer();
@@ -23,7 +23,7 @@ using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
         //Reset the stream position.
         stream.Position = 0;
         //Create the output image file stream.
-        using (FileStream fileStreamOutput = File.Create("Output/Output.jpg"))
+        using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Output.jpg")))
         {
             //Copy the converted image stream into created output stream.
             stream.CopyTo(fileStreamOutput);

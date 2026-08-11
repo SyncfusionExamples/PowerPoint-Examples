@@ -9,7 +9,7 @@ namespace Create_PowerPoint_presentation
         static void Main(string[] args)
         {
             //Open the existing PowerPoint presentation.
-            using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
             {
                 //Initialize the PresentationRenderer to perform image conversion.
                 pptxDoc.PresentationRenderer = new PresentationRenderer();
@@ -21,7 +21,7 @@ namespace Create_PowerPoint_presentation
                     using (Stream stream = images[i])
                     {
                         //Save the image stream to a file.
-                        using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Image" + i + ".jpg")))
+                        using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Image" + i + ".jpg")))
                         {
                             stream.CopyTo(fileStreamOutput);
                         }

@@ -33,11 +33,11 @@ namespace PPTXtoImage
             var responseText = serilizer.Deserialize(reader);
             //Convert Base64String into image file.
             byte[] bytes = Convert.FromBase64String(responseText.ToString());
-            FileStream fileStream = new FileStream("PPTXtoImage.Jpeg", FileMode.Create);
+            FileStream fileStream = new FileStream(Path.GetFullPath(@"PPTXtoImage.Jpeg"), FileMode.Create);
             BinaryWriter writer = new BinaryWriter(fileStream);
             writer.Write(bytes, 0, bytes.Length);
             writer.Close();
-            System.Diagnostics.Process.Start("PPTXtoImage.Jpeg");
+            System.Diagnostics.Process.Start(Path.GetFullPath(@"PPTXtoImage.Jpeg"));
         }
     }
 }
