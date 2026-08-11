@@ -3,7 +3,7 @@ using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 //Open the existing PowerPoint presentation.
-using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
+using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
 {
     //Initialize the conversion settings.
     PresentationToPdfConverterSettings pdfConverterSettings = new PresentationToPdfConverterSettings();
@@ -13,6 +13,6 @@ using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
     using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
     {
         //Save the PDF document to the file system.
-        pdfDoc.Save(@"Output/PPTXToPDF.pdf");
+        pdfDoc.Save(Path.GetFullPath(@"Output/PPTXToPDF.pdf"));
     }
 }

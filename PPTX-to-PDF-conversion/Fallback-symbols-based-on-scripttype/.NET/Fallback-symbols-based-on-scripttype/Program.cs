@@ -10,7 +10,7 @@ namespace Fallback_symbols_based_on_scripttype
         static void Main(string[] args)
         {
             //Open the existing PowerPoint presentation.
-            using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
             {
                 //Adds fallback font for basic symbols like bullet characters.
                 pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Symbols, "Segoe UI Symbol, Arial Unicode MS, Wingdings");

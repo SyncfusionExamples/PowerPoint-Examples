@@ -25,7 +25,7 @@ namespace PowerPoint_to_PDF_with_hidden_slides
                 using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
                 {
                     //Save the converted PDF document.
-                    pdfDoc.Save("../../PPTXToPDF.pdf");
+                    pdfDoc.Save(@"../../PPTXToPDF.pdf");
                 }
             }
         }

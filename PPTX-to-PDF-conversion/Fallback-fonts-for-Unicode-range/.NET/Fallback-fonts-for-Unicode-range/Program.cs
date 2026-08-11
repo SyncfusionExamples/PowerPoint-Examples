@@ -5,7 +5,7 @@ using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 //Open the existing PowerPoint presentation.
-using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
+using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
 {
     //Adds fallback font for specific unicode range.
     // Arabic.
@@ -24,6 +24,6 @@ using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
     {
         //Save the PDF document to the file system.
-        pdfDocument.Save(@"Output/PPTXToPDF.pdf");
+        pdfDocument.Save(Path.GetFullPath(@"Output/PPTXToPDF.pdf"));
     }
 }

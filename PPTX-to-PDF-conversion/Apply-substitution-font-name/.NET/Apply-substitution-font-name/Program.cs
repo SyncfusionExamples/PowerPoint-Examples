@@ -3,7 +3,7 @@ using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
 //Load the PowerPoint presentation.
-using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
+using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
 {
     //Initialize the SubstituteFont event to set the replacement font.
     pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
@@ -11,7 +11,7 @@ using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
     {
         //Save the generated PDF to the file system.
-        pdfDocument.Save(@"Output/PPTXToPDF.pdf");
+        pdfDocument.Save(Path.GetFullPath(@"Output/PPTXToPDF.pdf"));
         //Release all resources.
         pdfDocument.Close(true);
     }

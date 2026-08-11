@@ -26,7 +26,7 @@ namespace Enable_portable_rendering
                 using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)) 
                 {
                     //Save the converted PDF document.
-                    pdfDoc.Save("../../PPTXToPDF.pdf");
+                    pdfDoc.Save(@"../../PPTXToPDF.pdf");
                 }
             }
         }

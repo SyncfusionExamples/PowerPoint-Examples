@@ -9,7 +9,7 @@ namespace Fallback_fonts_based_on_scripttype
         static void Main(string[] args)
         {
             //Open the existing PowerPoint presentation.
-            using (IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx"))
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
             {
                 //Adds fallback font for "Arabic" script type.
                 pptxDoc.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
@@ -29,7 +29,7 @@ namespace Fallback_fonts_based_on_scripttype
                 using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                 {
                     //Save the PDF document to the file system.
-                    pdfDocument.Save(@"Output/PPTXToPDF.pdf");
+                    pdfDocument.Save(Path.GetFullPath(@"Output/PPTXToPDF.pdf"));
                 }
             }
         }
