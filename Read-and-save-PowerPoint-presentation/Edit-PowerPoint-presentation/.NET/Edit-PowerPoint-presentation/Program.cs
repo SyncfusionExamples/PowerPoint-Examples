@@ -2,7 +2,7 @@
 using System.IO;
 
 //Opens the PPTX document.
-using IPresentation pptxDoc = Presentation.Open(@"Data/Template.pptx");
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 
 //Get the new background picture as a stream.
 using FileStream bgPictureStream = new FileStream(@"Data/Background.png", FileMode.Open);
