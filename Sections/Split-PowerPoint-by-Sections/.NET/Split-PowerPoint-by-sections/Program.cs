@@ -1,7 +1,7 @@
 ﻿using Syncfusion.Presentation;
  
 //Opens the source PPTX document.
-IPresentation sourcePptx = Presentation.Open(@"Data/Template.pptx");
+IPresentation sourcePptx = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 
 //Iterates through each section.
 foreach (ISection section in sourcePptx.Sections)
