@@ -12,5 +12,4 @@ IParagraph paragraph = shape.TextBody.AddParagraph("welcome");
 pptxDoc.BuiltInDocumentProperties.Author = "Syncfusion";
 //Set the write protection for presentation instance.
 pptxDoc.SetWriteProtection("MYPASSWORD");
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

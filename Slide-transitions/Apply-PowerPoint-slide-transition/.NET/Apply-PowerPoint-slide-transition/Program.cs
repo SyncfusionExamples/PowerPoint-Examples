@@ -10,6 +10,5 @@ IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 100, 100, 300, 300)
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
 //Set the transition effect options.
 slide.SlideTransition.TransitionEffectOption = TransitionEffectOption.Across;
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation as file
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

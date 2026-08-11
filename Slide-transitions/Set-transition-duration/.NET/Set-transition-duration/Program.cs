@@ -10,6 +10,5 @@ IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 100, 100, 300, 300)
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
 //Set the duration in seconds for the transition effect. Maximum duration value is 59 seconds.
 slide.SlideTransition.Duration = 40;
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation file
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

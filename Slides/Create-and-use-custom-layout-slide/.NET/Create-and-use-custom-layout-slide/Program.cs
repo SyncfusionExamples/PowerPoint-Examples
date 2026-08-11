@@ -1,9 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Add a new custom layout slide to the master collection with a specific layout type and name.
 ILayoutSlide layoutSlide = pptxDoc.Masters[0].LayoutSlides.Add(SlideLayoutType.Blank, "CustomLayout");
 //Set background of the layout slide.
@@ -14,5 +12,4 @@ using (FileStream pictureStream = new(Path.GetFullPath(@"Data/Image.jpg"), FileM
 layoutSlide.Shapes.AddPicture(pictureStream, 100, 100, 100, 100);
 //Add a slide of new designed custom layout to the presentation.
 ISlide slide = pptxDoc.Slides.Add(layoutSlide);
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

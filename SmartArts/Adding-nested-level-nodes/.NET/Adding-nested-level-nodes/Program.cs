@@ -12,6 +12,5 @@ ISmartArtNode newNode = smartArt.Nodes.Add();
 ISmartArtNode childNode = newNode.ChildNodes.Add();
 //Set a text to newly added child node.
 childNode.TextBody.AddParagraph("Child node of the existing node.");
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

@@ -25,5 +25,4 @@ cell.ColumnSpan = 2;
 
 //Give simple description to table shape.
 table.Description = "Table arrangement";
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

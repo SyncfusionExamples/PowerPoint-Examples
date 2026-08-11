@@ -10,6 +10,5 @@ IShape cubeShape = slide.Shapes.AddShape(AutoShapeType.Cube, 100, 100, 300, 300)
 slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
 //Set transition advance on click to true. This will enable the next transition after a click
 slide.SlideTransition.TriggerOnClick = true;
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation as file
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

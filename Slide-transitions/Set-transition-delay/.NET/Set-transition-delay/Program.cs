@@ -12,6 +12,5 @@ slide.SlideTransition.TransitionEffect = TransitionEffect.Checkerboard;
 slide.SlideTransition.TriggerOnTimeDelay = true;
 //Assign the value for the advance time delay in seconds.
 slide.SlideTransition.TimeDelay = 5;
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation file
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

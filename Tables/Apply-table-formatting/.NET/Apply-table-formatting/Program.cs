@@ -46,5 +46,4 @@ cell.TextBody.MarginTop = 65;
 //Set the back color for the cell.
 cell.Fill.SolidFill.Color = ColorObject.Silver;
 cell.TextBody.AddParagraph("Second Row and Second Column");
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

@@ -10,6 +10,5 @@ ISmartArt smartArt = slide.Shapes.AddSmartArt(SmartArtType.AlternatingHexagons, 
 ISmartArtNode newNode = smartArt.Nodes.Add();
 //Set the text to the newly added node.
 newNode.TextBody.AddParagraph("New main node added.");
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

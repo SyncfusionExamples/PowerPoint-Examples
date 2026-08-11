@@ -1,9 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Get the Slide from Presentation.
 ISlide slide = pptxDoc.Slides[0];
 //Get the SmartArt from Slide.
@@ -20,5 +18,4 @@ firstNode.Shapes[0].Fill.FillType = FillType.Solid;
 firstNode.Shapes[0].Fill.SolidFill.Color = ColorObject.Lavender;
 //Set  transparency value of fill.
 firstNode.Shapes[0].Fill.SolidFill.Transparency = 30;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

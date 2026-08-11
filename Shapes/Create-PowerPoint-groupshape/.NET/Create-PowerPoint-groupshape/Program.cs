@@ -14,6 +14,5 @@ using FileStream pictureStream = new FileStream(Path.GetFullPath(@"Data/Image.jp
 groupShape.Shapes.AddPicture(pictureStream, 40, 100, 100, 100);
 //Add a shape to the group shape.
 groupShape.Shapes.AddShape(AutoShapeType.Rectangle, 200, 200, 90, 30);
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation 
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));
