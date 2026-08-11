@@ -12,6 +12,5 @@ IParagraph paragraph = shape.TextBody.AddParagraph();
 paragraph.Text = "Syncfusion";
 //Set the web hyperlink to the TextPart.
 IHyperLink hyperLink = paragraph.TextParts[0].SetHyperlink("http://www.syncfusion.com");
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

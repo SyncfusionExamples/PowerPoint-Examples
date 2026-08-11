@@ -1,15 +1,12 @@
 ﻿using Syncfusion.Presentation;
 using System.ComponentModel;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Replace OLE with text.
 ReplaceOLEWithText(pptxDoc, "Embedded file was here");
 //Save output PowerPoint Presentation
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
 
 
 void ReplaceOLEWithText(IPresentation pptxDoc, string altText)

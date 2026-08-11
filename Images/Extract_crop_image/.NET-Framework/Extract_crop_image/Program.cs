@@ -17,8 +17,6 @@ namespace Extract_crop_image
         static void Main(string[] args)
         {
             //Open an existing PowerPoint Presentation.
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../Data/Sample.pptx"), FileMode.Open, FileAccess.Read))
-            {
                 using (IPresentation presentation = Presentation.Open(Path.GetFullPath(@"../../Data/Sample.pptx")))
                 {
                     //Get the first slide.
@@ -34,8 +32,7 @@ namespace Extract_crop_image
                             stream.CopyTo(fileStreamOutput);
                         }
                     }
-                }
-            }                    
+                }                   
         }
 
 

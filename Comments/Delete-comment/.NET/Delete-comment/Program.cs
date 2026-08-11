@@ -1,15 +1,14 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
-//Get the first slide from the Presentation.
+//Open a PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
+//Get the first slide from the Presentation
 ISlide slide = pptxDoc.Slides[0];
-//Get a comment from the slide.
+//Get a comment from the slide
 IComment comment = slide.Comments[0];
-//Remove the comment from the slide.
+//Remove the comment from the slide
 slide.Comments.Remove(comment);
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/DeleteComment.pptx"));
+//Close the Presentation
+pptxDoc.Close();

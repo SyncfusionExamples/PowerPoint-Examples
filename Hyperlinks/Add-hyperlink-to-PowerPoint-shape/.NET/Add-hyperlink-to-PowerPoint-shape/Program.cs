@@ -12,6 +12,5 @@ IShape shape = slide1.Shapes.AddShape(AutoShapeType.Rectangle, 100, 20, 200, 100
 IHyperLink hyperLink = shape.SetHyperlink("1");
 //Get the target slide of the hyperlink.
 ISlide targetSlide = hyperLink.TargetSlide;
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

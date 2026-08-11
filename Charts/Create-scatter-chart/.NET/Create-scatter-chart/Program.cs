@@ -32,5 +32,7 @@ chart.HasLegend = false;
 IOfficeChartSerie serie = chart.Series[0];
 serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 serie.DataPoints.DefaultDataPoint.DataLabels.IsCategoryName = true;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Saves the Presentation to a file
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+//Closes the Presentation
+pptxDoc.Close();

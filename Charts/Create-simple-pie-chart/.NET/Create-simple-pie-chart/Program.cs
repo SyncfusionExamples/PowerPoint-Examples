@@ -28,5 +28,6 @@ chart.ChartData.SetValue(6, 2, 9);
 //Set data labels.
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 //Save the presentation.
-using FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-presentation.Save(outputStream);
+presentation.Save(Path.GetFullPath(@"Output/Result.pptx"));
+//Closes the Presentation
+presentation.Close();

@@ -1,19 +1,19 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
-//Find all the occurrences of a particular text in the PowerPoint presentation.
-ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
-foreach (ITextSelection textSelection in textSelections)
+//Opens an existing presentation.
+using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
 {
-	//Get the found text containing text parts.
-	foreach (ITextPart textPart in textSelection.GetTextParts())
-	{
-		//Set highlight color.
-		textPart.Font.HighlightColor = ColorObject.Yellow;
-	}
+    //Finds all the occurrences of a particular text in the PowerPoint presentation
+    ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
+    foreach (ITextSelection textSelection in textSelections)
+    {
+        //Gets the found text containing text parts
+        foreach (ITextPart textPart in textSelection.GetTextParts())
+        {
+            //Sets highlight color
+            textPart.Font.HighlightColor = ColorObject.Yellow;
+        }
+    }
+    //Saves the Presentation
+    pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
 }
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);

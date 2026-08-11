@@ -37,6 +37,5 @@ IShape stampShape = slide.Shapes.AddShape(AutoShapeType.Explosion1, 48.93, 430.7
 //Format the auto-shape color by setting the fill type and text
 stampShape.Fill.FillType = FillType.None;
 stampShape.TextBody.AddParagraph("IMN").HorizontalAlignment = HorizontalAlignmentType.Center;
-//Save the PowerPoint Presentation as stream
-using FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Sample.pptx"), FileMode.Create);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Sample.pptx"));

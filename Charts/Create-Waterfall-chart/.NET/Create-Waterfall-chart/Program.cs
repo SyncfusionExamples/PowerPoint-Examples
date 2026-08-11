@@ -40,5 +40,7 @@ chart.ChartTitle = "Company Profit (in USD)";
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
 chart.Series[0].DataPoints.DefaultDataPoint.DataLabels.Size = 8;
 chart.Legend.Position = OfficeLegendPosition.Right;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Saves the Presentation to a file
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+//Closes the Presentation
+pptxDoc.Close();

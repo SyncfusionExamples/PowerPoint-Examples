@@ -2,10 +2,8 @@
 using Syncfusion.OfficeChart;
 using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Get the chart from the first slide.
 IPresentationChart chart = pptxDoc.Slides[0].Charts[0] as IPresentationChart;
 
@@ -70,5 +68,7 @@ chart.Legend.Layout.TopMode = LayoutModes.factor;
 chart.Legend.Layout.Width = 200;
 //Modify the legend layout width mode.
 chart.Legend.Layout.WidthMode = LayoutModes.factor;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Saves the Presentation to a file
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+//Closes the Presentation
+pptxDoc.Close();

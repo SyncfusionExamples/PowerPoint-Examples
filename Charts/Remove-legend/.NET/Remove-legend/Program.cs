@@ -14,9 +14,10 @@ namespace Remove_legend
             ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
             //Add pie chart
             CreatePieChart(slide);
-            //Save the output PowerPoint Presentation
-            using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-            pptxDoc.Save(outputStream);
+            //Saves the Presentation to a file
+            pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+            //Closes the Presentation
+            pptxDoc.Close();
         }
         /// <summary>
         /// Create Pie chart

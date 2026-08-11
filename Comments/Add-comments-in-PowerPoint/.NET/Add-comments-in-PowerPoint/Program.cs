@@ -1,11 +1,12 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using IPresentation pptxDoc = Presentation.Create();
-//Add a slide to the Presentation.
+//Create a PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Create();
+//Add a slide to the Presentation
 ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.Blank);
-//Add a comment to the slide.
+//Add a comment to the slide
 slide.Comments.Add(10, 10, "Author1", "A1", "Can we change the font size to 20?", DateTime.Now);
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Comment.pptx"));
+//Close the Presentation
+pptxDoc.Close();
