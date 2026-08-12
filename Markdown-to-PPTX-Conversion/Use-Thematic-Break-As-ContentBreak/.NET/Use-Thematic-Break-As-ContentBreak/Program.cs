@@ -2,7 +2,7 @@
 using Syncfusion.Presentation;
 using System.IO;
 
-namespace Encoding_as_Word
+namespace Use_Thematic_Break_As_ContentBreak
 {
     class Program
     {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 
-namespace Customize_image_data
+namespace Customize_Image_Data
 {
     class Program
     {
@@ -17,19 +17,19 @@ namespace Customize_image_data
             // Hook the event to customize the image while importing Markdown document.
             loadOptions.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
             // Open the Markdown file with load options.
-            using (IPresentation presentation = Presentation.Open(Path.GetFullPath("../../../Data/Input.md"), loadOptions))
+            using (IPresentation presentation = Presentation.Open(Path.GetFullPath(@"Data/Input.md"), loadOptions))
             {
                 // Save as a PowerPoint document.
-                presentation.Save(Path.GetFullPath(@"../../../Output/Output.pptx"));
+                presentation.Save(Path.GetFullPath(@"Output/Output.pptx"));
             }
         }
         private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
         {
             //Set the image stream based on the image name from the input Markdown.
             if (args.Uri == "Image_1.png")
-                args.ImageStream = new FileStream(Path.GetFullPath("../../../Data/Image_1.png"), FileMode.Open);
+                args.ImageStream = new FileStream(Path.GetFullPath(@"Data/Image_1.png"), FileMode.Open);
             else if (args.Uri == "Image_2.png")
-                args.ImageStream = new FileStream(Path.GetFullPath("../../../Data/Image_2.png"), FileMode.Open);
+                args.ImageStream = new FileStream(Path.GetFullPath(@"Data/Image_2.png"), FileMode.Open);
             //Retrieve the image from the website and use it.
             else if (args.Uri.StartsWith("https://"))
             {

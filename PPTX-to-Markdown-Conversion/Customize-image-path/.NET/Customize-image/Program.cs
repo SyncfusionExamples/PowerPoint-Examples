@@ -9,17 +9,17 @@ namespace Customize_image
         static void Main(string[] args)
         {
             // Open an existing Presentation document.
-            using (IPresentation presentation = Presentation.Open("../../../Data/Input.pptx"))
+            using (IPresentation presentation = Presentation.Open(Path.GetFullPath("Data/Input.pptx")))
             {
                 // Hook the event to customize the image.
                 presentation.MdSaveOptions.ImageNodeVisited += SaveImage;
                 // Save the PowerPoint Presentation as a Markdown file.
-                presentation.Save(@"../../../Output/Output.md");
+                presentation.Save(Path.GetFullPath(@"Output/Output.md"));
             }
         }
         static void SaveImage(object sender, MdImageNodeVisitedEventArgs args)
         {
-            string imagepath = @"../../../Output/Image.png";
+            string imagepath = Path.GetFullPath(@"Output/Image.png");
             //Save the image stream as a file.
             using (FileStream fileStreamOutput = File.Create(imagepath))
                 args.ImageStream.CopyTo(fileStreamOutput);

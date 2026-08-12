@@ -1,8 +1,9 @@
 ﻿
 using Syncfusion.Presentation;
 using System.Text;
+using System.IO;
 
-namespace Encoding_as_PPTX
+namespace Encoding_As_PPTX
 {
     class Program
     {
@@ -17,10 +18,10 @@ namespace Encoding_as_PPTX
             //Set the encoding for the Markdown file.
             loadOptions.MdImportSettings.Encoding = Encoding.UTF8;
             // Open the Markdown file with load options.
-            using (IPresentation presentation = Presentation.Open("Data/Input.md", loadOptions))
+            using (IPresentation presentation = Presentation.Open(Path.GetFullPath("Data/Input.md", loadOptions)))
             {
                 //Save as a PowerPoint document.
-                presentation.Save("Output/MarkdownToPPTX.pptx");
+                presentation.Save(Path.GetFullPath("Output/MarkdownToPPTX.pptx"));
             }
         }
     }
