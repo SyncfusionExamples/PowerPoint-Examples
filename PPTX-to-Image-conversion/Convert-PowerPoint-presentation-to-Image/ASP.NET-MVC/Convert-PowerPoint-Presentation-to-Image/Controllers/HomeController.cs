@@ -18,19 +18,13 @@ namespace Convert_PowerPoint_Presentation_to_Image.Controllers
         }
         public void ConvertPPTXtoImage()
         {
-            //Open the file as Stream.
-            using (FileStream pathStream = new FileStream(Server.MapPath("~/App_Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+           // Opens a PowerPoint Presentation.
+            using (IPresentation pptxDoc = Presentation.Open(Server.MapPath("~/App_Data/Input.pptx")))
             {
-                //Opens a PowerPoint Presentation.
-                using (IPresentation pptxDoc = Presentation.Open(pathStream))
-                {
-                    //Convert the first slide into image.
-                    Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
-                    //Saves the image file to MemoryStream.
-                    MemoryStream stream = new MemoryStream();
-                    //Download image file in the browser.
-                    ExportAsImage(image, "PPTXToImage.Jpeg", ImageFormat.Jpeg, HttpContext.ApplicationInstance.Response);
-                }
+                //Convert the first slide into image.
+                Image image = pptxDoc.Slides[0].ConvertToImage(Syncfusion.Drawing.ImageType.Metafile);
+                //Download image file in the browser.
+                ExportAsImage(image, "PPTXToImage.Jpeg", ImageFormat.Jpeg, HttpContext.ApplicationInstance.Response);
             }
         }
         //To download the image file.

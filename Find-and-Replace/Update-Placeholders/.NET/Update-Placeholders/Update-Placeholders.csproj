@@ -16,6 +16,24 @@
     <None Update="Data\UpdatePlaceholders.pptx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+	<None Update="Data\customers.json">
+	 <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+	<None Update="Data\Nancy.jpeg">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+	<None Update="Data\Andrew.jpeg">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+	<None Update="Data\Janet.jpeg">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>  
+	<None Update="Data\Margaret.jpeg">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+	<None Update="Data\Steven.jpeg">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
     <None Update="Output\.gitkeep">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

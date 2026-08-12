@@ -16,7 +16,7 @@ class Program
             // Create a new HttpClient instance for sending HTTP requests
             using var http = new HttpClient();
             // Read all bytes from the input PowerPoint file 
-            byte[] bytes = await File.ReadAllBytesAsync(@"Data/Input.pptx");
+            byte[] bytes = await File.ReadAllBytesAsync(Path.GetFullPath(@"Data/Input.pptx"));
             // Wrap the file bytes into a ByteArrayContent object for HTTP transmission
             using var content = new ByteArrayContent(bytes);
             // Set the content type header to indicate binary data

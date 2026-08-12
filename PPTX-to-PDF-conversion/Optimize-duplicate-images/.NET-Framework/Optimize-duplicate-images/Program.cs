@@ -21,7 +21,7 @@ namespace Optimize_duplicate_images
                 using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings)) 
                 {
                     //Save the converted PDF document.
-                    pdfDoc.Save("../../PPTXToPDF.pdf");
+                    pdfDoc.Save(@"../../PPTXToPDF.pdf");
                 }
             }
         }

@@ -13,4 +13,11 @@
     <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="8.3.0.1" />
     <PackageReference Include="Syncfusion.PresentationRenderer.Net.Core" Version="*" />
   </ItemGroup>
+	
+  <ItemGroup>
+	<None Update="Data\Input.pptx">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>	
+ </ItemGroup>
+	
 </Project>

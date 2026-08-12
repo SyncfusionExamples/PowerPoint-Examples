@@ -27,12 +27,15 @@ namespace Convert_PowerPoint_Presentation_to_PDF.Controllers
                     //Converts the PowerPoint Presentation into PDF document
                     using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
                     {
-                        //Saves the PDF document to MemoryStream.
-                        MemoryStream stream = new MemoryStream();
-                        pdfDocument.Save(stream);
-                        stream.Position = 0;
-                        //Download PDF document in the browser.
-                        return File(stream, "application/pdf", "Sample.pdf");
+                        using (MemoryStream stream = new MemoryStream())
+                        {
+                            pdfDocument.Save(stream);
+                            //Reset stream position before returning it to the browser.
+                            stream.Position = 0;
+                            //Download the PDF document in the browser.
+                            return File(stream, "application/pdf", "Sample.pdf");
+                        }
+                    
                     }
                 }
             }

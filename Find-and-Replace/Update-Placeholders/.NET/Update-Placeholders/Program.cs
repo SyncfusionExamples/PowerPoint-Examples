@@ -17,7 +17,7 @@ for (int customerIndex = 0; customerIndex < customersArray.GetArrayLength(); cus
     // Load a fresh copy of the template for each customer
     using FileStream inputStream = new(Path.GetFullPath(@"Data/UpdatePlaceholders.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-    using (IPresentation pptxDoc = Presentation.Open(inputStream))
+    using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/UpdatePlaceholders.pptx")))
     {
         // Maintain placeholder keys and their replacement values as arrays
         string[] placeholders = { "{CustomerName}", "{Price}" };
@@ -27,7 +27,7 @@ for (int customerIndex = 0; customerIndex < customersArray.GetArrayLength(); cus
         for (int index = 0; index < placeholders.Length; index++)
         {
             //Finds all the occurrences of a particular text in the PowerPoint presentation
-            ITextSelection[] textSelections = presentation.FindAll(placeholders[index], false, false);
+            ITextSelection[] textSelections = pptxDoc.FindAll(placeholders[index], false, false);
             foreach (ITextSelection textSelection in textSelections)
             {
                 //Gets the found text as a single text part
@@ -70,9 +70,8 @@ for (int customerIndex = 0; customerIndex < customersArray.GetArrayLength(); cus
 
         // Save each customer's output as a separate file
         string sanitizedName = customerName.Replace(" ", "_");
-        using FileStream outputStream = new(Path.GetFullPath($@"Output/{sanitizedName}_Profile.pptx"), FileMode.Create, FileAccess.ReadWrite);
 
         // Save the modified presentation
-        pptxDoc.Save(outputStream);
+        pptxDoc.Save(Path.GetFullPath($@"Output/{sanitizedName}_Profile.pptx"));
     }
 }

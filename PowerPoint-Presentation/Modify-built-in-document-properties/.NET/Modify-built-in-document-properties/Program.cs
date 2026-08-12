@@ -1,11 +1,8 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Modify the Built-in document properties.
 pptxDoc.BuiltInDocumentProperties.Category = "Sales reports";
 pptxDoc.BuiltInDocumentProperties.Company = "Northwind traders";
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

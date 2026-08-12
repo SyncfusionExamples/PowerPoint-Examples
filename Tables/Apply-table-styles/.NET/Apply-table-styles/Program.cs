@@ -36,5 +36,4 @@ cell = table[2, 2];
 cell.TextBody.AddParagraph("Third Row and Third Column");
 //Add description to table shape.
 table.Description = "Table arrangement";
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

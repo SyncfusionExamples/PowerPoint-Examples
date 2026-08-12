@@ -51,5 +51,4 @@ serie2013.SerieType = OfficeChartType.Bar_Clustered;
 IOfficeChartSerie serie2014 = chart.Series.Add("2014");
 serie2014.Values = chart.ChartData[2, 3, 7, 3];
 serie2014.SerieType = OfficeChartType.Scatter_Line_Markers;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

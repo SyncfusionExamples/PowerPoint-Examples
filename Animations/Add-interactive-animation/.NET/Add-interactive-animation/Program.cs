@@ -11,6 +11,6 @@ IShape buttonShape = slide.Shapes.AddShape(AutoShapeType.Oval, 130, 75, 50, 50);
 //Create the interactive sequence to make the animation effects interactive by triggering with button click.
 ISequence interactiveSequence = slide.Timeline.InteractiveSequences.Add(buttonShape);
 //Add Fly effect with top subtype to animate the shape as fly from top.
-IEffect bounceEffect = interactiveSequence.AddEffect(cubeShape, EffectType.Fly, EffectSubtype.Top, EffectTriggerType.OnClick);
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+IEffect flyEffect = interactiveSequence.AddEffect(cubeShape, EffectType.Fly, EffectSubtype.Top, EffectTriggerType.OnClick);
+//Save the PowerPoint Presentation to the file system
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

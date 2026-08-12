@@ -1,17 +1,16 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
-//Retrieve the first slide from Presentation.
+//Open an existing PowerPoint Presentation
+IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
+//Retrieve the first slide from the Presentation
 ISlide slide = pptxDoc.Slides[0];
-//Iterate through the pictures collection and remove the picture named "Image".
+//Iterate through a copy of the pictures collection and remove each picture.
 foreach (IPicture picture in slide.Pictures)
 {
-	//Remove the picture from the slide.
-	slide.Pictures.Remove(picture);
-	break;
+    //Remove the picture from the slide.
+    slide.Pictures.Remove(picture);
 }
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation to a file
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+//Close the Presentation
+pptxDoc.Close();

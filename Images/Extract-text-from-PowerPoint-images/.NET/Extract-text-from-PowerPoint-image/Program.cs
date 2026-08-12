@@ -11,7 +11,7 @@ namespace Extract_text_from_PowerPoint_image
         static void Main(string[] args)
         {
             //Open the existing PowerPoint presentation.
-            using (IPresentation pptxDoc = Presentation.Open(@"../../../Template.pptx"))
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"../../../Template.pptx")))
             {
                 List<MemoryStream> pictureStreamList = new List<MemoryStream>();
                 //Retrieves the each slide from the Presentation.

@@ -23,7 +23,7 @@ namespace Set_chart_quality
                 using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc))
                 {
                     //Save the converted PDF document.
-                    pdfDoc.Save("../../PPTXToPDF.pdf");
+                    pdfDoc.Save(@"../../PPTXToPDF.pdf");
                 }
             }
         }

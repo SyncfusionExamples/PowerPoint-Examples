@@ -7,7 +7,7 @@ namespace Set_SlideSize_to_destination_slides
         public static void Main(string[] args)
         {
             //Open the existing source PowerPoint presentation.
-            using (Presentation? sourcePresentation = Presentation.Open(Path.GetFullPath(@"../../../Data/Template.pptx")) as Presentation) 
+            using (Presentation? sourcePresentation = Presentation.Open(Path.GetFullPath(@"../../../Data/Template.pptx")) as Presentation)
             {   //Create a destination PowerPoint presentation.
                 using (Presentation? destinationPresentation = Presentation.Create() as Presentation)
                 {
@@ -23,7 +23,7 @@ namespace Set_SlideSize_to_destination_slides
 
                     //Save the PowerPoint Presentation.
                     destinationPresentation.Save("Output.pptx");
-                }          
+                }
             }
         }
     }

@@ -24,19 +24,13 @@ namespace Multithreading_using_tasks
         //Open and save a Powerpoint presentation using multi-threading.
         static void OpenAndSavePresentation()
         {
-            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+            //Open an existing PowerPoint presentation.
+            using (IPresentation presentation = Presentation.Open(Path.GetFullPath(@"Data/Input.pptx")))
             {
-                //Load an existing PowerPoint presentation.
-                using (IPresentation presentation = Presentation.Open(inputStream))
-                {
-                    //Add a slide of TitleAndContent type.
-                    ISlide slide = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
-                    //Save the presentation in the desired format.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output" + Guid.NewGuid().ToString() + ".pptx"), FileMode.Create, FileAccess.Write))
-                    {
-                        presentation.Save(outputFileStream);
-                    }
-                }
+                //Add a slide of TitleAndContent type.
+                ISlide slide = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
+                //Save the presentation in the desired format.
+                presentation.Save(Path.GetFullPath(@"Output/Output" + Guid.NewGuid().ToString() + ".pptx"));
             }
         }
     }

@@ -35,7 +35,7 @@ namespace PowerPoint_Presentation_to_Image
                 //Gets the responce from the Azure Functions.
                 HttpWebResponse res = (HttpWebResponse)req.GetResponse();
                 //Saves the image stream.
-                FileStream fileStream = File.Create("PPTXtoImage.Jpeg");
+                FileStream fileStream = File.Create(@"PPTXtoImage.Jpeg");
                 res.GetResponseStream().CopyTo(fileStream);
                 //Dispose the streams
                 inputStream.Dispose();

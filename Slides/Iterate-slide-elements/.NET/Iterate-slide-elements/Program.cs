@@ -7,40 +7,36 @@ class Program
     public static void Main(string[] args)
     {
         // Load or open a PowerPoint presentation
-        using (FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        using (IPresentation presentation = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
         {
-            using (IPresentation presentation = Presentation.Open(inputStream))
+            // Iterate through each slide in the presentation
+            foreach (ISlide slide in presentation.Slides)
             {
-                // Iterate through each slide in the presentation
-                foreach (ISlide slide in presentation.Slides)
+                // Iterate through each shape in the master slide shapes.
+                foreach (IShape shape in slide.LayoutSlide.MasterSlide.Shapes)
                 {
-                    // Iterate through each shape in the master slide shapes.
-                    foreach (IShape shape in slide.LayoutSlide.MasterSlide.Shapes)
-                    {
-                        // Modify the shape properties (text, size, hyperlinks, etc.)
-                        ModifySlideElements(shape);
-                    }
-                    // Iterate through each shape in the layout slide shapes.
-                    foreach (IShape shape in slide.LayoutSlide.Shapes)
-                    {
-                        // Modify the shape properties (text, size, hyperlinks, etc.)
-                        ModifySlideElements(shape);
-                    }
-                    // Iterate through each shape in the slide
-                    foreach (IShape shape in slide.Shapes)
-                    {
-                        // Modify the shape properties (text, size, hyperlinks, etc.)
-                        ModifySlideElements(shape);
-                    }
+                    // Modify the shape properties (text, size, hyperlinks, etc.)
+                    ModifySlideElements(shape);
                 }
-
-                // Save the modified presentation to an output file
-                using (FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite))
+                // Iterate through each shape in the layout slide shapes.
+                foreach (IShape shape in slide.LayoutSlide.Shapes)
                 {
-                    presentation.Save(outputStream);
+                    // Modify the shape properties (text, size, hyperlinks, etc.)
+                    ModifySlideElements(shape);
+                }
+                // Iterate through each shape in the slide
+                foreach (IShape shape in slide.Shapes)
+                {
+                    // Modify the shape properties (text, size, hyperlinks, etc.)
+                    ModifySlideElements(shape);
                 }
             }
+
+            // Save the modified presentation to an output file
+            presentation.Save(Path.GetFullPath(@"Output/Result.pptx"));
+            
         }
+        
     }
 
     /// <summary>

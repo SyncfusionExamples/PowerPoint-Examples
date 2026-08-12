@@ -1,9 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Get the slide from Presentation.
 ISlide slide = pptxDoc.Slides[0];
 //Get the shape in slide.
@@ -16,5 +14,4 @@ paragraph.FirstLineIndent = 10;
 paragraph.HorizontalAlignment = HorizontalAlignmentType.Left;
 //Apply the left indent of the paragraph.
 paragraph.LeftIndent = 8;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

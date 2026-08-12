@@ -20,19 +20,17 @@ namespace Convert_PPTX_to_image.Controllers
             MemoryStream stream = new MemoryStream();
             try
             {
-                using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Input.pptx"), FileMode.Open, FileAccess.Read))
+                //Open the existing PPTX document.
+                using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath("Data/Input.pptx")))
                 {
-                    //Opens the existing PPTX document.
-                    using (IPresentation pptxDoc = Presentation.Open(inputStream))
-                    {
-                        //Initialize the PresentationRenderer to perform image conversion.
-                        pptxDoc.PresentationRenderer = new PresentationRenderer();
-                        //Convert PowerPoint slide to image as stream.
-                        stream = (MemoryStream)pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
-                    }
+                    //Initialize the PresentationRenderer to perform image conversion.
+                    pptxDoc.PresentationRenderer = new PresentationRenderer();
+                    //Convert PowerPoint slide to image as stream.
+                    stream = (MemoryStream)pptxDoc.Slides[0].ConvertToImage(ExportImageFormat.Jpeg);
+                    stream.Position = 0;
+                    //Download image file in the browser.
+                    return File(stream, "image/jpeg", "PPTXToimage_Page1.jpeg");
                 }
-                //Download image in the browser.
-                return File(stream, "image/jpeg", "PPTXToimage_Page1.jpeg");
             }
             catch (Exception ex)
             {

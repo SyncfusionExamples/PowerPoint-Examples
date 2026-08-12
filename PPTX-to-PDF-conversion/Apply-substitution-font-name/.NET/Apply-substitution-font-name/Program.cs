@@ -2,19 +2,20 @@
 using Syncfusion.Presentation;
 using Syncfusion.PresentationRenderer;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
-// Initialize the 'SubstituteFont' event to set the replacement font.
-pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
-//Convert the PowerPoint presentation to PDF file.
-using PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
-//Create new instance of file stream.
-using FileStream pdfStream = new(Path.GetFullPath(@"Output/PPTXToPDF.pdf"), FileMode.Create);
-//Save the generated PDF to file stream.
-pdfDocument.Save(pdfStream);
-
+//Load the PowerPoint presentation.
+using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
+{
+    //Initialize the SubstituteFont event to set the replacement font.
+    pptxDoc.FontSettings.SubstituteFont += SubstituteFont;
+    //Convert the PowerPoint presentation to PDF document.
+    using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+    {
+        //Save the generated PDF to the file system.
+        pdfDocument.Save(Path.GetFullPath(@"Output/PPTXToPDF.pdf"));
+        //Release all resources.
+        pdfDocument.Close(true);
+    }
+}
 /// <summary>
 /// Sets the alternate font when a specified font is unavailable in the production environment.
 /// </summary>

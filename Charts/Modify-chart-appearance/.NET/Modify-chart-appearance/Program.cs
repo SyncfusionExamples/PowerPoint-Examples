@@ -2,10 +2,8 @@
 using Syncfusion.OfficeChart;
 using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Get the first slide.
 ISlide slide = pptxDoc.Slides[0];
 //Get the chart in slide.
@@ -57,5 +55,7 @@ chartPlotArea.Fill.GradientColorType = OfficeGradientColor.TwoColor;
 //Set two colors.
 chartPlotArea.Fill.BackColor = Color.FromArgb(205, 217, 234);
 chartPlotArea.Fill.ForeColor = Color.White;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Saves the Presentation to a file
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+//Closes the Presentation
+pptxDoc.Close();

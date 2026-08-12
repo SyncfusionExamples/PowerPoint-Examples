@@ -1,9 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Find all the occurrences of a particular text in the PowerPoint presentation.
 ITextSelection[] textSelections = pptxDoc.FindAll("product", false, false);
 foreach (ITextSelection textSelection in textSelections)
@@ -13,5 +11,5 @@ foreach (ITextSelection textSelection in textSelections)
 	//Replace the text.
 	textPart.Text = "Service";
 }
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Saves the Presentation to a file
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

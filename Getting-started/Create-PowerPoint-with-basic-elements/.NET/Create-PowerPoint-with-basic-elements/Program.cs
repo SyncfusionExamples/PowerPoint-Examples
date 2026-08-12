@@ -41,6 +41,5 @@ using FileStream pictureStream = new(Path.GetFullPath(@"Data/Image.jpg"), FileMo
 Image image = Image.FromStream(pictureStream);
 // Add the image to the slide by specifying position and size.
 firstSlide.Pictures.AddPicture(new MemoryStream(image.ImageData), 300, 270, 410, 250);
-
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+// Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

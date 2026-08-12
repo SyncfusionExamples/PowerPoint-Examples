@@ -1,9 +1,8 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Get a table in the slide.
 ITable table = pptxDoc.Slides[0].Shapes[0] as ITable;
 //Iterate through the rows of the table
@@ -25,5 +24,4 @@ foreach (IRow row in table.Rows)
 		}
 	}
 }
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

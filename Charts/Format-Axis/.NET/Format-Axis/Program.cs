@@ -9,10 +9,8 @@ namespace Format_Axis
     {
         static void Main(string[] args)
         {
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-
             //Open an existing PowerPoint Presentation.
-            using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
             {
                 //Gets the first slide.
                 ISlide slide = pptxDoc.Slides[0];
@@ -31,7 +29,7 @@ namespace Format_Axis
                 chart.PrimaryCategoryAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue;
                 chart.PrimaryCategoryAxis.Border.LineWeight = OfficeChartLineWeight.Hairline;
 
-                //Customize the vertical category axis.
+                //Customize the vertical value axis.
                 chart.PrimaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid;
                 chart.PrimaryValueAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue;
                 chart.PrimaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow;
@@ -42,18 +40,18 @@ namespace Format_Axis
                 chart.PrimaryCategoryAxis.Font.Bold = true;
                 chart.PrimaryCategoryAxis.Font.Size = 8;
 
-                //Customize the vertical category axis font.
+                //Customize the vertical value axis font.
                 chart.PrimaryValueAxis.Font.Color = OfficeKnownColors.Red;
                 chart.PrimaryValueAxis.Font.FontName = "Calibri";
                 chart.PrimaryValueAxis.Font.Bold = true;
                 chart.PrimaryValueAxis.Font.Size = 8;
 
-                //Customize the secondary vertical category axis.
+                //Customize the secondary vertical value axis.
                 chart.SecondaryValueAxis.Border.LinePattern = OfficeChartLinePattern.Solid;
                 chart.SecondaryValueAxis.Border.LineColor = Syncfusion.Drawing.Color.Blue;
                 chart.SecondaryValueAxis.Border.LineWeight = OfficeChartLineWeight.Narrow;
 
-                //Customize the secondary vertical category axis font.
+                //Customize the secondary vertical value axis font.
                 chart.SecondaryValueAxis.Font.Color = OfficeKnownColors.Red;
                 chart.SecondaryValueAxis.Font.FontName = "Calibri";
                 chart.SecondaryValueAxis.Font.Bold = true;
@@ -68,18 +66,16 @@ namespace Format_Axis
                 //Number format for axis.
                 chart.PrimaryValueAxis.NumberFormat = "0.0";
 
-                //Hiding major gridlines.
+                //Showing major gridlines.
                 chart.PrimaryValueAxis.HasMajorGridLines = true;
 
-                //Showing minor gridlines.
+                //Hiding minor gridlines.
                 chart.PrimaryValueAxis.HasMinorGridLines = false;
 
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-                {
-                    //Save the PowerPoint Presentation.
-                    pptxDoc.Save(outputStream);
-                }
+                //Save the PowerPoint Presentation.
+                pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
             }
+
         }
     }
 }

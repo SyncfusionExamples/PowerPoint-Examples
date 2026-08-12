@@ -36,5 +36,7 @@ chart.Series[0].SerieFormat.CommonSerieOptions.GapWidth = 6;
 chart.ChartTitle = "Expenses";
 //Hiding the legend.
 chart.HasLegend = false;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Saves the Presentation to a file
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+//Closes the Presentation
+pptxDoc.Close();

@@ -1,9 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Get the layout slide collection of the master.
 ILayoutSlides layoutSlides = pptxDoc.Masters[0].LayoutSlides;
 ILayoutSlide slideLayout = null;
@@ -19,5 +17,4 @@ foreach (ILayoutSlide layout in layoutSlides)
 }
 //Add slide with the desired layout.
 ISlide slide = pptxDoc.Slides.Add(slideLayout);
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Result.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Result.pptx"));

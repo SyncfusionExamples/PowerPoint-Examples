@@ -1,18 +1,16 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-//Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
-//Retrieves the first slide from Presentation.
+//Open an existing PowerPoint Presentation from the file system
+IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
+//Retrieve the first slide from Presentation
 ISlide slide = pptxDoc.Slides[0];
-//Retrieves the first shape.
+//Retrieve the first shape
 IShape shape = slide.Shapes[0] as IShape;
-//Access the animation main sequence to modify the effects.
+//Access the animation main sequence to modify the effects
 ISequence sequence = slide.Timeline.MainSequence;
-//Get the required animation effect from the slide.        
-IEffect pathEffect = sequence[0] as IEffect;
-//Increase the duration of the animation effect.
-pathEffect.Behaviors[0].Timing.Duration = 5;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Get the required animation effect from the slide            
+IEffect timingEffect = sequence[0] as IEffect;
+//Increase the duration of the animation effect (value is in seconds)
+timingEffect.Behaviors[0].Timing.Duration = 5;
+//Save the PowerPoint Presentation to the file system
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

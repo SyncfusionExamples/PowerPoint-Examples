@@ -8,26 +8,22 @@ namespace Create_PowerPoint_presentation
     {
         static void Main(string[] args)
         {
-            //Open the file as Stream.
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read))
+            //Open the existing PowerPoint presentation.
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
             {
-                //Open the existing PowerPoint presentation.
-                using (IPresentation pptxDoc = Presentation.Open(fileStream))
+                //Initialize the PresentationRenderer to perform image conversion.
+                pptxDoc.PresentationRenderer = new PresentationRenderer();
+                //Convert PowerPoint slide to image as stream.
+                Stream[] images = pptxDoc.RenderAsImages(ExportImageFormat.Jpeg);
+                //Save the images to file.
+                for (int i = 0; i < images.Length; i++)
                 {
-                    //Initialize PresentationRenderer.
-                    pptxDoc.PresentationRenderer = new PresentationRenderer();
-                    //Convert PowerPoint to image as stream.
-                    Stream[] images = pptxDoc.RenderAsImages(ExportImageFormat.Jpeg);
-                    //Save the images to file.
-                    for (int i = 0; i < images.Length; i++)
+                    using (Stream stream = images[i])
                     {
-                        using (Stream stream = images[i])
+                        //Save the image stream to a file.
+                        using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Image" + i + ".jpg")))
                         {
-                            //Save the image stream to a file.
-                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Image" + i + ".jpg")))
-                            {
-                                stream.CopyTo(fileStreamOutput);
-                            }
+                            stream.CopyTo(fileStreamOutput);
                         }
                     }
                 }

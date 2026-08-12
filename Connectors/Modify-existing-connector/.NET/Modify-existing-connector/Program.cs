@@ -1,9 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Get the first slide of a PowerPoint file.
 ISlide slide = pptxDoc.Slides[0];
 //Get the connector from a slide.
@@ -22,5 +20,4 @@ int connectionSiteIndex = 4;
 //Reconnect the end point of connector with triangle shape if its connection site count is greater than 4.
 if (connectionSiteIndex < triangle.ConnectionSiteCount)
     connector.EndConnect(triangle, connectionSiteIndex);
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

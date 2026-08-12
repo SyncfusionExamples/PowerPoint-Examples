@@ -1,9 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath("Data/Template.pptx"));
 //Get the first slide from the cloned PowerPoint presentation.
 ISlide slide = pptxDoc.Slides[0];
 //Iterate each shape in slide.
@@ -18,5 +16,4 @@ foreach (IShape shape in slide.Shapes)
         shape.TextBody.Paragraphs[0].Font.FontSize = 18;
     }
 }
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

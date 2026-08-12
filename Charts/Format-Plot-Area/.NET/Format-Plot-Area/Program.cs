@@ -7,13 +7,12 @@ namespace Format_Plot_Area
     {
         static void Main(string[] args)
         {
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             //Open an existing PowerPoint Presentation.
-            using (IPresentation pptxDoc = Presentation.Open(fileStreamPath))
+            using (IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx")))
             {
                 //Gets the first slide.
                 ISlide slide = pptxDoc.Slides[0];
-                //Gets the chart in slide.
+                //Gets the chart in the slide.
                 IPresentationChart chart = slide.Shapes[0] as IPresentationChart;
 
                 //Plot Area.
@@ -30,11 +29,8 @@ namespace Format_Plot_Area
                 chartPlotArea.Fill.BackColor = Syncfusion.Drawing.Color.FromArgb(205, 217, 234);
                 chartPlotArea.Fill.ForeColor = Syncfusion.Drawing.Color.White;
 
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-                {
-                    //Save the PowerPoint Presentation.
-                    pptxDoc.Save(outputStream);
-                }
+                //Save the PowerPoint Presentation.
+                pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
             }
         }
     }

@@ -10,6 +10,5 @@ using FileStream pictureStream = new(Path.GetFullPath(@"Data/Image.jpg"), FileMo
 IPicture picture = slide.Pictures.AddPicture(pictureStream, 0, 0, 250, 250);
 //Set the Email hyperlink to the picture.
 IHyperLink hyperLink = (picture as IShape).SetHyperlink("mailto:sales@syncfusion.com");
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

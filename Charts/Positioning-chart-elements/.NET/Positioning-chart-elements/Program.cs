@@ -40,5 +40,7 @@ chart.PlotArea.Layout.TopMode = LayoutModes.edge;
 //Manually positions chart legend.
 chart.Legend.Layout.LeftMode = LayoutModes.factor;
 chart.Legend.Layout.TopMode = LayoutModes.factor;
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Saves the Presentation to a file
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));
+//Closes the Presentation
+pptxDoc.Close();

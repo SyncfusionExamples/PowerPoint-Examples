@@ -1,9 +1,7 @@
 ﻿using Syncfusion.Presentation;
 
-//Load or open an PowerPoint Presentation.
-using FileStream inputStream = new(Path.GetFullPath(@"Data/Template.pptx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 //Open an existing PowerPoint presentation.
-using IPresentation pptxDoc = Presentation.Open(inputStream);
+using IPresentation pptxDoc = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 //Retrieve the first slide from the Presentation.
 ISlide slide = pptxDoc.Slides[0];
 //Retrieve the first shape from the slide.
@@ -14,5 +12,4 @@ IParagraph paragraph = shape.TextBody.Paragraphs[0];
 ITextPart textPart = paragraph.TextParts[0];
 //Remove the hyperlink from the TextPart.
 textPart.RemoveHyperLink();
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

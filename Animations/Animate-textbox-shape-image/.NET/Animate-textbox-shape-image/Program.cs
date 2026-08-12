@@ -40,5 +40,4 @@ IEffect bounceEffect2 = sequence2.AddEffect(picture as IShape, EffectType.Bounce
 
 
 //Save the PowerPoint Presentation as stream
-FileStream outputStream = new FileStream(@"Output\Sample.pptx", FileMode.Create);
-pptxDoc.Save(outputStream);
+pptxDoc.Save(Path.GetFullPath(@"Output/Sample.pptx"));

@@ -17,6 +17,5 @@ connector.LineFormat.BeginArrowheadStyle = ArrowheadStyle.Arrow;
 connector.LineFormat.Fill.FillType = FillType.Solid;
 //Set the connector solid fill as black.
 connector.LineFormat.Fill.SolidFill.Color = ColorObject.Black;
-//Save the PowerPoint Presentation as stream.
-using FileStream outputStream = new(Path.GetFullPath(@"Output/Output.pptx"), FileMode.Create, FileAccess.ReadWrite);
-pptxDoc.Save(outputStream);
+//Save the PowerPoint Presentation file
+pptxDoc.Save(Path.GetFullPath(@"Output/Output.pptx"));

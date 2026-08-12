@@ -26,7 +26,7 @@ namespace Convert_PowerPoint_to_PDF_with_handouts
                 using (PdfDocument pdfDoc = PresentationToPdfConverter.Convert(pptxDoc, pdfConverterSettings))
                 {
                     //Save the converted PDF document.
-                    pdfDoc.Save("../../PPTXToPDF.pdf");
+                    pdfDoc.Save(@"../../PPTXToPDF.pdf");
                 }
             }
         }
