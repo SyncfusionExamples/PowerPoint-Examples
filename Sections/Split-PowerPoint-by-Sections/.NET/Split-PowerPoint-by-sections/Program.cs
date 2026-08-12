@@ -32,7 +32,7 @@ foreach (ISection section in sourcePptx.Sections)
 }
 
 // Save the ZIP archive containing all section presentations.
-zipArchive.Save(Path.GetFullPath(@"../../../Output/Split-PowerPoint-by-sections.zip"));
+zipArchive.Save(Path.GetFullPath(@"Output/Split-PowerPoint-by-sections.zip"));
 // Close the ZIP archive.
 zipArchive.Close();
 // Close the source presentation.
