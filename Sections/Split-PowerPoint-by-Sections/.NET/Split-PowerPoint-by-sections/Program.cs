@@ -1,39 +1,22 @@
-﻿// Create a ZIP archive and set the compression level to Best.
-using Syncfusion.Presentation;
-using Syncfusion.Compression.Zip;
+﻿using Syncfusion.Presentation;
 
-ZipArchive zipArchive = new ZipArchive();
-zipArchive.DefaultCompressionLevel = Syncfusion.Compression.CompressionLevel.Best;
-
-// Open the source PowerPoint presentation.
+//Opens the source PPTX document. 
 IPresentation sourcePptx = Presentation.Open(Path.GetFullPath(@"Data/Template.pptx"));
 
-// Iterate through each section in the presentation.
+//Iterates through each section. 
 foreach (ISection section in sourcePptx.Sections)
 {
-    // Create a new destination presentation for the current section.
+    //Creates a destination PPTX document. Existing presentations can also be used here. 
     IPresentation destinationPptx = Presentation.Create();
-
-    // Clone all slides from the current section and add them to the new presentation.
+    // Clone the slides from the section and move to new PPTX document. 
     foreach (ISlide slide in section.Slides)
     {
         destinationPptx.Slides.Add(slide.Clone(), PasteOptions.SourceFormatting, sourcePptx);
     }
-    // Save the section presentation to a memory stream.
-    MemoryStream memoryStream = new MemoryStream();
-    destinationPptx.Save(memoryStream);
-
-    // Add the generated presentation to the ZIP archive with the section name as the file name.
-	string outputPath = Path.Combine(section.Name + "_Slides.pptx");
-    zipArchive.AddItem(outputPath, memoryStream, true, Syncfusion.Compression.FileAttributes.Normal);
-
-    // Close the destination presentation.
+    //Saves the destination PPTX document. 
+    string outputPath = Path.Combine(Path.GetFullPath("Output"), section.Name + "_Slides.pptx");
+    destinationPptx.Save(outputPath);
     destinationPptx.Close();
 }
-
-// Save the ZIP archive containing all section presentations.
-zipArchive.Save(Path.GetFullPath(@"Output/Split-PowerPoint-by-sections.zip"));
-// Close the ZIP archive.
-zipArchive.Close();
-// Close the source presentation.
+//Closes the PPTX document. 
 sourcePptx.Close();
