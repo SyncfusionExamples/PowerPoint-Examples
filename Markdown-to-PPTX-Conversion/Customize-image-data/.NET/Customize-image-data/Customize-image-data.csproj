@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Customize_image_data</RootNamespace>
+    <RootNamespace>Customize_Image_Data</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

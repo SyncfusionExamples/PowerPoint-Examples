@@ -2,7 +2,7 @@
 using Syncfusion.Presentation;
 using System.IO;
 
-namespace Customize_image
+namespace Customize_Image
 {
     class Program
     {
@@ -17,6 +17,14 @@ namespace Customize_image
                 presentation.Save(Path.GetFullPath(@"Output/Output.md"));
             }
         }
+        /// <summary>
+        /// Saves the extracted image to a file and sets the image URI
+        /// for use in the generated Markdown output.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="args">
+        /// Contains the image stream and properties used during Markdown image processing.
+        /// </param>
         static void SaveImage(object sender, MdImageNodeVisitedEventArgs args)
         {
             string imagepath = Path.GetFullPath(@"Output/Image.png");
