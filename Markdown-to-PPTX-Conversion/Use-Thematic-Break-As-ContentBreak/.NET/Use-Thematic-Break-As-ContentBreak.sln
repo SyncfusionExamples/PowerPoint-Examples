@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37516.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Use-Thematic-Break-As-ContentBreak", "Use-Thematic-Break-As-ContentBreak\Use-Thematic-Break-As-ContentBreak.csproj", "{67AA12B5-93D4-A656-88A1-7A7B282D37E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67AA12B5-93D4-A656-88A1-7A7B282D37E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AA12B5-93D4-A656-88A1-7A7B282D37E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AA12B5-93D4-A656-88A1-7A7B282D37E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AA12B5-93D4-A656-88A1-7A7B282D37E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25F4098B-3A96-4CD7-B2F9-BE2BFC5E8ABF}
+	EndGlobalSection
+EndGlobal
